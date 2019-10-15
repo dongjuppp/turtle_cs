@@ -20,9 +20,6 @@ public class WebInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest req, HttpServletResponse res, Object obj)
             throws Exception{
 
-        /*
-        *
-         */
         return true;
     }
 
