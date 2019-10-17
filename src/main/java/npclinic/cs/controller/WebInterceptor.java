@@ -6,6 +6,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /*
 * 이부분은 사용자의 모든 요청을 가로채서 공통된 작업 같은 것을 하는 부분이다.

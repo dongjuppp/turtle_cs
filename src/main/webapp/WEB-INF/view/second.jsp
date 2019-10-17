@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: msi
@@ -16,6 +17,16 @@
 
 <button type="button" value="ajax2번째" onclick="secondAjax()">ajax2번째</button>
 <input type="button" onclick="ajaxTest()" value="제출">
+<p>&nbsp</p>
+<p>&nbsp</p>
+<p>&nbsp</p>
+
+<!--스프링 form태그를 이용한 form전송-->
+<form:form modelAttribute="userDTO" method="post" action="third">
+    <label><input type="text" name="name">이름:</label>
+    <input type="submit" value="검색">
+</form:form>
+
 
 <script type="text/javascript">
 
