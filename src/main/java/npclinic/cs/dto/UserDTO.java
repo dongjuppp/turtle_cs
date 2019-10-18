@@ -2,6 +2,7 @@ package npclinic.cs.dto;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 /*
 @Setter @Getter는 spring의 annotation이 아니다
@@ -11,8 +12,9 @@ DTO의 변수를 캡슐화 해준다.
 
 @Setter
 @Getter
+@ToString
 public class UserDTO {
 
-    private int id;
+    private String id;
     private String name;
 }

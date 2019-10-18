@@ -28,5 +28,4 @@ public interface UserMapper {
     @Select("SELECT * FROM user WHERE isVip=1")
     List<UserDTO> getVipUserList();
 
-
 }

@@ -25,7 +25,6 @@ public class IndexController {
     아래 @Qualifier는 UserService가 무엇을 사용할지 정한다.
      */
     @Autowired
-    @Qualifier("VipUserService")
     private UserService userService;
 
     @Autowired
@@ -34,6 +33,9 @@ public class IndexController {
     @GetMapping("/") // 클라이언트의 요철 url
     public String index(Model model){
         List<UserDTO> userDTOS = userService.getAllUser();
+        for(UserDTO userDTO:userDTOS){
+            System.out.println(userDTO);
+        }
         model.addAttribute("userList",userDTOS);
         return "index";
     }

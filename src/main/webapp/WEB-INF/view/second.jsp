@@ -28,6 +28,7 @@
 </form:form>
 
 
+
 <script type="text/javascript">
 
     var userDTO={id:107,name:'홍길동'}; //자바 스크립트 객체 생성
