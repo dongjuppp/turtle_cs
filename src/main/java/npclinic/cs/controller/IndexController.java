@@ -31,19 +31,9 @@ public class IndexController {
     Gson gson;
 
     @GetMapping("/") // 클라이언트의 요철 url
-    public String index(Model model){
-        List<UserDTO> userDTOS = userService.getAllUser();
-        for(UserDTO userDTO:userDTOS){
-            System.out.println(userDTO);
-        }
-        model.addAttribute("userList",userDTOS);
+    public String index(){
+
         return "index";
     }
 
-    //여기서 index페이지에서 넘어온 ajax통신을 받는다
-    @RequestMapping(value = "/index/ajax", method = RequestMethod.POST)
-    @ResponseBody
-    public String indexAjax(@RequestParam("data") String msg){ //여기서 index에서온 값을 받는다
-        return gson.toJson(msg+" 하하하");
-    }
 }

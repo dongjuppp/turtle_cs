@@ -86,7 +86,7 @@
         <div class="container clearfix">
             <div class="logo">
                 <figure>
-                    <a href="index.html">
+                    <a href="/">
                         <img src="images/logo.png" alt="" width="130">
                     </a>
                 </figure>
@@ -138,7 +138,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="index.html">Home</a>
+                        <a href="/">Home</a>
                     </li>
                     <li>
                         <a href="about.html">About</a>
