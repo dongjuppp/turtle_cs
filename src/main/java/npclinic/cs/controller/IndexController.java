@@ -30,7 +30,7 @@ public class IndexController {
     @Autowired
     Gson gson;
 
-    @GetMapping("/") // 클라이언트의 요철 url
+    @GetMapping("/") // 클라이언트의 요청 url
     public String index(){
 
         return "index";

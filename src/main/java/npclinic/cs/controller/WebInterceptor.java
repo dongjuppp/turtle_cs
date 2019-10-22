@@ -1,6 +1,7 @@
 package npclinic.cs.controller;
 
 import npclinic.cs.dto.menu.HeaderMenuDTO;
+import npclinic.cs.service.menu.DropMenuService;
 import npclinic.cs.service.menu.HeaderMenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -23,17 +24,23 @@ public class WebInterceptor implements HandlerInterceptor {
     @Autowired
     HeaderMenuService headerMenuService;
 
+    @Autowired
+    DropMenuService dropMenuService;
+
     //컨트롤러에 도달하기 전에 처리해야 할 일을 처리하는 부분
     public boolean preHandle(HttpServletRequest req, HttpServletResponse res, Object obj)
             throws Exception{
 
-        HttpSession httpSession = req.getSession();
+        HttpSession httpSession = req.getSession(true);
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
 
-        if(httpSession.getAttribute("headerMenu")==null){
-            System.out.println("세션확인");
-            httpSession.setAttribute("headerMenu",headerMenuService.getAllHeaderMenu());
+        if(httpSession.getAttribute("headerMenu")==null ||
+                httpSession.getAttribute("dropMenu")==null){
+
+            httpSession.setAttribute("headerMenu"
+                    ,headerMenuService.getAllHeaderMenu());
+
         }
 
         return true;
