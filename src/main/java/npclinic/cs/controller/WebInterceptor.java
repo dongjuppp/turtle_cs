@@ -39,7 +39,7 @@ public class WebInterceptor implements HandlerInterceptor {
                 httpSession.getAttribute("dropMenu")==null){
 
             httpSession.setAttribute("headerMenu"
-                    ,headerMenuService.getAllHeaderMenu());
+                    ,headerMenuService.getAllMenu());
 
         }
 

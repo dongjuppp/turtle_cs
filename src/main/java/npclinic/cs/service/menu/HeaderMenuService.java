@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface HeaderMenuService {
     
-    List<HeaderMenuDTO> getAllHeaderMenu();
+    List<HeaderMenuDTO> getAllMenu();
 }

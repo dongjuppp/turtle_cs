@@ -22,7 +22,7 @@ public class HeaderMenuServiceImpl implements HeaderMenuService {
         this.dropMenuService=dropMenuService;
     }
     
-    public List<HeaderMenuDTO> getAllHeaderMenu(){
+    public List<HeaderMenuDTO> getAllMenu(){
         List<HeaderMenuDTO> result = headerMenuMapper.getAllHeaderMenu();
         List<DropMenuDTO> list = dropMenuService.getAllDropMenu();
         int index=0;
