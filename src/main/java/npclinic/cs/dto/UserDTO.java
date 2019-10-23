@@ -17,4 +17,5 @@ public class UserDTO {
 
     private String id;
     private String name;
+    private String type; //string 으로 할지 int 로 할지 미정
 }

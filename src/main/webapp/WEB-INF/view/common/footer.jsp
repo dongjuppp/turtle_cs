@@ -20,7 +20,7 @@
                     <div class="about-widget">
                         <div class="footer-logo">
                             <figure>
-                                <a href="index.html">
+                                <a href="/">
                                     <img src="images/logo-2.png" alt="">
                                 </a>
                             </figure>
@@ -117,15 +117,15 @@
         <div class="container clearfix">
             <div class="copyright-text">
                 <p>&copy; Copyright 2018. All Rights Reserved by
-                    <a href="index.html">Medic</a>
+                    <a href="/">Medic</a>
                 </p>
             </div>
             <ul class="footer-bottom-link">
                 <li>
-                    <a href="index.html">Home</a>
+                    <a href="/">Home</a>
                 </li>
                 <li>
-                    <a href="about.html">About</a>
+                    <a href="/introduce">About</a>
                 </li>
                 <li>
                     <a href="contact.html">Contact</a>

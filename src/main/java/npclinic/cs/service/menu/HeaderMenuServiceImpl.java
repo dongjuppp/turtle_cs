@@ -21,7 +21,8 @@ public class HeaderMenuServiceImpl implements HeaderMenuService {
         this.headerMenuMapper=headerMenuMapper;
         this.dropMenuService=dropMenuService;
     }
-    
+
+    //@TODO 헤더메뉴와 각 메뉴의 드랍메뉴를 가져옴
     public List<HeaderMenuDTO> getAllMenu(){
         List<HeaderMenuDTO> result = headerMenuMapper.getAllHeaderMenu();
         List<DropMenuDTO> list = dropMenuService.getAllDropMenu();
