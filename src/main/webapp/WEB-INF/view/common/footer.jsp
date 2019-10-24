@@ -29,17 +29,17 @@
                         <ul class="location-link">
                             <li class="item">
                                 <i class="fa fa-map-marker"></i>
-                                <p>서울 서초구 방배동 1770번지 2층 </p>
+                                <p>${hospitalInfo.address} </p>
                             </li>
                             <li class="item">
                                 <i class="fa fa-envelope-o" aria-hidden="true"></i>
                                 <a href="#">
-                                    <p>npclinic@gmail.com</p>
+                                    <p>${hospitalInfo.email}</p>
                                 </a>
                             </li>
                             <li class="item">
                                 <i class="fa fa-phone" aria-hidden="true"></i>
-                                <p>02-536-1777</p>
+                                <p>${hospitalInfo.phone}</p>
                             </li>
                         </ul>
 

@@ -12,7 +12,7 @@
 <div class="header-top">
     <div class="container clearfix">
         <div class="top-left">
-            <h6>진료시간 : 평일 09:00 ~ 19:00, 토요일 09:00 ~ 14:00, 점심시간 13:00 ~ 14:00</h6>
+            <h6>진료시간 : 평일 ${hospitalInfo.openTime}, 토요일 ${hospitalInfo.saturdayTime}, 점심시간 ${hospitalInfo.lunchTime}</h6>
         </div>
         <div class="top-right">
             <a class="btn btn-style-one" href="/login" style="float: right">로그인</a>
@@ -41,7 +41,7 @@
                     </div>
                     <strong>팩스</strong>
                     <br>
-                    <span>02-536-1777</span>
+                    <span>${hospitalInfo.fax}</span>
                 </li>
 
                 <li class="item">
@@ -50,7 +50,7 @@
                     </div>
                     <strong>전화 번호</strong>
                    <br>
-                    <span>02-536-1777</span>
+                    <span>${hospitalInfo.phone}</span>
                 </li>
             </ul>
         </div>
