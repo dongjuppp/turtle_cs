@@ -12,14 +12,14 @@
 <div class="header-top">
     <div class="container clearfix">
         <div class="top-left">
-            <h6>Opening Hours : Saturday to Tuesday - 8am to 10pm</h6>
+            <h6>진료시간 : 평일 09:00 ~ 19:00, 토요일 09:00 ~ 14:00, 점심시간 13:00 ~ 14:00</h6>
         </div>
         <div class="top-right">
             <a class="btn btn-style-one" href="/login" style="float: right">로그인</a>
         </div>
 
     </div>
-    
+
 </div>
 <!--header top-->
 
@@ -29,7 +29,7 @@
         <div class="logo">
             <figure>
                 <a href="/">
-                    <img src="images/logo.png" alt="" width="130">
+                    <img src="images/main_logo.jpg" alt="" width="250">
                 </a>
             </figure>
         </div>
@@ -37,26 +37,22 @@
             <ul class="contact-info">
                 <li class="item">
                     <div class="icon-box">
-                        <i class="fa fa-envelope-o"></i>
+                        <i class="fa fa-fax"></i>
                     </div>
-                    <strong>Email</strong>
+                    <strong>팩스</strong>
                     <br>
-                    <a href="#">
-                        <span>info@medic.com</span>
-                    </a>
+                    <span>02-536-1777</span>
                 </li>
+
                 <li class="item">
                     <div class="icon-box">
                         <i class="fa fa-phone"></i>
                     </div>
-                    <strong>Call Now</strong>
-                    <br>
-                    <span>+ (88017) - 123 - 4567</span>
+                    <strong>전화 번호</strong>
+                   <br>
+                    <span>02-536-1777</span>
                 </li>
             </ul>
-            <div class="link-btn">
-                <a href="#" class="btn-style-one">Appoinment</a>
-            </div>
         </div>
     </div>
 </section>

@@ -21,58 +21,41 @@
                         <div class="footer-logo">
                             <figure>
                                 <a href="/">
-                                    <img src="images/logo-2.png" alt="">
+                                    <img src="images/main_logo.jpg" alt="">
                                 </a>
                             </figure>
                         </div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, temporibus?</p>
+
                         <ul class="location-link">
                             <li class="item">
                                 <i class="fa fa-map-marker"></i>
-                                <p>Modamba, NY 80021, United States</p>
+                                <p>서울 서초구 방배동 1770번지 2층 </p>
                             </li>
                             <li class="item">
                                 <i class="fa fa-envelope-o" aria-hidden="true"></i>
                                 <a href="#">
-                                    <p>Support@medic.com</p>
+                                    <p>npclinic@gmail.com</p>
                                 </a>
                             </li>
                             <li class="item">
                                 <i class="fa fa-phone" aria-hidden="true"></i>
-                                <p>(88017) +123 4567</p>
+                                <p>02-536-1777</p>
                             </li>
                         </ul>
-                        <ul class="list-inline social-icons">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="#"><i class="fa fa-vimeo"></i></a></li>
-                        </ul>
+
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 col-xs-12">
-                    <h6>Services</h6>
+                    <h6>진료정보</h6>
                     <ul class="menu-link">
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-angle-right" aria-hidden="true"></i>Orthopadic Liabilities</a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-angle-right" aria-hidden="true"></i>Dental Clinic</a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-angle-right" aria-hidden="true"></i>Dormamu Clinic</a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-angle-right" aria-hidden="true"></i>Psycological Clinic</a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-angle-right" aria-hidden="true"></i>Gynaecological Clinic</a>
-                        </li>
+                        <c:forEach var="serviceList" items="${headerMenu[2].dropMenus}" varStatus="status">
+                            <li>
+                                <a href="${headerMenu[2].url}?num=${serviceList.getNumber}">
+                                    <i class="fa fa-angle-right" aria-hidden="true">${serviceList.title}</i>
+                                </a>
+                            </li>
+                        </c:forEach>
+
                     </ul>
                 </div>
                 <div class="col-md-4 col-sm-6 col-xs-12">
@@ -116,7 +99,7 @@
     <div class="footer-bottom">
         <div class="container clearfix">
             <div class="copyright-text">
-                <p>&copy; Copyright 2018. All Rights Reserved by
+                <p>&copy; Copyright 2019. 김갑수신경통증클리닉 all rights reserved.
                     <a href="/">Medic</a>
                 </p>
             </div>
@@ -125,7 +108,7 @@
                     <a href="/">Home</a>
                 </li>
                 <li>
-                    <a href="/introduce">About</a>
+                    <a href="introduce?num=1">About</a>
                 </li>
                 <li>
                     <a href="contact.html">Contact</a>
