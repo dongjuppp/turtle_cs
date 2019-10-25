@@ -1,4 +1,4 @@
-package npclinic.cs.dto;
+package npclinic.cs.dto.user;
 
 import lombok.Getter;
 import lombok.Setter;

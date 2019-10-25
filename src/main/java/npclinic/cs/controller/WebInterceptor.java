@@ -4,6 +4,7 @@ import npclinic.cs.dto.menu.HeaderMenuDTO;
 import npclinic.cs.service.etc.HospitalInfoService;
 import npclinic.cs.service.menu.DropMenuService;
 import npclinic.cs.service.menu.HeaderMenuService;
+import npclinic.cs.service.user.UserTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -31,6 +32,9 @@ public class WebInterceptor implements HandlerInterceptor {
     @Autowired
     HospitalInfoService hospitalInfoService;
 
+    @Autowired
+    UserTypeService userTypeService;
+
     //컨트롤러에 도달하기 전에 처리해야 할 일을 처리하는 부분
     public boolean preHandle(HttpServletRequest req, HttpServletResponse res, Object obj)
             throws Exception{
@@ -45,7 +49,12 @@ public class WebInterceptor implements HandlerInterceptor {
             httpSession.setAttribute("headerMenu"
                     ,headerMenuService.getAllMenu());
 
-            httpSession.setAttribute("hospitalInfo",hospitalInfoService.getHospitalInfo());
+            httpSession.setAttribute("hospitalInfo"
+                    ,hospitalInfoService.getHospitalInfo());
+
+            // 세션만료 혹은 처음 접속이니 유저타입을 게스트로 저장
+            httpSession.setAttribute("userType"
+                    ,userTypeService.getUserTypeByNumber(3));
 
         }
 

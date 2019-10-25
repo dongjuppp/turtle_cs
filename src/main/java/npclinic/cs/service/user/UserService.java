@@ -1,7 +1,6 @@
 package npclinic.cs.service.user;
 
-import npclinic.cs.dto.UserDTO;
-import org.springframework.stereotype.Service;
+import npclinic.cs.dto.user.UserDTO;
 
 import java.util.List;
 

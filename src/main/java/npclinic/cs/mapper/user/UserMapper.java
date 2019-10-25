@@ -1,6 +1,6 @@
-package npclinic.cs.mapper;
+package npclinic.cs.mapper.user;
 
-import npclinic.cs.dto.UserDTO;
+import npclinic.cs.dto.user.UserDTO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

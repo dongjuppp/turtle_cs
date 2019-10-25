@@ -4,6 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+/*
+예약 페이지 컨트롤러
+ */
+
 @Controller
 public class ReserveController {
 

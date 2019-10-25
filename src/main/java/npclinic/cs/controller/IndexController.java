@@ -1,15 +1,16 @@
 package npclinic.cs.controller;
 
 import com.google.gson.Gson;
-import npclinic.cs.dto.UserDTO;
 import npclinic.cs.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 
 //@Controller 밑에 @RequestMapping("/board") 라고 써주면
 //이 controller는 www.npclinic.com/board로 시작하는 모든 url을 담는다
@@ -35,5 +36,7 @@ public class IndexController {
 
         return "index";
     }
+
+
 
 }
