@@ -9,4 +9,5 @@ public interface UserTypeService {
     UserTypeDTO getUserTypeByNumber(int typeNumber);
 
     List<UserTypeDTO> getAllUserType();
+
 }

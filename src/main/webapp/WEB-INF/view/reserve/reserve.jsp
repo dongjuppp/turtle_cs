@@ -72,7 +72,7 @@
                         <div class="section-title">
                             <h3>Request <span>Appointment</span></h3>
                         </div>
-                        <form name="contact_form" class="default-form contact-form" action="sendmail.php" method="post">
+                        <form name="contact_form" class="default-form contact-form" action="/reserveData" method="post">
                             <div class="row">
                                 <div class="col-md-6 col-sm-12 col-xs-12">
                                     <div class="form-group">
@@ -83,9 +83,13 @@
                                     </div>
                                     <div class="form-group">
                                         <select name="subject">
-                                            <option>Departments</option>
-                                            <option>Diagnostic</option>
-                                            <option>Psychological</option>
+                                            <option>진료 항목</option>
+                                            <option>목/허리디스크(비수술)</option>
+                                            <option>신경성형술</option>
+                                            <option>대상포진 신경통</option>
+                                            <option>퇴행성 관절염</option>
+                                            <option>오십견/ 버거병</option>
+                                            <option>비급여항목</option>
                                         </select>
                                     </div>
                                 </div>
@@ -98,19 +102,19 @@
                                         <i class="fa fa-calendar" aria-hidden="true"></i>
                                     </div>
                                     <div class="form-group">
-                                        <select name="subject">
-                                            <option>Doctor</option>
-                                            <option>Diagnostic</option>
-                                            <option>Psychological</option>
+                                        <select name="doctor">
+                                            <option>의사</option>
+                                            <option>김갑수</option>
+                                            <option>전동병</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <div class="form-group">
-                                        <textarea name="form_message" placeholder="Your Message" required=""></textarea>
+                                        <textarea name="message" placeholder="Your Message" required=""></textarea>
                                     </div>
                                     <div class="form-group text-center">
-                                        <button type="submit" class="btn-style-one">submit now</button>
+                                        <button type="submit" class="btn-style-one">제출 하기</button>
                                     </div>
                                 </div>
                             </div>
