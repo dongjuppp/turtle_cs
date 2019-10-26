@@ -15,7 +15,8 @@
             <h6>진료시간 : 평일 ${hospitalInfo.openTime}, 토요일 ${hospitalInfo.saturdayTime}, 점심시간 ${hospitalInfo.lunchTime}</h6>
         </div>
         <div class="top-right">
-            <a class="btn btn-style-one" href="/login_page" style="float: left">로그인</a>
+            <c:if test="${user == null }"><a class="btn btn-style-one" href="/login_page" style="float: left">로그인</a></c:if>
+            <c:if test="${user != null }"><a class="btn btn-style-one" href="/logout_page" style="float: left">로그아웃</a></c:if>
             <a>&nbsp;&nbsp;&nbsp;</a>
             <a class="btn btn-style-one" href="/user_manage" style="float: right">회원관리</a>
         </div>
@@ -101,4 +102,6 @@
     <!-- /.container-fluid -->
 </nav>
 </header>
+<script>
+</script>
 

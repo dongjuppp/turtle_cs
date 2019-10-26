@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: msi
@@ -65,6 +66,17 @@
     <!-- Contact Section -->
     <section class="blog-section section style-three pb-0">
         <div class="container">
+            <form role="form" method="post" autocomplete="off" action="/login">
+                <p>
+                    <label for="id">아이디</label>
+                    <input type="text" id="id" name="id" />
+                </p>
+                <p>
+                    <label for="password">비밀번호</label>
+                    <input type="password" id="password" name="password" />
+                </p>
+                <p><button type="submit">로그인</button></p>
+            </form>
 
         </div>
     </section>
@@ -92,5 +104,4 @@
 <script src="plugins/timePicker.js"></script>
 <script src="js/script.js"></script>
 </body>
-
 </html>
