@@ -1,16 +1,14 @@
 <%--
   Created by IntelliJ IDEA.
-  User: msi
-  Date: 2019-10-19
-  Time: 오후 8:32
+  User: ailab
+  Date: 2019-10-25
+  Time: 오후 5:56
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Title</title>
-</head>
-<head>
     <meta charset="utf-8">
     <title>Medic | Medical HTML Template</title>
 
@@ -31,11 +29,10 @@
     <!--Favicon-->
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-
 </head>
 
-
 <body>
+
 <div class="page-wrapper">
     <!-- Preloader -->
     <!-- <div class="preloader"></div> -->
@@ -50,12 +47,12 @@
     <section class="page-title text-center" style="background-image:url(images/background/3.jpg);">
         <div class="container">
             <div class="title-text">
-                <h1>appointment</h1>
+                <h1>User Administration</h1>
                 <ul class="title-menu clearfix">
                     <li>
                         <a href="index.html">home &nbsp;/</a>
                     </li>
-                    <li>appointment</li>
+                    <li>User Administration</li>
                 </ul>
             </div>
         </div>
@@ -83,7 +80,7 @@
                                     <div class="form-group">
                                         <select name="subject">
                                             <option>Departments</option>
-                                            <option>Diagnostic</option>
+                                            <option><Diagnostic</option>
                                             <option>Psychological</option>
                                         </select>
                                     </div>
@@ -127,22 +124,22 @@
     <!--footer-main-->
     <%@include file="../common/footer.jsp"%>
 
-<script src="plugins/jquery.js"></script>
-<script src="plugins/bootstrap.min.js"></script>
-<script src="plugins/bootstrap-select.min.js"></script>
-<!-- Slick Slider -->
-<script src="plugins/slick/slick.min.js"></script>
-<!-- FancyBox -->
-<script src="plugins/fancybox/jquery.fancybox.min.js"></script>
-<!-- Google Map -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
-<script src="plugins/google-map/gmap.js"></script>
+    <script src="plugins/jquery.js"></script>
+    <script src="plugins/bootstrap.min.js"></script>
+    <script src="plugins/bootstrap-select.min.js"></script>
+    <!-- Slick Slider -->
+    <script src="plugins/slick/slick.min.js"></script>
+    <!-- FancyBox -->
+    <script src="plugins/fancybox/jquery.fancybox.min.js"></script>
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
+    <script src="plugins/google-map/gmap.js"></script>
 
-<script src="plugins/validate.js"></script>
-<script src="plugins/wow.js"></script>
-<script src="plugins/jquery-ui.js"></script>
-<script src="plugins/timePicker.js"></script>
-<script src="js/script.js"></script>
+    <script src="plugins/validate.js"></script>
+    <script src="plugins/wow.js"></script>
+    <script src="plugins/jquery-ui.js"></script>
+    <script src="plugins/timePicker.js"></script>
+    <script src="js/script.js"></script>
+
 </body>
-
 </html>
