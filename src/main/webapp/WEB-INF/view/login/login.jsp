@@ -83,7 +83,7 @@
                                     <div class="form-group">
                                         <select name="subject">
                                             <option>Departments</option>
-                                            <option>Diagnostic</option>
+                                            <option><Diagnostic</option>
                                             <option>Psychological</option>
                                         </select>
                                     </div>
