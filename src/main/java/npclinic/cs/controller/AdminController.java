@@ -6,6 +6,7 @@ import npclinic.cs.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 
@@ -21,11 +22,18 @@ public class AdminController {
         ArrayList<UserDTO> userList = null;
         userList = (ArrayList<UserDTO>) userService.getAllUser();
 
-        model.addAttribute("")
-
-
-        System.out.println(userDTO.getId());
+        model.addAttribute("user_list", userList);
 
         return "admin/user_info";
+    }
+
+    @RequestMapping("/info_edit")
+    public String edit(@RequestParam("id") String id, Model model){
+        UserDTO userDTO = null;
+        userDTO = userService.getUser(id);
+
+        model.addAttribute("user_info", userDTO);
+
+        return "admin/info_edit";
     }
 }

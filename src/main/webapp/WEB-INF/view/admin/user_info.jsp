@@ -75,17 +75,19 @@
                     <th>등록 날짜</th>
                 </tr>
 
-                <tr>
-                    <td>${user_info.id}</td>
-                    <td>${user_info.password}</td>
-                    <td>${user_info.name}</td>
-                    <td>${user_info.gender}</td>
-                    <td>${user_info.type}</td>
-                    <td>${user_info.email}</td>
-                    <td>${user_info.phone}</td>
-                    <td>${user_info.last_login}</td>
-                    <td>${user_info.reg_login}</td>
-                </tr>
+                <c:forEach items="${user_list}" var="user_info">
+                    <tr>
+                        <td><a href="/info_edit?id=${user_info.id}">${user_info.id}</a></td>
+                        <td>${user_info.password}</td>
+                        <td>${user_info.name}</td>
+                        <td>${user_info.gender}</td>
+                        <td>${user_info.type}</td>
+                        <td>${user_info.email}</td>
+                        <td>${user_info.phone}</td>
+                        <td>${user_info.last_login}</td>
+                        <td>${user_info.reg_login}</td>
+                    </tr>
+                </c:forEach>
             </table>
         </div>
     </section>
