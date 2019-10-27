@@ -11,7 +11,6 @@ import java.util.List;
 @Qualifier("NormalUserService") //이게 UserService를 구현한 구현체의 이름이 된다.
 public class UserServiceImpl implements UserService {
 
-    @Autowired
     private UserMapper userMapper;
 
     public UserServiceImpl(UserMapper userMapper){
