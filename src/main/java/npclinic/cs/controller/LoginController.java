@@ -64,6 +64,18 @@ public class LoginController {
 
     }
 
+    @RequestMapping("/login_info")
+    public String loginInfo(@RequestParam("id") String id, Model model){
+        System.out.println(id);
+
+        UserDTO userDTO = null;
+        userDTO = userService.getUser(id);
+
+        model.addAttribute("user_info", userDTO);
+
+        return "login/login_info";
+    }
+
 
 
 

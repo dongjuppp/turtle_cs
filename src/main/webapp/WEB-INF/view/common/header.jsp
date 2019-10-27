@@ -16,6 +16,7 @@
         </div>
         <div class="top-right">
             <c:if test="${user == null }"><a class="btn btn-style-one" href="/login_page" style="float: left">로그인</a></c:if>
+            <c:if test="${user != null }"><a class="btn btn-style-one" href="/login_info?id=${user.id}" style="float: left">로그인 정보(테스트용으로 만듬)</a></c:if>
             <c:if test="${user != null }"><a class="btn btn-style-one" href="/logout_page" style="float: left">로그아웃</a></c:if>
             <a>&nbsp;&nbsp;&nbsp;</a>
             <a class="btn btn-style-one" href="/user_manage" style="float: right">회원관리</a>
