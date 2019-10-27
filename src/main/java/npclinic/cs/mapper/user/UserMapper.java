@@ -4,6 +4,7 @@ import npclinic.cs.dto.user.UserDTO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -27,5 +28,8 @@ public interface UserMapper {
 
     @Select("SELECT * FROM user WHERE isVip=1")
     List<UserDTO> getVipUserList();
+    
+
+
 
 }
