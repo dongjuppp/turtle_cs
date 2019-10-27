@@ -6,6 +6,7 @@ import java.util.List;
 
 
 public interface UserService {
-    List<UserDTO> getAllUser();
+    public List<UserDTO> getAllUser();
+    public UserDTO getUser(String id);
 
 }

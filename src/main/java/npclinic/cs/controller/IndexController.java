@@ -1,6 +1,7 @@
 package npclinic.cs.controller;
 
 import com.google.gson.Gson;
+import npclinic.cs.dto.user.UserDTO;
 import npclinic.cs.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,8 +33,7 @@ public class IndexController {
     Gson gson;
 
     @GetMapping("/") // 클라이언트의 요청 url
-    public String index(){
-
+    public String index(Model model){
         return "index";
     }
 

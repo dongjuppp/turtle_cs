@@ -1,10 +1,11 @@
 <%--
   Created by IntelliJ IDEA.
-  User: ailab
-  Date: 2019-10-25
-  Time: 오후 5:56
+  User: 김민정
+  Date: 2019-10-26
+  Time: 오후 8:02
   To change this template use File | Settings | File Templates.
 --%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -66,51 +67,15 @@
                 <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="contact-area style-two">
                         <div class="section-title">
-                            <h3>Request <span>Appointment</span></h3>
-                        </div>
-                        <form name="contact_form" class="default-form contact-form" action="sendmail.php" method="post">
-                            <div class="row">
-                                <div class="col-md-6 col-sm-12 col-xs-12">
-                                    <div class="form-group">
-                                        <input type="text" name="Name" placeholder="Name" required="">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="email" name="Email" placeholder="Email" required="">
-                                    </div>
-                                    <div class="form-group">
-                                        <select name="subject">
-                                            <option>Departments</option>
-                                            <option><Diagnostic</option>
-                                            <option>Psychological</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-sm-12 col-xs-12">
-                                    <div class="form-group">
-                                        <input type="text" name="Phone" placeholder="Phone" required="">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" name="Date" placeholder="Date" required="" id="datepicker">
-                                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                                    </div>
-                                    <div class="form-group">
-                                        <select name="subject">
-                                            <option>Doctor</option>
-                                            <option>Diagnostic</option>
-                                            <option>Psychological</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <div class="form-group">
-                                        <textarea name="form_message" placeholder="Your Message" required=""></textarea>
-                                    </div>
-                                    <div class="form-group text-center">
-                                        <button type="submit" class="btn-style-one">submit now</button>
-                                    </div>
-                                </div>
+                            <div> <h3>Administration <span> of users</span></h3> </div>
+                            <div>
+                                <a href="/user_add"><input type="button" name="Add" value="Add" /> </a>
                             </div>
-                        </form>
+
+                            <hr/>
+
+                        </div>
+
                     </div>
                 </div>
 

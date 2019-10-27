@@ -4,6 +4,7 @@ import npclinic.cs.dto.user.UserDTO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -23,9 +24,12 @@ public interface UserMapper {
     //쿼리문에 변수가 필요하다면 아래와 같이 #{}안에 변수를 정하고
     //추상 메서드의 매개변수에 @Paran으로 변수를 준다
     @Select("SELECT * FROM user WHERE id=#{id}")
-    UserDTO getUserByID(@Param("id") int id);
+    UserDTO getUserByID(@Param("id") String id);
 
     @Select("SELECT * FROM user WHERE isVip=1")
     List<UserDTO> getVipUserList();
+
+
+
 
 }

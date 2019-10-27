@@ -66,18 +66,31 @@
     <!-- Contact Section -->
     <section class="blog-section section style-three pb-0">
         <div class="container">
-            <form role="form" method="post" autocomplete="off" action="/login">
-                <p>
-                    <label for="id">아이디</label>
-                    <input type="text" id="id" name="id" />
-                </p>
-                <p>
-                    <label for="password">비밀번호</label>
-                    <input type="password" id="password" name="password" />
-                </p>
-                <p><button type="submit">로그인</button></p>
-            </form>
+            <table class="table table-hover">
+                <tr>
+                    <th>아이디</th>
+                    <th>비밀번호</th>
+                    <th>이름</th>
+                    <th>성별</th>
+                    <th>타입</th>
+                    <th>이메일</th>
+                    <th>전화번호</th>
+                    <th>마지막 로그인</th>
+                    <th>등록 날짜</th>
+                </tr>
 
+                <tr>
+                    <td>${user_info.id}</td>
+                    <td>${user_info.password}</td>
+                    <td>${user_info.name}</td>
+                    <td>${user_info.gender}</td>
+                    <td>${user_info.type}</td>
+                    <td>${user_info.email}</td>
+                    <td>${user_info.phone}</td>
+                    <td>${user_info.last_login}</td>
+                    <td>${user_info.reg_login}</td>
+                </tr>
+            </table>
         </div>
     </section>
     <!-- End Contact Section -->
@@ -87,21 +100,21 @@
     <!--footer-main-->
     <%@include file="../common/footer.jsp"%>
 
-<script src="plugins/jquery.js"></script>
-<script src="plugins/bootstrap.min.js"></script>
-<script src="plugins/bootstrap-select.min.js"></script>
-<!-- Slick Slider -->
-<script src="plugins/slick/slick.min.js"></script>
-<!-- FancyBox -->
-<script src="plugins/fancybox/jquery.fancybox.min.js"></script>
-<!-- Google Map -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
-<script src="plugins/google-map/gmap.js"></script>
+    <script src="plugins/jquery.js"></script>
+    <script src="plugins/bootstrap.min.js"></script>
+    <script src="plugins/bootstrap-select.min.js"></script>
+    <!-- Slick Slider -->
+    <script src="plugins/slick/slick.min.js"></script>
+    <!-- FancyBox -->
+    <script src="plugins/fancybox/jquery.fancybox.min.js"></script>
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
+    <script src="plugins/google-map/gmap.js"></script>
 
-<script src="plugins/validate.js"></script>
-<script src="plugins/wow.js"></script>
-<script src="plugins/jquery-ui.js"></script>
-<script src="plugins/timePicker.js"></script>
-<script src="js/script.js"></script>
+    <script src="plugins/validate.js"></script>
+    <script src="plugins/wow.js"></script>
+    <script src="plugins/jquery-ui.js"></script>
+    <script src="plugins/timePicker.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
