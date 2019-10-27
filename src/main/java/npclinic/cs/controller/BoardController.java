@@ -13,9 +13,17 @@ num을 GET방식으로 받아 어떤 게시판인지 구분
 @Controller
 public class BoardController {
 
-    @RequestMapping("introduce")
+    @RequestMapping("/community")
     public String introduce(@RequestParam("num") int num){ //get 방식으로 보낸 num을 받음
-
+        if(num == 1) { //공지사항
+            System.out.println("공지사항 log");
+        }
+        else if(num == 2) { //자유게시판
+            System.out.println("자유게시판 log");
+        }
+        else if(num == 3) { // 사진갤러리
+            System.out.println("사진 갤러리 log");
+        }
         return "board/introduce";
     }
 

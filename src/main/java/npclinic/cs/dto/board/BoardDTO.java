@@ -3,8 +3,34 @@ package npclinic.cs.dto.board;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Getter
 @Setter
 public class BoardDTO {
     private int id;
+    private String user_id;
+    private String title;
+    private int category;
+    private int views;
+    private Date last_modified;
+    private String content;
+
+    public int getId() {return this.id;}
+    public String getUserId() {return this.user_id;}
+    public String getTitle() {return this.title;}
+    public int getCategory() {return this.category;}
+    public int getViews() {return this.views;}
+    public Date getDate() {return this.last_modified;}
+    public String content() {return this.content;}
+
+    public void setBoard(int id, String user_id, String title, int category, int views, Date last_modified, String Cotent) {
+        this.id = id;
+        this.user_id = user_id;
+        this.title = title;
+        this.category = category;
+        this.views = views;
+        this.last_modified = last_modified;
+        this.content = content;
+    }
 }
