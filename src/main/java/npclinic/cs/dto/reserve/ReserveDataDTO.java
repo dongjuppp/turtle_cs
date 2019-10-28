@@ -1,4 +1,4 @@
-package npclinic.cs.service.reserve;
+package npclinic.cs.dto.reserve;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -16,5 +16,6 @@ public class ReserveDataDTO {
     private String subject;
     private String doctor;
     private String message;
+    private String userID; //예약할때 유저의 아이디도 받게함
 
 }
