@@ -1,10 +1,7 @@
 package npclinic.cs.mapper.user;
 
 import npclinic.cs.dto.user.UserDTO;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -29,8 +26,9 @@ public interface UserMapper {
     @Select("SELECT * FROM user WHERE isVip=1")
     List<UserDTO> getVipUserList();
 
-
-
+    @Insert("INSERT INTO user(id, password, name, gender, birth, type, email, phone, last_login, reg_login) " +
+            "values (#{id}, #{password}, #{name}, #{gender}, #{birth}, #{type}, #{email}, #{phone}, #{last_login}, #{reg_login})")
+    void insertUser(UserDTO userDTO);
 
 
 
