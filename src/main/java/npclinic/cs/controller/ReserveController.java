@@ -5,6 +5,7 @@ import npclinic.cs.dto.reserve.ReserveDataDTO;
 import npclinic.cs.service.reserve.ReserveService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,17 +28,36 @@ public class ReserveController {
     }
 
     final String RESERVE_URL = "reserve/reserve";
-    final String RESERVE_CHECK = "reserve/check";
+    final String RESERVE_CHECK = "reserve/reserve_check";
 
     @RequestMapping("reserve")
-    public String reserve(@RequestParam("num") int num, HttpSession session){
+    public String reserve(@RequestParam("num") int num, HttpSession session, Model model){
+        String url = null;
         UserDTO userDTO = (UserDTO) session.getAttribute("user");
-
-        return RESERVE_URL;
+        userDTO.setType("admin");
+        if(num==1){
+            if(userDTO == null){
+                model.addAttribute("who","방문자");
+            }
+            else if(userDTO.getType().equals("admin")){
+                model.addAttribute("who","관리자");
+            }
+            else{
+                model.addAttribute("who","고객");
+            }
+            url = RESERVE_URL;
+        }
+        else{
+            //고객의 아이디로 가져오는데 예약을 2회 이상한 고객에 대하여 어떤식으로 처리할지..
+            model.addAttribute("data",reserveService.getReserveDataByID(userDTO.getId()));
+            url = RESERVE_CHECK;
+        }
+        return url;
     }
 
+    //여기서는 등록만 하고 다른 페이지로 넘겨주어야 한다.
     @RequestMapping(value = "reserveData", method = RequestMethod.POST)
-    public String getReserveData(@ModelAttribute ReserveDataDTO reserveDataDTO){
+    public String getReserveData(@ModelAttribute ReserveDataDTO reserveDataDTO,Model model){
         System.out.println("이름:"+reserveDataDTO.getName());
         System.out.println("메일:"+reserveDataDTO.getEmail());
         System.out.println("전화번호:"+reserveDataDTO.getPhone());
@@ -47,6 +67,7 @@ public class ReserveController {
         System.out.println("메세지:"+reserveDataDTO.getMessage());
         reserveDataDTO.setUserID("dongjuppp");
         reserveService.registerData(reserveDataDTO);
-        return "index";
+        model.addAttribute("data",reserveDataDTO);
+        return RESERVE_CHECK;
     }
 }

@@ -5,6 +5,16 @@
 @import url("../plugins/jquery-ui/jquery-ui.css");
 @import url("../plugins/timePicker.css");
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700|Source+Sans+Pro:400,600,700");
+
+
+.reserve_data{
+  height: 50px;
+  position: relative;
+  background: #f4f4f4;
+  text-align: center;
+  padding: 10px 25px;
+}
+
 body {
   line-height: 1.4;
   font-family: "Source Sans Pro", sans-serif;

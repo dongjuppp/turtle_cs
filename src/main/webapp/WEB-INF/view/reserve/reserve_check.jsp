@@ -44,19 +44,19 @@
 
 
     <!--header top-->
-   <%@include file="../common/header.jsp"%>
+    <%@include file="../common/header.jsp"%>
     <!--End Main Header -->
 
     <!--Page Title-->
     <section class="page-title text-center" style="background-image:url(images/background/3.jpg);">
         <div class="container">
             <div class="title-text">
-                <h1>예약하기</h1>
+                <h1>appointment</h1>
                 <ul class="title-menu clearfix">
                     <li>
-                        <a href="/">홈으로 &nbsp;/</a>
+                        <a href="index.html">home &nbsp;/</a>
                     </li>
-                    <li>예약하기</li>
+                    <li>appointment</li>
                 </ul>
             </div>
         </div>
@@ -70,52 +70,38 @@
                 <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="contact-area style-two">
                         <div class="section-title">
-                            <h3>예약하기 <span>${who}</span></h3>
+                            <h3>예약확인</h3>
                         </div>
                         <form name="contact_form" class="default-form contact-form" action="/reserveData" method="post">
                             <div class="row">
                                 <div class="col-md-6 col-sm-12 col-xs-12">
                                     <div class="form-group">
-                                        <input type="text" name="Name" placeholder="Name" required="">
+                                        <p class="reserve_data">${data.userID}</p>
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" name="Email" placeholder="Email" required="">
+                                        <p class="reserve_data">${data.email}</p>
                                     </div>
                                     <div class="form-group">
-                                        <select name="subject">
-                                            <option>진료 항목</option>
-                                            <option>목/허리디스크(비수술)</option>
-                                            <option>신경성형술</option>
-                                            <option>대상포진 신경통</option>
-                                            <option>퇴행성 관절염</option>
-                                            <option>오십견/ 버거병</option>
-                                            <option>비급여항목</option>
-                                        </select>
+                                        <p class="reserve_data">${data.subject}</p>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-12 col-xs-12">
                                     <div class="form-group">
-                                        <input type="text" name="Phone" placeholder="Phone" required="">
+                                        <p class="reserve_data">${data.phone}</p>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="Date" placeholder="Date" required="" id="datepicker">
-                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                        <p class="reserve_data">${data.date}</p>
                                     </div>
                                     <div class="form-group">
-                                        <select name="doctor">
-                                            <option>의사</option>
-                                            <option>김갑수</option>
-                                            <option>전동병</option>
-                                        </select>
+                                        <p class="reserve_data">${data.doctor}</p>
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <div class="form-group">
-                                        <textarea name="message" placeholder="Your Message" required=""></textarea>
+                                        <!--<textarea name="message" placeholder="Your Message" required=""></textarea>-->
+                                        <p class="reserve_data">${data.message}</p>
                                     </div>
-                                    <div class="form-group text-center">
-                                        <button type="submit" class="btn-style-one">제출 하기</button>
-                                    </div>
+
                                 </div>
                             </div>
                         </form>
@@ -132,22 +118,22 @@
     <!--footer-main-->
     <%@include file="../common/footer.jsp"%>
 
-<script src="plugins/jquery.js"></script>
-<script src="plugins/bootstrap.min.js"></script>
-<script src="plugins/bootstrap-select.min.js"></script>
-<!-- Slick Slider -->
-<script src="plugins/slick/slick.min.js"></script>
-<!-- FancyBox -->
-<script src="plugins/fancybox/jquery.fancybox.min.js"></script>
-<!-- Google Map -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
-<script src="plugins/google-map/gmap.js"></script>
+    <script src="plugins/jquery.js"></script>
+    <script src="plugins/bootstrap.min.js"></script>
+    <script src="plugins/bootstrap-select.min.js"></script>
+    <!-- Slick Slider -->
+    <script src="plugins/slick/slick.min.js"></script>
+    <!-- FancyBox -->
+    <script src="plugins/fancybox/jquery.fancybox.min.js"></script>
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
+    <script src="plugins/google-map/gmap.js"></script>
 
-<script src="plugins/validate.js"></script>
-<script src="plugins/wow.js"></script>
-<script src="plugins/jquery-ui.js"></script>
-<script src="plugins/timePicker.js"></script>
-<script src="js/script.js"></script>
+    <script src="plugins/validate.js"></script>
+    <script src="plugins/wow.js"></script>
+    <script src="plugins/jquery-ui.js"></script>
+    <script src="plugins/timePicker.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

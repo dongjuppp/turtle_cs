@@ -5,4 +5,6 @@ import npclinic.cs.dto.reserve.ReserveDataDTO;
 public interface ReserveService {
 
     void registerData(ReserveDataDTO reserveDataDTO);
+
+    ReserveDataDTO getReserveDataByID(String userID);
 }

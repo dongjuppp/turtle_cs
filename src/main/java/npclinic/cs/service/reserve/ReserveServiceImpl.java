@@ -21,4 +21,8 @@ public class ReserveServiceImpl implements ReserveService {
     public void registerData(ReserveDataDTO reserveDataDTO){
         reserveMapper.registerData(reserveDataDTO);
     }
+
+    public ReserveDataDTO getReserveDataByID(String userID){
+        return reserveMapper.getReserveDataByID(userID);
+    }
 }
