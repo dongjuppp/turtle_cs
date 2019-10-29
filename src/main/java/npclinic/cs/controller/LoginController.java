@@ -114,4 +114,13 @@ public class LoginController {
         model.addAttribute("userDTO", new UserDTO());
         return "login/update_user";
     }
+
+    @RequestMapping("/update_user")
+    public String updateUser(@ModelAttribute("userDTO") UserDTO userDTO, HttpSession httpSession){
+        userDTO.setId(((UserDTO)httpSession.getAttribute("user")).getId());
+        userService.updateUser(userDTO);
+
+        return "index";
+    }
+
 }

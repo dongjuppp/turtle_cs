@@ -19,6 +19,7 @@
             <c:if test="${user == null }"><a class="btn btn-style-one" href="/register_page" style="float: left">회원가입</a></c:if>
             <c:if test="${user != null }"><a class="btn btn-style-one" href="/login_info?id=${user.id}" style="float: left">로그인 정보(테스트용으로 만듬)</a></c:if>
             <c:if test="${user != null }"><a class="btn btn-style-one" href="/logout" style="float: left">로그아웃</a></c:if>
+            <c:if test="${user != null }"><a class="btn btn-style-one" href="/update_page" style="float: left">자기 정보 수정하기</a></c:if>
             <c:if test="${user != null && user.type == 'admin'}"><a class="btn btn-style-one" href="/user_manage" style="float: left">회원관리</a></c:if>
             <a>&nbsp;&nbsp;&nbsp;</a>
         </div>
