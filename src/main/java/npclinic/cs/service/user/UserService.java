@@ -9,5 +9,5 @@ public interface UserService {
     public List<UserDTO> getAllUser();
     public UserDTO getUser(String id);
     public void insertUser(UserDTO userDTO);
-
+    public void updateUser(UserDTO userDTO);
 }

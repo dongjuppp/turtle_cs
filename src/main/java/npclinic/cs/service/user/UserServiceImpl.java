@@ -32,4 +32,9 @@ public class UserServiceImpl implements UserService {
     public void insertUser(UserDTO userDTO){
         userMapper.insertUser(userDTO);
     }
+
+    @Override
+    public void updateUser(UserDTO userDTO){
+        userMapper.updateUser(userDTO);
+    }
 }

@@ -30,6 +30,10 @@ public interface UserMapper {
             "values (#{id}, #{password}, #{name}, #{gender}, #{birth}, #{type}, #{email}, #{phone}, #{last_login}, #{reg_login})")
     void insertUser(UserDTO userDTO);
 
+    @Update("UPDATE user SET password=#{password}, name=#{name}, gender=#{gender}, " +
+            "birth=#{birth}, type=#{type}, email=#{email}, phone=#{phone} WHERE id=#{id}")
+    void updateUser(UserDTO userDTO);
+
 
 
 }

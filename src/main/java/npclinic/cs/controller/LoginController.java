@@ -109,8 +109,9 @@ public class LoginController {
         return "index";
     }
 
-
-
-
-
+    @RequestMapping("/update_page")
+    public String updatePage(Model model){
+        model.addAttribute("userDTO", new UserDTO());
+        return "login/update_user";
+    }
 }
