@@ -11,9 +11,12 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.Date;
 
 /*
 로그인, 회원가입 컨트롤러
@@ -82,9 +85,22 @@ public class LoginController {
         return "login/login_info";
     }
 
-    @RequestMapping("/register_user")
-    public int registerUser(){
+    @RequestMapping("/register_page")
+    public String registerPage(Model model){
+        model.addAttribute("userDTO", new UserDTO());
+        return "login/register_user";
+    }
 
+    @RequestMapping("/insert_user")
+    public String registerUser(@ModelAttribute("userDTO") UserDTO userDTO){
+        Date current = new Date();
+
+        userDTO.setLast_login(current);
+        userDTO.setReg_login(current);
+
+        userService.insertUser(userDTO);
+
+        return "index";
     }
 
 

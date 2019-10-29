@@ -43,8 +43,7 @@
     <!-- Preloader -->
 
 
-
-    <%@include file="../common/header.jsp"%>
+    <%@include file="../common/header.jsp" %>
     <!--End Main Header -->
 
     <!--Page Title-->
@@ -62,19 +61,74 @@
         </div>
     </section>
     <!--End Page Title-->
+    <script>
+        $(document).on('click', '#btnSignup', function (e) {
+            e.preventDefault();
+            $("#form").submit();
+        });
+    </script>
 
     <!-- Contact Section -->
     <section class="blog-section section style-three pb-0">
         <div class="container">
+            <div class="card">
+                <div class="card-header">Register</div>
+                <div class="card-body">
+                    <form:form name="form" id="form" class="form-signup" role="form"
+                               modelAttribute="userDTO" method="post"
+                               action="/insertUser">
+                        <div class="form-group row"><label for="id"
+                                                           class="col-md-3 col-form-label text-md-right">아이디</label>
+                            <div class="col-md-5"><form:input path="id" id="id" class="form-control"
+                                                              placeholder="아이디을 입력해 주세요"/></div>
+                        </div>
+                        <div class="form-group row"><label for="name"
+                                                           class="col-md-3 col-form-label text-md-right">이름</label>
+                            <div class="col-md-5"><form:input path="name" id="name" class="form-control"
+                                                              placeholder="이름을 입력해 주세요"/></div>
+                        </div>
+                        <div class="form-group row"><label for="password" class="col-md-3 col-form-label text-md-right">비밀번호</label>
+                            <div class="col-md-5"><form:password path="password" id="password" class="form-control"
+                                                                 placeholder="비밀번호를 입력해 주세요"/></div>
+                        </div>
+                        <div class="form-group row"><label for="email"
+                                                           class="col-md-3 col-form-label text-md-right">이메일</label>
+                            <div class="input-group col-md-7">
+                                <div class="input-group-prepend"><span class="input-group-text">@</span></div>
+                                <form:input path="email" id="email" class="form-control" placeholder="이메일을 입력해 주세요"/>
+                            </div>
+                        </div>
+                        <div class="form-group row"><label for="phone" class="col-md-3 col-form-label text-md-right">전화번호</label>
+                            <div class="col-md-5"><form:input path="phone" id="phone" class="form-control"
+                                                              placeholder="전화번호을 입력해 주세요"/></div>
+                        </div>
+                        <div class="form-group row"><label for="gender"
+                                                           class="col-md-3 col-form-label text-md-right">성별</label>
+                            <div class="col-md-5"><form:input path="gender" id="gender" class="form-control"
+                                                              placeholder="성별을 입력해 주세요"/></div>
+                        </div>
+                        <div class="form-group row"><label for="birth"
+                                                           class="col-md-3 col-form-label text-md-right">생일</label>
+                            <div class="col-md-5"><form:input path="birth" id="birth" class="form-control"
+                                                              placeholder="생일을 입력해 주세요"/></div>
+                        </div>
+
+                    </form:form>
+                </div>
+            </div>
+            <div style="margin-top:10px">
+                <button type="button" class="btn btn-sm btn-primary" id="btnSignup">회원가입</button>
+                <button type="button" class="btn btn-sm btn-primary" id="btnCancel">취소</button>
+            </div>
+
 
         </div>
     </section>
     <!-- End Contact Section -->
 
 
-
     <!--footer-main-->
-    <%@include file="../common/footer.jsp"%>
+    <%@include file="../common/footer.jsp" %>
 
     <script src="plugins/jquery.js"></script>
     <script src="plugins/bootstrap.min.js"></script>
