@@ -82,6 +82,11 @@ public class LoginController {
         return "login/login_info";
     }
 
+    @RequestMapping("/register_user")
+    public int registerUser(){
+
+    }
+
 
 
 
