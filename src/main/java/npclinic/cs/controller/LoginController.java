@@ -73,6 +73,12 @@ public class LoginController {
 
     }
 
+    @RequestMapping("/logout")
+    public String logout(HttpSession httpSession){
+        httpSession.removeAttribute("user");
+        return "index";
+    }
+
     @RequestMapping("/login_info")
     public String loginInfo(@RequestParam("id") String id, Model model){
         System.out.println(id);
