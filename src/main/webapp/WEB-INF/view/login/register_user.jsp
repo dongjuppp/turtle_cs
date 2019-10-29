@@ -61,12 +61,7 @@
         </div>
     </section>
     <!--End Page Title-->
-    <script>
-        $(document).on('click', '#btnSignup', function (e) {
-            e.preventDefault();
-            $("#form").submit();
-        });
-    </script>
+
 
     <!-- Contact Section -->
     <section class="blog-section section style-three pb-0">
@@ -76,7 +71,7 @@
                 <div class="card-body">
                     <form:form name="form" id="form" class="form-signup" role="form"
                                modelAttribute="userDTO" method="post"
-                               action="/insertUser">
+                               action="/insert_user">
                         <div class="form-group row"><label for="id"
                                                            class="col-md-3 col-form-label text-md-right">아이디</label>
                             <div class="col-md-5"><form:input path="id" id="id" class="form-control"
@@ -124,6 +119,15 @@
 
         </div>
     </section>
+
+    <script src="plugins/jquery.js"></script>
+    <script>
+        $(document).on('click', '#btnSignup', function (e) {
+            e.preventDefault();
+            $("#form").submit();
+        });
+    </script>
+
     <!-- End Contact Section -->
 
 
