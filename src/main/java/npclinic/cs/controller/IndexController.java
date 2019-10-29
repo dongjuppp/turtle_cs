@@ -26,11 +26,7 @@ public class IndexController {
     그러면 이 UserService는 Normal인지 Vip인지 모른다
     아래 @Qualifier는 UserService가 무엇을 사용할지 정한다.
      */
-    @Autowired
-    private UserService userService;
 
-    @Autowired
-    Gson gson;
 
     @GetMapping("/") // 클라이언트의 요청 url
     public String index(Model model){

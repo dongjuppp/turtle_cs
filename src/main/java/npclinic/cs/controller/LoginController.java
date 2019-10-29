@@ -1,6 +1,6 @@
 package npclinic.cs.controller;
 
-import javax.jws.soap.SOAPBinding;
+
 import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
@@ -21,11 +21,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class LoginController {
-    @Autowired
+
     private UserService userService;
 
+    private Gson gson;
+
     @Autowired
-    Gson gson;
+    public LoginController(UserService userService,Gson gson){
+        this.userService=userService;
+        this.gson=gson;
+    }
+
 
     @RequestMapping("/login_page")
     public String login(){

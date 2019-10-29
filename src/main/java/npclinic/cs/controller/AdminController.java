@@ -13,8 +13,14 @@ import java.util.ArrayList;
 
 @Controller
 public class AdminController {
-    @Autowired
+
     private UserService userService;
+
+    @Autowired
+    public AdminController(UserService userService){
+        this.userService=userService;
+    }
+
 
     @Autowired
     Gson gson;
