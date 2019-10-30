@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS `drop_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- 테이블 데이터 npclinic.drop_menu:~21 rows (대략적) 내보내기
+DELETE FROM `drop_menu`;
 /*!40000 ALTER TABLE `drop_menu` DISABLE KEYS */;
 INSERT INTO `drop_menu` (`id`, `title`, `orderNum`, `getNumber`) VALUES
 	(0, '홈으로', 1, '1'),
@@ -61,6 +62,7 @@ CREATE TABLE IF NOT EXISTS `header_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- 테이블 데이터 npclinic.header_menu:~6 rows (대략적) 내보내기
+DELETE FROM `header_menu`;
 /*!40000 ALTER TABLE `header_menu` DISABLE KEYS */;
 INSERT INTO `header_menu` (`id`, `title`, `orderNum`, `url`) VALUES
 	(1, 'HOME', 1, '/'),
@@ -83,6 +85,7 @@ CREATE TABLE IF NOT EXISTS `hospital_info` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- 테이블 데이터 npclinic.hospital_info:~1 rows (대략적) 내보내기
+DELETE FROM `hospital_info`;
 /*!40000 ALTER TABLE `hospital_info` DISABLE KEYS */;
 INSERT INTO `hospital_info` (`phone`, `fax`, `email`, `address`, `openTime`, `saturdayTime`, `lunchTime`) VALUES
 	('02-536-1777', '02-536-1777', 'npclinic@gmail.com', '서울 서초구 방배동 1770번지 2층 ', '09:00 ~ 19:00', '09:00 ~ 14:00', '13:00 ~ 14:00');
@@ -97,7 +100,8 @@ CREATE TABLE IF NOT EXISTS `reserve_data` (
   `message` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- 테이블 데이터 npclinic.reserve_data:~7 rows (대략적) 내보내기
+-- 테이블 데이터 npclinic.reserve_data:~14 rows (대략적) 내보내기
+DELETE FROM `reserve_data`;
 /*!40000 ALTER TABLE `reserve_data` DISABLE KEYS */;
 INSERT INTO `reserve_data` (`userID`, `doctor`, `subject`, `date`, `message`) VALUES
 	('dongjuppp', '전동병', '목/허리디스크(비수술)', '2019-10-31 00:00:00', 'asdqwe'),
@@ -132,6 +136,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- 테이블 데이터 npclinic.user:~3 rows (대략적) 내보내기
+DELETE FROM `user`;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`id`, `password`, `name`, `gender`, `birth`, `type`, `email`, `phone`, `last_login`, `reg_login`) VALUES
 	('dongju', '123asd23', '최동주', '남', '19930623', 'admin', 'dongju@', '01028008891', '2019-10-19 00:00:00', '2019-10-18 00:00:00'),
@@ -146,7 +151,8 @@ CREATE TABLE IF NOT EXISTS `user_type` (
   `typeName` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- 테이블 데이터 npclinic.user_type:~2 rows (대략적) 내보내기
+-- 테이블 데이터 npclinic.user_type:~3 rows (대략적) 내보내기
+DELETE FROM `user_type`;
 /*!40000 ALTER TABLE `user_type` DISABLE KEYS */;
 INSERT INTO `user_type` (`id`, `typeNumber`, `typeName`) VALUES
 	(1, 1, '관리자'),
