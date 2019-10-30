@@ -90,7 +90,7 @@
                                         <p class="reserve_data">${data.phone}</p>
                                     </div>
                                     <div class="form-group">
-                                        <p class="reserve_data">${data.date}</p>
+                                        <p class="reserve_data">${data.dateStr}</p>
                                     </div>
                                     <div class="form-group">
                                         <p class="reserve_data">${data.doctor}</p>

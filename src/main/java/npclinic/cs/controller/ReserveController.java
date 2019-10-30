@@ -27,8 +27,8 @@ public class ReserveController {
         this.reserveService=reserveService;
     }
 
-    final String RESERVE_URL = "reserve/reserve";
-    final String RESERVE_CHECK = "reserve/reserve_check";
+    private final String RESERVE_URL = "reserve/reserve";
+    private final String RESERVE_CHECK = "reserve/reserve_check";
 
     @RequestMapping("reserve")
     public String reserve(@RequestParam("num") int num, HttpSession session, Model model){
@@ -50,6 +50,7 @@ public class ReserveController {
         else{
             //고객의 아이디로 가져오는데 예약을 2회 이상한 고객에 대하여 어떤식으로 처리할지..
             model.addAttribute("data",reserveService.getReserveDataByID(userDTO.getId()));
+            System.out.println("예약확인 컨트롤러");
             url = RESERVE_CHECK;
         }
         return url;

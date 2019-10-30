@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @ToString
@@ -12,7 +14,9 @@ public class ReserveDataDTO {
     private String name;
     private String email;
     private String phone;
-    private String date;
+    private Date Date;
+    private Date time;
+    private String dateStr;
     private String subject;
     private String doctor;
     private String message;
