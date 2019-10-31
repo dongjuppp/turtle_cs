@@ -19,13 +19,13 @@ public class BoardController {
         System.out.println("313131313");
     }
 
-    @RequestMapping("board/introduce")
-    public void introduce(Model model){
+    @RequestMapping("introduce")
+    public String introduce(Model model){
         System.out.println("13131");
-        return ;
-    }
-    @RequestMapping("medicinfo")
-    public String mediInfo(){
         return "board/introduce";
+    }
+    @RequestMapping("medicinfo") //주소
+    public String mediInfo(){
+        return "board/introduce"; // jsp파일 경로,이름
     }
 }

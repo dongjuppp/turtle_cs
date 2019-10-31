@@ -67,4 +67,5 @@ public class ReserveController {
         model.addAttribute("data",reserveDataDTO);
         return RESERVE_CHECK;
     }
+
 }
