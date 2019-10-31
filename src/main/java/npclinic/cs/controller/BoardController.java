@@ -1,6 +1,7 @@
 package npclinic.cs.controller;
 
 import npclinic.cs.dto.menu.HeaderMenuDTO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,23 +13,19 @@ num을 GET방식으로 받아 어떤 게시판인지 구분
  */
 @Controller
 public class BoardController {
-
-    @RequestMapping("/community")
-    public String introduce(@RequestParam("num") int num){ //get 방식으로 보낸 num을 받음
-        if(num == 1) { //공지사항
-            System.out.println("공지사항 log");
-        }
-        else if(num == 2) { //자유게시판
-            System.out.println("자유게시판 log");
-        }
-        else if(num == 3) { // 사진갤러리
-            System.out.println("사진 갤러리 log");
-        }
-        return "board/introduce";
+    private final String INTRODUCE_URL = "board/introduce";
+    @Autowired
+    public BoardController(){
+        System.out.println("313131313");
     }
 
+    @RequestMapping("board/introduce")
+    public void introduce(Model model){
+        System.out.println("13131");
+        return ;
+    }
     @RequestMapping("medicinfo")
-    public String mediInfo(@RequestParam("num") int num){
+    public String mediInfo(){
         return "board/introduce";
     }
 }

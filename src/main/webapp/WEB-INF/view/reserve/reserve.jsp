@@ -98,7 +98,7 @@
                                         <input type="text" name="Phone" placeholder="Phone" required="">
                                     </div>
                                     <div class="form-group">
-                                        <input type="datetime-local" name="Date" placeholder="Date" required="" id="datepicker">
+                                        <input type="text" name="Date" placeholder="Date" required="" id="datepicker">
                                         <i class="fa fa-calendar" aria-hidden="true"></i>
                                     </div>
                                     <div class="form-group">

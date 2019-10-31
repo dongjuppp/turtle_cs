@@ -9,5 +9,5 @@ public class DropMenuDTO {
     private int id;
     private String title;
     private int orderNum;
-    private int getNumber;
+    private String url;
 }

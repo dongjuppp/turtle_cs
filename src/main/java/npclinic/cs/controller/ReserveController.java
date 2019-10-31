@@ -31,11 +31,10 @@ public class ReserveController {
     private final String RESERVE_CHECK = "reserve/reserve_check";
 
     @RequestMapping("reserve")
-    public String reserve(@RequestParam("num") int num, HttpSession session, Model model){
+    public String reserve(HttpSession session, Model model){
         String url = null;
         UserDTO userDTO = (UserDTO) session.getAttribute("user");
-        userDTO.setType("admin");
-        if(num==1){
+        //userDTO.setType("admin");
             if(userDTO == null){
                 model.addAttribute("who","방문자");
             }
@@ -46,14 +45,11 @@ public class ReserveController {
                 model.addAttribute("who","고객");
             }
             url = RESERVE_URL;
-        }
-        else{
             //고객의 아이디로 가져오는데 예약을 2회 이상한 고객에 대하여 어떤식으로 처리할지..
-            model.addAttribute("data",reserveService.getReserveDataByID(userDTO.getId()));
+            /*model.addAttribute("data",reserveService.getReserveDataByID(userDTO.getId()));
             System.out.println("예약확인 컨트롤러");
-            url = RESERVE_CHECK;
-        }
-        return url;
+            url = RESERVE_CHECK;*/
+            return url;
     }
 
     //여기서는 등록만 하고 다른 페이지로 넘겨주어야 한다.
