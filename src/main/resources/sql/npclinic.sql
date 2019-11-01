@@ -13,10 +13,12 @@
 
 
 -- npclinic 데이터베이스 구조 내보내기
+DROP DATABASE IF EXISTS `npclinic`;
 CREATE DATABASE IF NOT EXISTS `npclinic` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `npclinic`;
 
 -- 테이블 npclinic.drop_menu 구조 내보내기
+DROP TABLE IF EXISTS `drop_menu`;
 CREATE TABLE IF NOT EXISTS `drop_menu` (
   `id` int(11) NOT NULL,
   `title` varchar(45) DEFAULT NULL,
@@ -25,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `drop_menu` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- 테이블 데이터 npclinic.drop_menu:~9 rows (대략적) 내보내기
+-- 테이블 데이터 npclinic.drop_menu:~10 rows (대략적) 내보내기
 DELETE FROM `drop_menu`;
 /*!40000 ALTER TABLE `drop_menu` DISABLE KEYS */;
 INSERT INTO `drop_menu` (`id`, `title`, `orderNum`, `url`) VALUES
@@ -41,6 +43,7 @@ INSERT INTO `drop_menu` (`id`, `title`, `orderNum`, `url`) VALUES
 /*!40000 ALTER TABLE `drop_menu` ENABLE KEYS */;
 
 -- 테이블 npclinic.header_menu 구조 내보내기
+DROP TABLE IF EXISTS `header_menu`;
 CREATE TABLE IF NOT EXISTS `header_menu` (
   `id` int(11) NOT NULL,
   `title` varchar(45) DEFAULT NULL,
@@ -62,6 +65,7 @@ INSERT INTO `header_menu` (`id`, `title`, `orderNum`, `url`) VALUES
 /*!40000 ALTER TABLE `header_menu` ENABLE KEYS */;
 
 -- 테이블 npclinic.hospital_info 구조 내보내기
+DROP TABLE IF EXISTS `hospital_info`;
 CREATE TABLE IF NOT EXISTS `hospital_info` (
   `phone` varchar(45) DEFAULT NULL,
   `fax` varchar(45) DEFAULT NULL,
@@ -72,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `hospital_info` (
   `lunchTime` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- 테이블 데이터 npclinic.hospital_info:~1 rows (대략적) 내보내기
+-- 테이블 데이터 npclinic.hospital_info:~0 rows (대략적) 내보내기
 DELETE FROM `hospital_info`;
 /*!40000 ALTER TABLE `hospital_info` DISABLE KEYS */;
 INSERT INTO `hospital_info` (`phone`, `fax`, `email`, `address`, `openTime`, `saturdayTime`, `lunchTime`) VALUES
@@ -80,6 +84,7 @@ INSERT INTO `hospital_info` (`phone`, `fax`, `email`, `address`, `openTime`, `sa
 /*!40000 ALTER TABLE `hospital_info` ENABLE KEYS */;
 
 -- 테이블 npclinic.reserve_data 구조 내보내기
+DROP TABLE IF EXISTS `reserve_data`;
 CREATE TABLE IF NOT EXISTS `reserve_data` (
   `userID` varchar(50) NOT NULL,
   `doctor` varchar(50) NOT NULL,
@@ -113,6 +118,7 @@ INSERT INTO `reserve_data` (`userID`, `doctor`, `subject`, `date`, `message`) VA
 /*!40000 ALTER TABLE `reserve_data` ENABLE KEYS */;
 
 -- 테이블 npclinic.user 구조 내보내기
+DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `id` varchar(45) NOT NULL,
   `password` varchar(100) DEFAULT NULL,
@@ -137,6 +143,7 @@ INSERT INTO `user` (`id`, `password`, `name`, `gender`, `birth`, `type`, `email`
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 -- 테이블 npclinic.user_type 구조 내보내기
+DROP TABLE IF EXISTS `user_type`;
 CREATE TABLE IF NOT EXISTS `user_type` (
   `id` int(11) DEFAULT NULL,
   `typeNumber` int(11) DEFAULT NULL,
