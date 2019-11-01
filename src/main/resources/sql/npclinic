@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `drop_menu` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- 테이블 데이터 npclinic.drop_menu:~9 rows (대략적) 내보내기
+-- 테이블 데이터 npclinic.drop_menu:~10 rows (대략적) 내보내기
 DELETE FROM `drop_menu`;
 /*!40000 ALTER TABLE `drop_menu` DISABLE KEYS */;
 INSERT INTO `drop_menu` (`id`, `title`, `orderNum`, `url`) VALUES
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `hospital_info` (
   `lunchTime` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- 테이블 데이터 npclinic.hospital_info:~1 rows (대략적) 내보내기
+-- 테이블 데이터 npclinic.hospital_info:~0 rows (대략적) 내보내기
 DELETE FROM `hospital_info`;
 /*!40000 ALTER TABLE `hospital_info` DISABLE KEYS */;
 INSERT INTO `hospital_info` (`phone`, `fax`, `email`, `address`, `openTime`, `saturdayTime`, `lunchTime`) VALUES
