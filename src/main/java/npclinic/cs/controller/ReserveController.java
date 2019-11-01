@@ -67,5 +67,11 @@ public class ReserveController {
         model.addAttribute("data",reserveDataDTO);
         return RESERVE_CHECK;
     }
-
+    @RequestMapping("reserveCheck")
+    public String reserveCheck(Model model, HttpSession session){
+        UserDTO userDTO = (UserDTO)session.getAttribute("user");
+        ReserveDataDTO reserveDataDTO = (ReserveDataDTO)reserveService.getReserveDataByID(userDTO.getId());
+        model.addAttribute("data",reserveDataDTO);
+        return RESERVE_CHECK;
+    }
 }
