@@ -63,5 +63,11 @@ public class AdminController {
         return "admin/user_info";
     }
 
+    @RequestMapping("/user_add")
+    public String add(Model model){
+
+
+        return "admin/user_add";
+    }
 
 }

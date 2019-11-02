@@ -48,12 +48,12 @@
     <section class="page-title text-center" style="background-image:url(images/background/3.jpg);">
         <div class="container">
             <div class="title-text">
-                <h1>User Administration</h1>
+                <h1>User Add</h1>
                 <ul class="title-menu clearfix">
                     <li>
                         <a href="index.html">home &nbsp;/</a>
                     </li>
-                    <li>User Administration</li>
+                    <li>User Add</li>
                 </ul>
             </div>
         </div>
@@ -67,10 +67,8 @@
                 <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="contact-area style-two">
                         <div class="section-title">
-                            <div> <h3>Administration <span> of users</span></h3> </div>
-                            <div>
-                                <a href="/user_add"><input type="button" name="Add" value="Add" /> </a>
-                            </div>
+                            <div> <h3>회원 등록</h3> </div>
+
 
                             <hr/>
 

@@ -62,6 +62,9 @@
     <!-- Contact Section -->
     <section class="blog-section section style-three pb-0">
         <div class="container">
+            <div style="float: right;">
+            <a href="/user_add"><button type="button">회원 등록</button></a>
+            </div>
             <table class="table table-hover">
                 <tr>
                     <th>아이디</th>
