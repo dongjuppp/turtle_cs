@@ -75,7 +75,7 @@
                     <th>등록 날짜</th>
                 </tr>
 
-                <c:forEach items="${user_list}" var="user_info">
+                <c:forEach items="${user_list}" var="user_info" varStatus="status">
                     <tr>
                         <td><a href="/info_edit?id=${user_info.id}">${user_info.id}</a></td>
                         <td>${user_info.password}</td>
