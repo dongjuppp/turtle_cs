@@ -37,7 +37,7 @@ public class LoginController {
 
 
     @RequestMapping("/login_page")
-    public String login(){
+    public String login_page(){
         UserDTO userDTO = userService.getUser("test1");
 
         System.out.println(userDTO.getId());
