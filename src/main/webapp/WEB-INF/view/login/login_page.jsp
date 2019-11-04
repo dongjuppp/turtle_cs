@@ -66,17 +66,36 @@
     <!-- Contact Section -->
     <section class="blog-section section style-three pb-0">
         <div class="container">
-            <form role="form" method="post" autocomplete="off" action="/login">
-                <p>
-                    <label for="id">아이디</label>
-                    <input type="text" id="id" name="id" />
-                </p>
-                <p>
-                    <label for="password">비밀번호</label>
-                    <input type="password" id="password" name="password" />
-                </p>
-                <p><button type="submit">로그인</button></p>
-            </form>
+            <div class="contact-area style-two">
+                <div class="section-title">
+                    <h3>로그인</h3>
+                </div>
+                <form name="login_form" class="default-form contact-form" action="/login" method="post">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <input type="text" name="id" id="id" placeholder="아이디를 입력하세요" required="required">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <input type="password" name="password" id="password" placeholder="비밀번호를 입력하세요" required="required">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group text-center">
+                                <button type="submit" class="btn-style-one">로그인</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
 
         </div>
     </section>
