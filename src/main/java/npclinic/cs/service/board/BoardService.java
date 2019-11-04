@@ -4,8 +4,8 @@ import npclinic.cs.dto.board.BoardDTO;
 
 import java.util.List;
 
-public interface NoticeBoardService {
+public interface BoardService {
 
-    public List<BoardDTO> getAllNoticeBoardByCategory(int category);
+    public List<BoardDTO> getAllBoardByCategory(int category);
     public BoardDTO getBoard(int id);
 }

@@ -36,7 +36,7 @@ INSERT INTO `drop_menu` (`id`, `title`, `orderNum`, `url`) VALUES
 	(2, '둘러보기', 2, 'introduce'),
 	(3, '진료시간/약도', 2, 'introduce'),
 	(16, '공지사항', 5, 'introduce'),
-	(17, '자유게시판', 5, 'introduce'),
+	(17, '자유게시판', 5, 'free_board'),
 	(18, '사진갤러리', 5, 'introduce'),
 	(19, '예약하기', 6, 'reserve'),
 	(20, '예약확인', 6, 'reserveCheck');
@@ -158,6 +158,27 @@ INSERT INTO `user_type` (`id`, `typeNumber`, `typeName`) VALUES
 	(2, 2, '회원'),
 	(3, 3, '게스트');
 /*!40000 ALTER TABLE `user_type` ENABLE KEYS */;
+
+-- 테이블 npclinic.board 구조 내보내기
+DROP TABLE IF EXISTS `board`;
+CREATE TABLE IF NOT EXISTS `board`(
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`title` varchar(45) DEFAULT NULL,
+	`content` TEXT(900),
+	`writer` varchar(45) NOT NULL,
+	`dropMenuId` int(11) DEFAULT NULL,
+	PRIMARY KEY(`id`),
+	FOREIGN KEY (dropMenuId) REFERENCES drop_menu(`id`) on update cascade on delete CASCADE,
+	FOREIGN KEY (writer) REFERENCES user(`id`) ON UPDATE CASCADE ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=UTF8;
+
+-- 테이블 데이터 npclinic.board:~3 rows (대략적) 내보내기
+DELETE FROM `user_type`;
+/*!40000 ALTER TABLE `board` DISABLE KEYS */;
+INSERT INTO `board`(title, content, writer, dropMenuId) VALUES
+	('TESTING BOARD', 'TEST CONTENT', 'dongju', 17);
+/*!40000 ALTER TABLE `board` ENABLE KEYS */;
+
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
