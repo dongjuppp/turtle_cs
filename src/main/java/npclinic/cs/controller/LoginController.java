@@ -98,9 +98,12 @@ public class LoginController {
     }
 
     @RequestMapping("/insert_user")
-    public String registerUser(@ModelAttribute("userDTO") UserDTO userDTO){
+    public String registerUser(@ModelAttribute("userDTO") UserDTO userDTO, @RequestParam("first_phone") String first_phone,
+                               @RequestParam("second_phone") String second_phone, @RequestParam("third_phone") String third_phone){
         Date current = new Date();
 
+        userDTO.setPhone(first_phone + "-" + second_phone + "-" + third_phone);
+        userDTO.setType("customer");
         userDTO.setLast_login(current);
         userDTO.setReg_login(current);
 
