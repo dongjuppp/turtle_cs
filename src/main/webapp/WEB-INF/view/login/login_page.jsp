@@ -51,12 +51,12 @@
     <section class="page-title text-center" style="background-image:url(images/background/3.jpg);">
         <div class="container">
             <div class="title-text">
-                <h1>appointment</h1>
+                <h1>로그인</h1>
                 <ul class="title-menu clearfix">
                     <li>
-                        <a href="index.html">home &nbsp;/</a>
+                        <a href="index.html">홈으로 &nbsp;/</a>
                     </li>
-                    <li>appointment</li>
+                    <li>로그인</li>
                 </ul>
             </div>
         </div>
