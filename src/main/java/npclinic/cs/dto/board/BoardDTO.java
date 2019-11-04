@@ -16,7 +16,9 @@ public class BoardDTO {
     private String content;
     private int drop_menu_id;
 
-    public int getDropMenuId() {return this.drop_menu_id; }
+    public BoardDTO getBoard() {return this;} //가능한가??
+
+    public int getDropMenuId() {return this.drop_menu_id;}
     public int getId() {return this.id;}
     public String getUserId() {return this.user_id;}
     public String getTitle() {return this.title;}

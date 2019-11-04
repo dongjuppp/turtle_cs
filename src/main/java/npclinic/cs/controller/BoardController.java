@@ -1,11 +1,14 @@
 package npclinic.cs.controller;
 
 import npclinic.cs.dto.board.BoardDTO;
+import npclinic.cs.dto.user.UserDTO;
 import npclinic.cs.service.board.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 
@@ -17,7 +20,13 @@ num을 GET방식으로 받아 어떤 게시판인지 구분
 public class BoardController {
     private BoardService boardService;
     private final String INTRODUCE_URL = "board/introduce";
-    private final String BOARD_WRITE_URL = "board/insert";
+    private final String FREE_BOARD_URL = "board/free_board";
+    private final String NOTICE_BOARD_URL = "board/notice_board";
+    private final String MEDI_INFO_BOARD_URL = "board/medi_info_board";
+    private final String BOARD_INSERT_URL = "board/insert_board";
+    private final String BOARD_UPDATE_URL = "board/update_board";
+    private final String BOARD_DELETE_URL = "board/delete_board";
+
 
     @Autowired
     public BoardController(BoardService boardService){
@@ -25,28 +34,75 @@ public class BoardController {
     }
 
     @RequestMapping("/free_board")
-    public String freeBoard(Model model){
+    public String freeBoard(Model model) {
         System.out.println("자유게시판 board");
+        //int drop_menu_id = boardService.;     ## dropMenu의 drop_menu_id 번호를 가져와야한다. 17
 
-        List<BoardDTO> boardDTO = boardService.getAllBoardByCategory(17);
-        for(BoardDTO bdto : boardDTO){
+        List<BoardDTO> boardDTO = get_and_log_board(17);
+        model.addAttribute("board", boardDTO);
+
+        return FREE_BOARD_URL;
+    }
+
+    @RequestMapping("/notice_board")
+    public String noticeBoard(Model model){
+        System.out.println("공지사항 board");
+        //int drop_menu_id = boardService.;     ## dropMenu의 drop_menu_id 번호를 가져와야한다. 16
+
+        List<BoardDTO> boardDTO = get_and_log_board(16);
+        model.addAttribute("board", boardDTO);
+
+        return INTRODUCE_URL;
+    }
+
+/*drop_menu에 진료 정보 추가 해야함.
+    @RequestMapping("/mediinfo_board") //주소
+    public String mediInfoBoard(){
+        System.out.println("진료정보 board");
+        //int drop_menu_id = boardService.;     ## dropMenu의 drop_menu_id 번호를 가져와야한다. ??
+
+        List<BoardDTO> boardDTO = get_and_log_board(??);
+        model.addAttribute("board", boardDTO);
+
+        return MEDIINFO; // jsp파일 경로,이름
+    }
+*/
+
+    @RequestMapping("/insert_board")
+    public String insert(HttpSession session, Model model){
+        System.out.println("insert board 페이지");
+        UserDTO userDTO = (UserDTO) session.getAttribute("user");
+
+        if(userDTO != null){
+            model.addAttribute("writer", userDTO.getName());
+            model.addAttribute("id", userDTO.getId());
+            return BOARD_INSERT_URL;
+        }
+
+        return INTRODUCE_URL;
+    }
+    @RequestMapping("/update_board")
+    public String update(){
+        System.out.println("update board 페이지");
+
+        return INTRODUCE_URL;
+    }
+
+    @RequestMapping("/delete_board")
+    public String delete(){
+        System.out.println("delete board 페이지");
+
+        return INTRODUCE_URL;
+    }
+
+    private List<BoardDTO> get_and_log_board(int id) {
+        List<BoardDTO> boardDTO = boardService.getAllBoardByCategory(id);
+
+        for(BoardDTO bdto : boardDTO) {
             System.out.println(bdto.getTitle());
         }
 
-        model.addAttribute("board", boardDTO);
-
-        return "board/free_board";
+        return boardDTO;
     }
 
-    @RequestMapping("/introduce")
-    public String introduce(Model model){
-        System.out.println("공지사항 board");
-        return "board/introduce";
-    }
-
-    @RequestMapping("/medicinfo") //주소
-    public String mediInfo(){
-        System.out.println("진료정보 board");
-        return "board/introduce"; // jsp파일 경로,이름
-    }
 }
