@@ -22,7 +22,7 @@ public class BoardDTO {
     public String getTitle() {return this.title;}
     public int getViews() {return this.views;}
     public Date getDate() {return this.last_modified;}
-    public String content() {return this.content;}
+    public String getContent() {return this.content;}
 
     public void setBoard(int id, String user_id, String title, int drop_menu_id, int views, Date last_modified, String Cotent) {
         this.id = id;
