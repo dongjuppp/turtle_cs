@@ -8,4 +8,7 @@ public interface BoardService {
 
     public List<BoardDTO> getAllBoardByCategory(int category);
     public BoardDTO getBoard(int id);
+    public void insertBoard(BoardDTO boardDTO);
+    public void updateBoard(BoardDTO boardDTO);
+    public void deleteBoard(BoardDTO boardDTO);
 }
