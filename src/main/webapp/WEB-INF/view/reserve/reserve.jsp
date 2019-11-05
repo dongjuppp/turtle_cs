@@ -86,17 +86,24 @@
                                             <option>비급여항목</option>
                                         </select>
                                     </div>
-                                </div>
-                                <div class="col-md-6 col-sm-12 col-xs-12">
                                     <div class="form-group">
                                         <input type="text" name="Date" placeholder="Date" required="" id="datepicker">
                                         <i class="fa fa-calendar" aria-hidden="true"></i>
                                     </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12 col-xs-12">
                                     <div class="form-group">
                                         <select name="doctor">
                                             <option>의사</option>
                                             <option>김갑수</option>
                                             <option>전동병</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <select name="time">
+                                            <option>시간</option>
+                                            <option>13</option>
+                                            <option>14</option>
                                         </select>
                                     </div>
                                 </div>

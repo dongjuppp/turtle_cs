@@ -116,11 +116,12 @@
                                     <div class="row">
                                         <div class="col-md-6 col-sm-12 col-xs-12">
                                             <div class="form-group">
-                                                <p class="reserve_data">${data.userID}</p>
-                                            </div>
-                                            <div class="form-group">
                                                 <p class="reserve_data">${data.subject}</p>
                                             </div>
+                                            <div class="form-group">
+                                                <p class="reserve_data">${data.time}</p>
+                                            </div>
+
                                         </div>
                                         <div class="col-md-6 col-sm-12 col-xs-12">
                                             <div class="form-group">
@@ -140,7 +141,7 @@
                                     </div>
                                 </form>
                             </c:when>
-                            <c:when test="방문자">
+                            <c:when test="${who=='방문자'}">
                                 <form>
                                     <p>로그인해야 가능합니다</p>
                                 </form>

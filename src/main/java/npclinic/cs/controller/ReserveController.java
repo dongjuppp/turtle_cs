@@ -42,7 +42,7 @@ public class ReserveController {
             }
             else if(userDTO.getType().equals("admin")){
                 model.addAttribute("who","관리자");
-
+                return RESERVE_CHECK;
             }
             else{
                 model.addAttribute("who","고객");
@@ -63,22 +63,26 @@ public class ReserveController {
         reserveDataDTO.setUserID(userDTO.getId());
         reserveService.registerData(reserveDataDTO);
         model.addAttribute("data",reserveDataDTO);
+        model.addAttribute("who","고객");
         return RESERVE_CHECK;
     }
     @RequestMapping("reserveCheck")
-    public String reserveCheck(Model model, HttpSession session){
+    public String reserveCheck(Model model, HttpSession session) throws NullPointerException{
+        System.out.println("reserveCheck들어옴");
         UserDTO userDTO = (UserDTO)session.getAttribute("user");
-        ReserveDataDTO reserveDataDTO = (ReserveDataDTO)reserveService.getReserveDataByID(userDTO.getId());
-        if(userDTO == null){
+        try{
+            ReserveDataDTO reserveDataDTO = (ReserveDataDTO)reserveService.getReserveDataByID(userDTO.getId());
+            if(userDTO.getType().equals("admin")){
+                model.addAttribute("who","관리자");
+                model.addAttribute("datas",reserveService.getReserveList());
+            }
+            else{
+                model.addAttribute("who","고객");
+                model.addAttribute("data",reserveDataDTO);
+            }
+        }catch (NullPointerException e){
             model.addAttribute("who","방문자");
-            model.addAttribute("data",reserveDataDTO);
-        }
-        else if(userDTO.getType().equals("admin")){
-            model.addAttribute("who","관리자");
-            model.addAttribute("datas",reserveService.getReserveList());
-        }
-        else{
-            model.addAttribute("who","고객");
+            return RESERVE_CHECK;
         }
         return RESERVE_CHECK;
     }

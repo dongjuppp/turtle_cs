@@ -12,8 +12,7 @@ import java.util.Date;
 public class ReserveDataDTO {
 
     private Date Date;
-    private Date time;
-    private String dateStr;
+    private int time;
     private String subject;
     private String doctor;
     private String message;
