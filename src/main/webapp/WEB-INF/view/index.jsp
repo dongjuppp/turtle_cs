@@ -51,15 +51,15 @@
     ==================================-->
     <div class="hero-slider">
         <!-- Slider Item -->
-        <div class="slider-item slide1" style="background-image:url(images/slider/slider-bg-1.jpg)">
+        <div class="slider-item slide1" style="background-image:url(/images/slider/image_2015.jpg)">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <!-- Slide Content Start -->
-                        <div class="content style text-center">
-                            <h2 class="text-white text-bold mb-2">Our Best Surgeons</h2>
-                            <p class="tag-text mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel sunt animi sequi ratione quod at earum. <br>
-                                Quis quos officiis numquam!</p>
+                        <div class="content style text-right">
+                            <h2 class="text-white text-bold mb-2">통증 없는 세상을 도와드립니다</h2>
+                            <br>
+                            <p class="tag-text mb-5">통증치료의 모든것 김갑수 마취통증의학과</p>
                             <a href="#" class="btn btn-main btn-white">explore</a>
                         </div>
                         <!-- Slide Content End -->
@@ -68,34 +68,18 @@
             </div>
         </div>
         <!-- Slider Item -->
-        <div class="slider-item" style="background-image:url(images/slider/slider-bg-2.jpg);">
+        <div class="slider-item" style="background-image:url(/images/slider/image_2015_2.png);">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <!-- Slide Content Start-->
                         <div class="content style text-right">
-                            <h2 class="text-white">We Care About <br>Your Health</h2>
-                            <p class="tag-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                            <a href="#" class="btn btn-main btn-white">about us</a>
+                            <h2 class="text-white text-bold mb-2">통증 없는 세상을 도와드립니다</h2>
+                            <br>
+                            <p class="tag-text mb-5">통증치료의 모든것 김갑수 마취통증의학과</p>
+                            <a href="#" class="btn btn-main btn-white">explore</a>
                         </div>
                         <!-- Slide Content End-->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Slider Item -->
-        <div class="slider-item" style="background-image:url(images/slider/slider-bg-3.jpg)">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <!-- Slide Content Start -->
-                        <div class="content text-center style">
-                            <h2 class="text-white text-bold mb-2">동진이네 병원</h2>
-                            <p class="tag-text mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae deserunt,
-                                <br>eius pariatur minus itaque nostrum.</p>
-                            <a href="shop.html" class="btn btn-main btn-white">shop now</a>
-                        </div>
-                        <!-- Slide Content End -->
                     </div>
                 </div>
             </div>
@@ -111,24 +95,25 @@
                     <div class="cta-block">
                         <div class="emmergency item">
                             <i class="fa fa-phone"></i>
-                            <h2>Emegency Cases</h2>
-                            <a href="#">1-800-700-6200</a>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                            <h2>전화 상담 문의</h2>
+                            <h2>02-536-1777</h2>
+                            <h2>FAX. 02-536-1777</h2>
                         </div>
                         <div class="top-doctor item">
                             <i class="fa fa-stethoscope"></i>
-                            <h2>24 Hour Service</h2>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore dignissimos officia dicta suscipit vel eum</p>
-                            <a href="#" class="btn btn-main">Read more</a>
+                            <h2>진료안내</h2>
+                            <p>CLINIC INFO</p>
+                            <a href="#" class="btn btn-main">more</a>
                         </div>
                         <div class="working-time item">
                             <i class="fa fa-hourglass-o"></i>
-                            <h2>Working Hours</h2>
+                            <h2>진료시간 안내</h2>
                             <ul class="w-hours">
-                                <li>Mon - Fri  - <span>8:00 - 17:00</span></li>
-                                <li>Mon - Fri  - <span>8:00 - 17:00</span></li>
-                                <li>Mon - Fri  - <span>8:00 - 17:00</span></li>
+                                <li>평일  - <span>09:00 - 19:00</span></li>
+                                <li>토요일  - <span>09:00 - 14:00</span></li>
+                                <li>점심시간  - <span>13:00 - 14:00</span></li>
                             </ul>
+                            <p>일, 공휴일 : 휴진</p>
                         </div>
                     </div>
                 </div>

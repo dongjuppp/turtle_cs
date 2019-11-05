@@ -555,11 +555,11 @@ li {
 }
 
 .hero-slider {
-  height: 80vh;
+  height: 40vh;
 }
 
 .hero-slider .slider-item {
-  height: 80vh;
+  height: 40vh;
   display: -webkit-box !important;
   display: -ms-flexbox !important;
   display: flex !important;
@@ -705,7 +705,7 @@ li {
 }
 
 .cta .cta-block .emmergency {
-  background: #48bdc5;
+  background: #76bad7;
 }
 
 .cta .cta-block .emmergency a {
