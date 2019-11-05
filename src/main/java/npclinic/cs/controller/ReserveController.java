@@ -28,8 +28,8 @@ public class ReserveController {
         this.reserveService=reserveService;
     }
 
-    private final String RESERVE_URL = "reserve/reserve";
-    private final String RESERVE_CHECK = "reserve/reserve_check";
+        private final String RESERVE_JSP = "reserve/reserve";
+    private final String RESERVE_CHECK_JSP = "reserve/reserve_check";
 
     @RequestMapping("reserve")
     public String reserve(HttpSession session, Model model){
@@ -42,13 +42,19 @@ public class ReserveController {
             }
             else if(userDTO.getType().equals("admin")){
                 model.addAttribute("who","관리자");
-                return RESERVE_CHECK;
+                //return RESERVE_CHECK;
+                return "redirect:reserveCheck"; //관리자가 예약하기를 누르면 예약확인 페이지로 이동
+
+                /*
+                그런데 이거 내가 관리자가 고객예약 가능하게 하겠다고
+                예약하기 화면으로 한건데 왜 이렇게 바꿨어???
+                 */
             }
             else{
                 model.addAttribute("who","고객");
 
             }
-            url = RESERVE_URL;
+            url = RESERVE_JSP;
             //고객의 아이디로 가져오는데 예약을 2회 이상한 고객에 대하여 어떤식으로 처리할지..
             /*model.addAttribute("data",reserveService.getReserveDataByID(userDTO.getId()));
             System.out.println("예약확인 컨트롤러");
@@ -61,17 +67,25 @@ public class ReserveController {
     public String getReserveData(@ModelAttribute ReserveDataDTO reserveDataDTO,Model model,HttpSession httpSession){
         UserDTO userDTO = (UserDTO)httpSession.getAttribute("user");
         reserveDataDTO.setUserID(userDTO.getId());
+
+        //유저의 예약이 새로 들어오면 해당 유저의 기존 예약 데이터 삭제
+        reserveService.deleteReserveDataByID(userDTO.getId());
+
+        //유저의 예약을 새로 추가
         reserveService.registerData(reserveDataDTO);
+        reserveService.convertDateFormat(reserveDataDTO);
+
         model.addAttribute("data",reserveDataDTO);
         model.addAttribute("who","고객");
-        return RESERVE_CHECK;
+        return RESERVE_CHECK_JSP;
     }
     @RequestMapping("reserveCheck")
     public String reserveCheck(Model model, HttpSession session) throws NullPointerException{
         System.out.println("reserveCheck들어옴");
         UserDTO userDTO = (UserDTO)session.getAttribute("user");
         try{
-            ReserveDataDTO reserveDataDTO = (ReserveDataDTO)reserveService.getReserveDataByID(userDTO.getId());
+            ReserveDataDTO reserveDataDTO = reserveService.getReserveDataByID(userDTO.getId());
+            reserveService.convertDateFormat(reserveDataDTO);
             if(userDTO.getType().equals("admin")){
                 model.addAttribute("who","관리자");
                 model.addAttribute("datas",reserveService.getReserveList());
@@ -82,9 +96,9 @@ public class ReserveController {
             }
         }catch (NullPointerException e){
             model.addAttribute("who","방문자");
-            return RESERVE_CHECK;
+            return RESERVE_CHECK_JSP;
         }
-        return RESERVE_CHECK;
+        return RESERVE_CHECK_JSP;
     }
 
 }

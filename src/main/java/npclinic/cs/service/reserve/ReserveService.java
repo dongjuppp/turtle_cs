@@ -10,5 +10,9 @@ public interface ReserveService {
 
     ReserveDataDTO getReserveDataByID(String userID);
 
-    public List<ReserveDataDTO> getReserveList();
+    List<ReserveDataDTO> getReserveList();
+
+    void deleteReserveDataByID(String userID);
+
+    void convertDateFormat(ReserveDataDTO reserveDataDTO);
 }
