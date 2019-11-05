@@ -38,7 +38,7 @@ public class BoardController {
         System.out.println("자유게시판 board");
         //int drop_menu_id = boardService.;     ## dropMenu의 drop_menu_id 번호를 가져와야한다. 17
 
-        List<BoardDTO> boardDTO = get_and_log_board(17);
+        List<BoardDTO> boardDTO = getAndLogBoard(17);
         model.addAttribute("board", boardDTO);
 
         return FREE_BOARD_URL;
@@ -49,7 +49,7 @@ public class BoardController {
         System.out.println("공지사항 board");
         //int drop_menu_id = boardService.;     ## dropMenu의 drop_menu_id 번호를 가져와야한다. 16
 
-        List<BoardDTO> boardDTO = get_and_log_board(16);
+        List<BoardDTO> boardDTO = getAndLogBoard(16);
         model.addAttribute("board", boardDTO);
 
         return INTRODUCE_URL;
@@ -82,20 +82,20 @@ public class BoardController {
         return INTRODUCE_URL;
     }
     @RequestMapping("/update_board")
-    public String update(){
+    public String update(HttpSession session, Model model){
         System.out.println("update board 페이지");
 
         return INTRODUCE_URL;
     }
 
     @RequestMapping("/delete_board")
-    public String delete(){
+    public String delete(HttpSession session, Model model){
         System.out.println("delete board 페이지");
 
         return INTRODUCE_URL;
     }
 
-    private List<BoardDTO> get_and_log_board(int id) {
+    private List<BoardDTO> getAndLogBoard(int id) {
         List<BoardDTO> boardDTO = boardService.getAllBoardByCategory(id);
 
         for(BoardDTO bdto : boardDTO) {

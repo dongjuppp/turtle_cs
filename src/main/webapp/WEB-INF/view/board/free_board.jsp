@@ -108,7 +108,10 @@
                             </tr>
                             </tfoot>
                         </table>
-
+                        
+                        <div class="Formfooter">
+                            <button type="submit" class="btn_button">새글쓰기</button>
+                        </div>
 
                     </div>
                 </div>
