@@ -11,12 +11,8 @@ import java.util.Date;
 @ToString
 public class ReserveDataDTO {
 
-    private String name;
-    private String email;
-    private String phone;
     private Date Date;
-    private Date time;
-    private String dateStr;
+    private int time;
     private String subject;
     private String doctor;
     private String message;

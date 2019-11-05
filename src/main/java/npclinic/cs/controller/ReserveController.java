@@ -3,6 +3,7 @@ package npclinic.cs.controller;
 import npclinic.cs.dto.user.UserDTO;
 import npclinic.cs.dto.reserve.ReserveDataDTO;
 import npclinic.cs.service.reserve.ReserveService;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,12 +38,15 @@ public class ReserveController {
         //userDTO.setType("admin");
             if(userDTO == null){
                 model.addAttribute("who","방문자");
+
             }
             else if(userDTO.getType().equals("admin")){
                 model.addAttribute("who","관리자");
+                return RESERVE_CHECK;
             }
             else{
                 model.addAttribute("who","고객");
+
             }
             url = RESERVE_URL;
             //고객의 아이디로 가져오는데 예약을 2회 이상한 고객에 대하여 어떤식으로 처리할지..
@@ -54,24 +58,33 @@ public class ReserveController {
 
     //여기서는 등록만 하고 다른 페이지로 넘겨주어야 한다.
     @RequestMapping(value = "reserveData", method = RequestMethod.POST)
-    public String getReserveData(@ModelAttribute ReserveDataDTO reserveDataDTO,Model model){
-        System.out.println("이름:"+reserveDataDTO.getName());
-        System.out.println("메일:"+reserveDataDTO.getEmail());
-        System.out.println("전화번호:"+reserveDataDTO.getPhone());
-        System.out.println("날짜:"+reserveDataDTO.getDate());
-        System.out.println("의사:"+reserveDataDTO.getDoctor());
-        System.out.println("진료항목:"+reserveDataDTO.getSubject());
-        System.out.println("메세지:"+reserveDataDTO.getMessage());
-        reserveDataDTO.setUserID("dongjuppp");
+    public String getReserveData(@ModelAttribute ReserveDataDTO reserveDataDTO,Model model,HttpSession httpSession){
+        UserDTO userDTO = (UserDTO)httpSession.getAttribute("user");
+        reserveDataDTO.setUserID(userDTO.getId());
         reserveService.registerData(reserveDataDTO);
         model.addAttribute("data",reserveDataDTO);
+        model.addAttribute("who","고객");
         return RESERVE_CHECK;
     }
     @RequestMapping("reserveCheck")
-    public String reserveCheck(Model model, HttpSession session){
+    public String reserveCheck(Model model, HttpSession session) throws NullPointerException{
+        System.out.println("reserveCheck들어옴");
         UserDTO userDTO = (UserDTO)session.getAttribute("user");
-        ReserveDataDTO reserveDataDTO = (ReserveDataDTO)reserveService.getReserveDataByID(userDTO.getId());
-        model.addAttribute("data",reserveDataDTO);
+        try{
+            ReserveDataDTO reserveDataDTO = (ReserveDataDTO)reserveService.getReserveDataByID(userDTO.getId());
+            if(userDTO.getType().equals("admin")){
+                model.addAttribute("who","관리자");
+                model.addAttribute("datas",reserveService.getReserveList());
+            }
+            else{
+                model.addAttribute("who","고객");
+                model.addAttribute("data",reserveDataDTO);
+            }
+        }catch (NullPointerException e){
+            model.addAttribute("who","방문자");
+            return RESERVE_CHECK;
+        }
         return RESERVE_CHECK;
     }
+
 }
