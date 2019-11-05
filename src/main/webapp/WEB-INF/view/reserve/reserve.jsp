@@ -76,12 +76,6 @@
                             <div class="row">
                                 <div class="col-md-6 col-sm-12 col-xs-12">
                                     <div class="form-group">
-                                        <input type="text" name="Name" placeholder="Name" required="">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="email" name="Email" placeholder="Email" required="">
-                                    </div>
-                                    <div class="form-group">
                                         <select name="subject">
                                             <option>진료 항목</option>
                                             <option>목/허리디스크(비수술)</option>
@@ -94,9 +88,6 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-12 col-xs-12">
-                                    <div class="form-group">
-                                        <input type="text" name="Phone" placeholder="Phone" required="">
-                                    </div>
                                     <div class="form-group">
                                         <input type="text" name="Date" placeholder="Date" required="" id="datepicker">
                                         <i class="fa fa-calendar" aria-hidden="true"></i>

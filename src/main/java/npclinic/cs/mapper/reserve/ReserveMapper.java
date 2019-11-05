@@ -5,6 +5,8 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.List;
+
 @Mapper
 public interface ReserveMapper {
 
@@ -13,4 +15,7 @@ public interface ReserveMapper {
 
     @Select("SELECT * FROM reserve_data WHERE userID=#{userID}")
     ReserveDataDTO getReserveDataByID(String userId);
+
+    @Select("SELECT * FROM reserve_data")
+    List<ReserveDataDTO> getReserveList();
 }

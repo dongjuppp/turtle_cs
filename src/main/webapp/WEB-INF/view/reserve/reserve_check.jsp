@@ -67,44 +67,87 @@
     <section class="blog-section section style-three pb-0">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="contact-area style-two">
                         <div class="section-title">
                             <h3>예약확인</h3>
                         </div>
-                        <form name="contact_form" class="default-form contact-form" action="/reserveData" method="post">
-                            <div class="row">
-                                <div class="col-md-6 col-sm-12 col-xs-12">
-                                    <div class="form-group">
-                                        <p class="reserve_data">${data.userID}</p>
-                                    </div>
-                                    <div class="form-group">
-                                        <p class="reserve_data">${data.email}</p>
-                                    </div>
-                                    <div class="form-group">
-                                        <p class="reserve_data">${data.subject}</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-sm-12 col-xs-12">
-                                    <div class="form-group">
-                                        <p class="reserve_data">${data.phone}</p>
-                                    </div>
-                                    <div class="form-group">
-                                        <p class="reserve_data">${data.dateStr}</p>
-                                    </div>
-                                    <div class="form-group">
-                                        <p class="reserve_data">${data.doctor}</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <div class="form-group">
-                                        <!--<textarea name="message" placeholder="Your Message" required=""></textarea>-->
-                                        <p class="reserve_data">${data.message}</p>
-                                    </div>
+                        <c:choose>
+                            <c:when test="${who=='관리자'}">
+                                <form name="contact_form" class="default-form contact-form" action="/reserveData" method="post">
+                                    <c:forEach var="data" items="${datas}">
+                                        <%--<div class="row">
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <p class="reserve_data">${data.userID}</p>
+                                                </div>
+                                                <div class="form-group">
+                                                    <p class="reserve_data">${data.subject}</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <p class="reserve_data">${data.date}</p>
+                                                </div>
+                                                <div class="form-group">
+                                                    <p class="reserve_data">${data.doctor}</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <!--<textarea name="message" placeholder="Your Message" required=""></textarea>-->
+                                                    <p class="reserve_data">${data.message}</p>
+                                                </div>
 
-                                </div>
-                            </div>
-                        </form>
+                                            </div>
+                                        </div>--%>
+                                        <div class="row">
+                                            <div class="col-md-2 col-sm-2 col-xs-2">${data.userID}</div>
+                                            <div class="col-md-2 col-sm-2 col-xs-2">${data.subject}</div>
+                                            <div class="col-md-2 col-sm-2 col-xs-2">${data.date}</div>
+                                            <div class="col-md-2 col-sm-2 col-xs-2">${data.doctor}</div>
+                                            <div class="col-md-2 col-sm-2 col-xs-2">${data.message}</div>
+                                        </div>
+                                </c:forEach>
+                                </form>
+                            </c:when>
+                            <c:when test="${who=='고객'}">
+                                <form name="contact_form" class="default-form contact-form" action="/reserveData" method="post">
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <p class="reserve_data">${data.userID}</p>
+                                            </div>
+                                            <div class="form-group">
+                                                <p class="reserve_data">${data.subject}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <p class="reserve_data">${data.date}</p>
+                                            </div>
+                                            <div class="form-group">
+                                                <p class="reserve_data">${data.doctor}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <!--<textarea name="message" placeholder="Your Message" required=""></textarea>-->
+                                                <p class="reserve_data">${data.message}</p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </form>
+                            </c:when>
+                            <c:when test="방문자">
+                                <form>
+                                    <p>로그인해야 가능합니다</p>
+                                </form>
+                            </c:when>
+                        </c:choose>
+
+
                     </div>
                 </div>
 
