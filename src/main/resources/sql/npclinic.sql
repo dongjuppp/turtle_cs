@@ -35,7 +35,7 @@ INSERT INTO `drop_menu` (`id`, `title`, `orderNum`, `url`) VALUES
 	(1, '인사말', 2, 'introduce'),
 	(2, '둘러보기', 2, 'introduce'),
 	(3, '진료시간/약도', 2, 'introduce'),
-	(16, '공지사항', 5, 'introduce'),
+	(16, '공지사항', 5, 'notice_board'),
 	(17, '자유게시판', 5, 'free_board'),
 	(18, '사진갤러리', 5, 'introduce'),
 	(19, '예약하기', 6, 'reserve'),
@@ -177,6 +177,18 @@ DELETE FROM `user_type`;
 /*!40000 ALTER TABLE `board` DISABLE KEYS */;
 INSERT INTO `board`(title, content, writer, dropMenuId) VALUES
 	('TESTING BOARD', 'TEST CONTENT', 'dongju', 17);
+INSERT INTO `board`(title, content, writer, dropMenuId) VALUES
+	('TESTING BOARD2', 'TEST CONTENT2', 'dongju', 17);
+INSERT INTO `board`(title, content, writer, dropMenuId) VALUES
+	('TESTING BOARD3', 'TEST CONTENT3', 'dongju', 17);
+INSERT INTO `board`(title, content, writer, dropMenuId) VALUES
+	('TESTING NOTICE BOARD1', 'TEST NOTICE CONTENT1', 'dongju', 16);
+INSERT INTO `board`(title, content, writer, dropMenuId) VALUES
+	('TESTING NOTICE BOARD2', 'TEST NOTICE CONTENT2', 'dongju', 16);
+INSERT INTO `board`(title, content, writer, dropMenuId) VALUES
+	('TESTING NOTICE BOARD3', 'TEST NOTICE CONTENT3', 'dongju', 16);
+INSERT INTO `board`(title, content, writer, dropMenuId) VALUES
+	('TESTING NOTICE BOARD4', 'TEST NOTICE CONTENT4', 'dongju', 16);
 /*!40000 ALTER TABLE `board` ENABLE KEYS */;
 
 

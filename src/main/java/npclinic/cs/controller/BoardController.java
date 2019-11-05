@@ -20,6 +20,7 @@ num을 GET방식으로 받아 어떤 게시판인지 구분
 public class BoardController {
     private BoardService boardService;
     private final String INTRODUCE_URL = "board/introduce";
+    private final String VIEW_BOARD_URL = "board/view_board";
     private final String FREE_BOARD_URL = "board/free_board";
     private final String NOTICE_BOARD_URL = "board/notice_board";
     private final String MEDI_INFO_BOARD_URL = "board/medi_info_board";
@@ -52,7 +53,7 @@ public class BoardController {
         List<BoardDTO> boardDTO = getAndLogBoard(16);
         model.addAttribute("board", boardDTO);
 
-        return INTRODUCE_URL;
+        return NOTICE_BOARD_URL;
     }
 
 /*drop_menu에 진료 정보 추가 해야함.
@@ -68,6 +69,12 @@ public class BoardController {
     }
 */
 
+    @RequestMapping("/view_board")
+    public String view(Model model){
+        System.out.println("view board 페이지");
+        model.addAttribute("data", boardService.getBoard());
+        return VIEW_BOARD_URL;
+    }
     @RequestMapping("/insert_board")
     public String insert(HttpSession session, Model model){
         System.out.println("insert board 페이지");

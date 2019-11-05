@@ -94,7 +94,7 @@
                             <tr>
                                 <c:set var="index" value="${index + 1}" />
                                 <td align="center"> <c:out value="${index}" /></td>
-                                <td><a href="Board_View.jsp"> <c:out value="${boardDTO.title}" /> </a></td>
+                                <td><a href="view_board.jsp"> <c:out value="${boardDTO.title}" /> </a></td>
                                 <td align="center"> <c:out value="${boardDTO.content}" /> </td>
                                 <td align="center"> <c:out value="${boardDTO.date}" /> </td>
                                 <td align="center"> <c:out value="${boardDTO.views}" /> </td>
@@ -108,7 +108,7 @@
                             </tr>
                             </tfoot>
                         </table>
-                        
+
                         <div class="Formfooter">
                             <button type="submit" class="btn_button">새글쓰기</button>
                         </div>
