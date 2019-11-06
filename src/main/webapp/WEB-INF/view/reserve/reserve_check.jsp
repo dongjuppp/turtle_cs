@@ -104,7 +104,7 @@
                                         <div class="row">
                                             <div class="col-md-2 col-sm-2 col-xs-2">${data.userID}</div>
                                             <div class="col-md-2 col-sm-2 col-xs-2">${data.subject}</div>
-                                            <div class="col-md-2 col-sm-2 col-xs-2">${data.date}</div>
+                                            <div class="col-md-2 col-sm-2 col-xs-2">${data.dataStr}</div>
                                             <div class="col-md-2 col-sm-2 col-xs-2">${data.doctor}</div>
                                             <div class="col-md-2 col-sm-2 col-xs-2">${data.message}</div>
                                         </div>

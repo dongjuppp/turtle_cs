@@ -20,18 +20,35 @@ public class ReserveServiceImpl implements ReserveService {
         this.reserveMapper=reserveMapper;
     }
 
+
     public void registerData(ReserveDataDTO reserveDataDTO){
         reserveMapper.registerData(reserveDataDTO);
     }
 
+
     public ReserveDataDTO getReserveDataByID(String userID){
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/mm/dd");
         ReserveDataDTO reserveDataDTO = reserveMapper.getReserveDataByID(userID);
-        //reserveDataDTO.setDateStr(sdf.format(reserveDataDTO.getDate()));
         System.out.println(reserveDataDTO);
         return reserveMapper.getReserveDataByID(userID);
     }
+
+
     public List<ReserveDataDTO> getReserveList(){
-        return reserveMapper.getReserveList();
+        List<ReserveDataDTO> reserveDataDTOS = reserveMapper.getReserveList();
+        for(ReserveDataDTO reserveDataDTO:reserveDataDTOS){
+            convertDateFormat(reserveDataDTO);
+        }
+        return reserveDataDTOS;
+    }
+
+
+    public void deleteReserveDataByID(String userID){
+        reserveMapper.deleteReserveDataByID(userID);
+    }
+
+    public void convertDateFormat(ReserveDataDTO reserveDataDTO){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        reserveDataDTO.setDataStr(sdf.format(reserveDataDTO.getDate()));
     }
 }
