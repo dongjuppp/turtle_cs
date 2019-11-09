@@ -35,6 +35,7 @@ public class ReserveController {
     public String reserve(HttpSession session, Model model){
         String url = null;
         UserDTO userDTO = (UserDTO) session.getAttribute("user");
+        System.out.println(userDTO);
         //userDTO.setType("admin");
             if(userDTO == null){
                 model.addAttribute("who","방문자");
@@ -83,9 +84,10 @@ public class ReserveController {
     public String reserveCheck(Model model, HttpSession session) throws NullPointerException{
         System.out.println("reserveCheck들어옴");
         UserDTO userDTO = (UserDTO)session.getAttribute("user");
+        System.out.println(userDTO);
         try{
             ReserveDataDTO reserveDataDTO = reserveService.getReserveDataByID(userDTO.getId());
-            reserveService.convertDateFormat(reserveDataDTO);
+            //reserveService.convertDateFormat(reserveDataDTO);
             if(userDTO.getType().equals("admin")){
                 model.addAttribute("who","관리자");
                 model.addAttribute("datas",reserveService.getReserveList());
@@ -93,6 +95,7 @@ public class ReserveController {
             else{
                 model.addAttribute("who","고객");
                 model.addAttribute("data",reserveDataDTO);
+
             }
         }catch (NullPointerException e){
             model.addAttribute("who","방문자");

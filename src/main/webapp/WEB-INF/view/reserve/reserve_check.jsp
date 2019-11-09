@@ -31,6 +31,7 @@
     <!--Favicon-->
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
 
 </head>
 
@@ -73,43 +74,32 @@
                             <h3>예약확인</h3>
                         </div>
                         <c:choose>
-                            <c:when test="${who=='관리자'}">
-                                <form name="contact_form" class="default-form contact-form" action="/reserveData" method="post">
-                                    <c:forEach var="data" items="${datas}">
-                                        <%--<div class="row">
-                                            <div class="col-md-6 col-sm-12 col-xs-12">
-                                                <div class="form-group">
-                                                    <p class="reserve_data">${data.userID}</p>
-                                                </div>
-                                                <div class="form-group">
-                                                    <p class="reserve_data">${data.subject}</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-sm-12 col-xs-12">
-                                                <div class="form-group">
-                                                    <p class="reserve_data">${data.date}</p>
-                                                </div>
-                                                <div class="form-group">
-                                                    <p class="reserve_data">${data.doctor}</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                                <div class="form-group">
-                                                    <!--<textarea name="message" placeholder="Your Message" required=""></textarea>-->
-                                                    <p class="reserve_data">${data.message}</p>
-                                                </div>
 
-                                            </div>
-                                        </div>--%>
-                                        <div class="row">
-                                            <div class="col-md-2 col-sm-2 col-xs-2">${data.userID}</div>
-                                            <div class="col-md-2 col-sm-2 col-xs-2">${data.subject}</div>
-                                            <div class="col-md-2 col-sm-2 col-xs-2">${data.dataStr}</div>
-                                            <div class="col-md-2 col-sm-2 col-xs-2">${data.doctor}</div>
-                                            <div class="col-md-2 col-sm-2 col-xs-2">${data.message}</div>
-                                        </div>
-                                </c:forEach>
-                                </form>
+                            <c:when test="${who=='관리자'}">
+                                <div class="table">
+                                    <table class="table table-hover" id="test">
+                                        <thead>
+                                        <tr>
+                                            <th>아이디</th>
+                                            <th>진료과목</th>
+                                            <th>담당 의사</th>
+                                            <th>날짜</th>
+                                            <th>시간</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <c:forEach var="data" items="${datas}">
+                                            <tr>
+                                                <td>${data.userID}</td>
+                                                <td>${data.subject}</td>
+                                                <td>${data.doctor}</td>
+                                                <td>${data.dataStr}</td>
+                                                <td>${data.time}</td>
+                                            </tr>
+                                        </c:forEach>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </c:when>
                             <c:when test="${who=='고객'}">
                                 <form name="contact_form" class="default-form contact-form" action="/reserveData" method="post">
@@ -125,7 +115,7 @@
                                         </div>
                                         <div class="col-md-6 col-sm-12 col-xs-12">
                                             <div class="form-group">
-                                                <p class="reserve_data">${data.date}</p>
+                                                <p class="reserve_data">${data.dataStr}</p>
                                             </div>
                                             <div class="form-group">
                                                 <p class="reserve_data">${data.doctor}</p>
@@ -161,6 +151,7 @@
 
     <!--footer-main-->
     <%@include file="../common/footer.jsp"%>
+
 
     <script src="plugins/jquery.js"></script>
     <script src="plugins/bootstrap.min.js"></script>
