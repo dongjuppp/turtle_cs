@@ -33,6 +33,57 @@ public class BoardController {
         this.boardService = boardService;
     }
 
+    @RequestMapping("communityPhoto")
+    public String photo(){
+        return INTRODUCE_URL;
+    }
+    @RequestMapping("communityFree")
+    public String free(){
+        return INTRODUCE_URL;
+    }
+    @RequestMapping("communityNotice")
+    public String notice(){
+        return INTRODUCE_URL;
+    }
+    @RequestMapping("introduceNnonsalary")
+    public String nonSalary(){
+        return INTRODUCE_URL;
+    }
+    @RequestMapping("introduceZoster")
+    public String zoster(){
+        return INTRODUCE_URL;
+    }
+    @RequestMapping("introdueArthritis")
+    public String arthritis(){
+        return INTRODUCE_URL;
+    }
+    @RequestMapping("medicinfoShingles")
+    public String shingles(){
+        return INTRODUCE_URL;
+    }
+    @RequestMapping("medicinfoNerve")
+    public String nerve(){
+        return INTRODUCE_URL;
+    }
+    @RequestMapping("medicinfoNeck")
+    public String neck(){
+        return INTRODUCE_URL;
+    }
+    @RequestMapping("introduceTime")
+    public String time(){
+        return INTRODUCE_URL;
+    }
+    @RequestMapping("introduceLook")
+    public String look(){
+        return INTRODUCE_URL;
+    }
+    @RequestMapping("introduceGreet")
+    public String into(){
+        System.out.println("introduce");
+        return INTRODUCE_URL;
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////
     @RequestMapping("/free_board")
     public String freeBoard(Model model) {
         System.out.println("자유게시판 board");

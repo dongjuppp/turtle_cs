@@ -31,7 +31,7 @@ public class ReserveController {
         private final String RESERVE_JSP = "reserve/reserve";
     private final String RESERVE_CHECK_JSP = "reserve/reserve_check";
 
-    @RequestMapping("reserve")
+    @RequestMapping("reserveDoReserve")
     public String reserve(HttpSession session, Model model){
         String url = null;
         UserDTO userDTO = (UserDTO) session.getAttribute("user");
@@ -80,7 +80,7 @@ public class ReserveController {
         model.addAttribute("who","고객");
         return RESERVE_CHECK_JSP;
     }
-    @RequestMapping("reserveCheck")
+    @RequestMapping("reserveReserveCheck")
     public String reserveCheck(Model model, HttpSession session) throws NullPointerException{
         System.out.println("reserveCheck들어옴");
         UserDTO userDTO = (UserDTO)session.getAttribute("user");

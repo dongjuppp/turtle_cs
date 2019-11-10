@@ -91,7 +91,7 @@
 
                         <ul class="dropdown-menu">
                             <c:forEach var="drop" items="${head.dropMenus}" varStatus="status2">
-                                <li><a href="${drop.url}">${drop.title}</a> </li>
+                                <li><a href="${head.url}${drop.url}">${drop.title}</a> </li>
                             </c:forEach>
                         </ul>
                     </li>
