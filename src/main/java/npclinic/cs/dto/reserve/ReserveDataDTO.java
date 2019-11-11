@@ -18,5 +18,7 @@ public class ReserveDataDTO {
     private String message;
     private String userID; //예약할때 유저의 아이디도 받게함
     private String dataStr;
+    private String name;
+    private String gender;
 
 }

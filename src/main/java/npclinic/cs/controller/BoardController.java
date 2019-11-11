@@ -34,6 +34,7 @@ public class BoardController {
         this.boardService = boardService;
     }
 
+    /////////////////////////////////////////////////////////////////////////////////////
     @RequestMapping("/free_board")
     public String freeBoard(Model model) {
         System.out.println("자유게시판 board");
@@ -72,7 +73,7 @@ public class BoardController {
     @RequestMapping("/view_board")
     public String view(Model model){
         System.out.println("view board 페이지");
-        model.addAttribute("data", boardService.getBoard());
+        model.addAttribute("data", boardService.getBoard(1));
         return VIEW_BOARD_URL;
     }
     @RequestMapping("/insert_board")

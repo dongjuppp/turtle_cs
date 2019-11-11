@@ -29,8 +29,9 @@ public class ReserveServiceImpl implements ReserveService {
     public ReserveDataDTO getReserveDataByID(String userID){
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/mm/dd");
         ReserveDataDTO reserveDataDTO = reserveMapper.getReserveDataByID(userID);
-        System.out.println(reserveDataDTO);
-        return reserveMapper.getReserveDataByID(userID);
+        //System.out.println(reserveDataDTO);
+        convertDateFormat(reserveDataDTO);
+        return reserveDataDTO;
     }
 
 

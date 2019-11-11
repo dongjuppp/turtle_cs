@@ -50,7 +50,7 @@
                     <ul class="menu-link">
                         <c:forEach var="serviceList" items="${headerMenu[2].dropMenus}" varStatus="status">
                             <li>
-                                <a href="${headerMenu[2].url}?num=${serviceList.getNumber}">
+                                <a href="${headerMenu[2].url}/${serviceList.url}">
                                     <i class="fa fa-angle-right" aria-hidden="true">${serviceList.title}</i>
                                 </a>
                             </li>
