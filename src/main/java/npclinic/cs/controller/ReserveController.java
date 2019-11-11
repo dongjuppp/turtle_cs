@@ -44,7 +44,7 @@ public class ReserveController {
             else if(userDTO.getType().equals("admin")){
                 model.addAttribute("who","관리자");
                 //return RESERVE_CHECK;
-                return "redirect:reserveCheck"; //관리자가 예약하기를 누르면 예약확인 페이지로 이동
+                return "redirect:reserveReserveCheck"; //관리자가 예약하기를 누르면 예약확인 페이지로 이동
 
                 /*
                 그런데 이거 내가 관리자가 고객예약 가능하게 하겠다고
