@@ -42,6 +42,7 @@ public class BoardController {
     public String free(){
         return INTRODUCE_URL;
     }
+
     @RequestMapping("communityNotice")
     public String notice(){
         return INTRODUCE_URL;
@@ -123,7 +124,7 @@ public class BoardController {
     @RequestMapping("/view_board")
     public String view(Model model){
         System.out.println("view board 페이지");
-        model.addAttribute("data", boardService.getBoard());
+        model.addAttribute("data", boardService.getBoard(1));
         return VIEW_BOARD_URL;
     }
     @RequestMapping("/insert_board")
