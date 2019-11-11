@@ -31,10 +31,11 @@ public class ReserveController {
         private final String RESERVE_JSP = "reserve/reserve";
     private final String RESERVE_CHECK_JSP = "reserve/reserve_check";
 
-    @RequestMapping("reserve")
+    @RequestMapping("reserveDoReserve")
     public String reserve(HttpSession session, Model model){
         String url = null;
         UserDTO userDTO = (UserDTO) session.getAttribute("user");
+        System.out.println(userDTO);
         //userDTO.setType("admin");
             if(userDTO == null){
                 model.addAttribute("who","방문자");
@@ -43,7 +44,7 @@ public class ReserveController {
             else if(userDTO.getType().equals("admin")){
                 model.addAttribute("who","관리자");
                 //return RESERVE_CHECK;
-                return "redirect:reserveCheck"; //관리자가 예약하기를 누르면 예약확인 페이지로 이동
+                return "redirect:reserveReserveCheck"; //관리자가 예약하기를 누르면 예약확인 페이지로 이동
 
                 /*
                 그런데 이거 내가 관리자가 고객예약 가능하게 하겠다고
@@ -79,13 +80,14 @@ public class ReserveController {
         model.addAttribute("who","고객");
         return RESERVE_CHECK_JSP;
     }
-    @RequestMapping("reserveCheck")
+    @RequestMapping("reserveReserveCheck")
     public String reserveCheck(Model model, HttpSession session) throws NullPointerException{
         System.out.println("reserveCheck들어옴");
         UserDTO userDTO = (UserDTO)session.getAttribute("user");
+        System.out.println(userDTO);
         try{
             ReserveDataDTO reserveDataDTO = reserveService.getReserveDataByID(userDTO.getId());
-            reserveService.convertDateFormat(reserveDataDTO);
+            //reserveService.convertDateFormat(reserveDataDTO);
             if(userDTO.getType().equals("admin")){
                 model.addAttribute("who","관리자");
                 model.addAttribute("datas",reserveService.getReserveList());
@@ -93,6 +95,7 @@ public class ReserveController {
             else{
                 model.addAttribute("who","고객");
                 model.addAttribute("data",reserveDataDTO);
+
             }
         }catch (NullPointerException e){
             model.addAttribute("who","방문자");
