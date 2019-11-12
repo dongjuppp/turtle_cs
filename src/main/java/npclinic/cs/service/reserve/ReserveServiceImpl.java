@@ -33,6 +33,9 @@ public class ReserveServiceImpl implements ReserveService {
         convertDateFormat(reserveDataDTO);
         return reserveDataDTO;
     }
+    public void acceptReserve(String userID){
+        reserveMapper.accept(userID);
+    }
 
 
     public List<ReserveDataDTO> getReserveList(){

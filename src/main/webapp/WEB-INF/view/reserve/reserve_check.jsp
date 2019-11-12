@@ -31,7 +31,7 @@
     <!--Favicon-->
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    
+
 
 </head>
 
@@ -90,11 +90,15 @@
                                         <tbody>
                                         <c:forEach var="data" items="${datas}">
                                             <tr>
-                                                <td>${data.userID}</td>
+                                                <td><input id="idid"type="text" value="${data.userID}" readonly></td>
                                                 <td>${data.subject}</td>
                                                 <td>${data.doctor}</td>
                                                 <td>${data.dataStr}</td>
                                                 <td>${data.time}</td>
+                                                <div id="button">
+                                                <td ><input id="accept" type="button" onclick="acceptReserve()" value="승인"></td>
+                                                <td ><input id="reject" type="button" onclick="reject()" value="거절"></td>
+                                                </div>
                                             </tr>
                                         </c:forEach>
                                         </tbody>
@@ -169,6 +173,27 @@
     <script src="plugins/jquery-ui.js"></script>
     <script src="plugins/timePicker.js"></script>
     <script src="js/script.js"></script>
+    <script>
+
+        function reject() {
+            alert("거절")
+
+        }
+        function acceptReserve(){
+            var idid  = $("#idid").val();
+
+            alert(idid)
+            $.ajax({
+                type: "post",
+                url: "<%request.getContextPath();%>/accept",
+                data : { "idid" : idid},
+                success: function(result){
+                    console.log(result);
+                    $("#button").html('<p>승인상태</p>');
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>

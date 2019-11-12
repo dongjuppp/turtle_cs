@@ -1,10 +1,7 @@
 package npclinic.cs.mapper.reserve;
 
 import npclinic.cs.dto.reserve.ReserveDataDTO;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -26,4 +23,7 @@ public interface ReserveMapper {
 
     @Delete("DELETE FROM reserve_data WHERE userID=#{userID}")
     void deleteReserveDataByID(String userID);
+
+    @Update("UPDATE reserve_data SET status = 'accept' WHERE userID=#{userID}")
+    void accept(String userID);
 }

@@ -15,4 +15,6 @@ public interface ReserveService {
     void deleteReserveDataByID(String userID);
 
     void convertDateFormat(ReserveDataDTO reserveDataDTO);
+
+    void acceptReserve(String userID);
 }

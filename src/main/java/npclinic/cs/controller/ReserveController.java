@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
+import java.awt.*;
 
 /*
 예약 페이지 컨트롤러
@@ -35,11 +36,9 @@ public class ReserveController {
     public String reserve(HttpSession session, Model model){
         String url = null;
         UserDTO userDTO = (UserDTO) session.getAttribute("user");
-        System.out.println(userDTO);
         //userDTO.setType("admin");
             if(userDTO == null){
                 model.addAttribute("who","방문자");
-
             }
             else if(userDTO.getType().equals("admin")){
                 model.addAttribute("who","관리자");
@@ -50,6 +49,7 @@ public class ReserveController {
                 그런데 이거 내가 관리자가 고객예약 가능하게 하겠다고
                 예약하기 화면으로 한건데 왜 이렇게 바꿨어???
                  */
+                /* 까먹었,,,,,,*/
             }
             else{
                 model.addAttribute("who","고객");
@@ -80,9 +80,13 @@ public class ReserveController {
         model.addAttribute("who","고객");
         return RESERVE_CHECK_JSP;
     }
+    @RequestMapping("accept")
+    public void accept(@RequestParam("idid") String idid){
+        System.out.println("accept => " + idid);
+        reserveService.acceptReserve(idid);
+    }
     @RequestMapping("reserveReserveCheck")
     public String reserveCheck(Model model, HttpSession session) throws NullPointerException{
-        System.out.println("reserveCheck들어옴");
         UserDTO userDTO = (UserDTO)session.getAttribute("user");
         System.out.println(userDTO);
         try{
@@ -103,5 +107,4 @@ public class ReserveController {
         }
         return RESERVE_CHECK_JSP;
     }
-
 }
