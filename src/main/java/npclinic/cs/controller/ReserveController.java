@@ -80,11 +80,17 @@ public class ReserveController {
         model.addAttribute("who","고객");
         return RESERVE_CHECK_JSP;
     }
-    @RequestMapping("accept")
+
+
+
+    @RequestMapping(value = "accept",method = RequestMethod.POST)
     public void accept(@RequestParam("idid") String idid){
         System.out.println("accept => " + idid);
         reserveService.acceptReserve(idid);
     }
+
+
+
     @RequestMapping("reserveReserveCheck")
     public String reserveCheck(Model model, HttpSession session) throws NullPointerException{
         UserDTO userDTO = (UserDTO)session.getAttribute("user");

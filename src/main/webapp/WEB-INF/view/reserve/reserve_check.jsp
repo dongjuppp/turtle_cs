@@ -88,15 +88,15 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <c:forEach var="data" items="${datas}">
+                                        <c:forEach var="data" items="${datas}" varStatus="num">
                                             <tr>
-                                                <td><input id="idid"type="text" value="${data.userID}" readonly></td>
+                                                <td><input id="idid${num.index}"type="text" value="${data.userID}" readonly></td>
                                                 <td>${data.subject}</td>
                                                 <td>${data.doctor}</td>
                                                 <td>${data.dataStr}</td>
                                                 <td>${data.time}</td>
                                                 <div id="button">
-                                                <td ><input id="accept" type="button" onclick="acceptReserve()" value="승인"></td>
+                                                <td ><input id="accept" type="button" onclick="acceptReserve(${num.index})" value="승인"></td>
                                                 <td ><input id="reject" type="button" onclick="reject()" value="거절"></td>
                                                 </div>
                                             </tr>
@@ -179,8 +179,8 @@
             alert("거절")
 
         }
-        function acceptReserve(){
-            var idid  = $("#idid").val();
+        function acceptReserve(index){
+            var idid  = $("#idid"+index).val();
 
             alert(idid)
             $.ajax({
