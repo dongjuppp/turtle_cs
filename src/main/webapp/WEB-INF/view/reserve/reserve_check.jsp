@@ -89,15 +89,15 @@
                                         </thead>
                                         <tbody>
                                         <c:forEach var="data" items="${datas}" varStatus="num">
-                                            <tr>
+                                            <tr id="tr${num.index}">
                                                 <td><input id="idid${num.index}"type="text" value="${data.userID}" readonly></td>
                                                 <td>${data.subject}</td>
                                                 <td>${data.doctor}</td>
                                                 <td>${data.dataStr}</td>
                                                 <td>${data.time}</td>
-                                                <div id="button">
-                                                <td ><input id="accept" type="button" onclick="acceptReserve(${num.index})" value="승인"></td>
-                                                <td ><input id="reject" type="button" onclick="reject()" value="거절"></td>
+                                                <div id="test1">
+                                                <td ><input type="button" onclick="updateStatus(${num.index},'accept')" value="승인"></td>
+                                                <td ><input type="button" onclick="updateStatus(${num.index},'reject')" value="거절"></td>
                                                 </div>
                                             </tr>
                                         </c:forEach>
@@ -175,21 +175,16 @@
     <script src="js/script.js"></script>
     <script>
 
-        function reject() {
-            alert("거절")
-
-        }
-        function acceptReserve(index){
+        function updateStatus(index, status){
             var idid  = $("#idid"+index).val();
 
-            alert(idid)
             $.ajax({
                 type: "post",
                 url: "<%request.getContextPath();%>/accept",
-                data : { "idid" : idid},
-                success: function(result){
-                    console.log(result);
-                    $("#button").html('<p>승인상태</p>');
+                data : { "idid" : idid , "status" : status},
+                success : function(data) {
+                    alert("처리되었습니다");
+                    $("#tr"+index).append('<td>'+data+'</td>');
                 }
             });
         }

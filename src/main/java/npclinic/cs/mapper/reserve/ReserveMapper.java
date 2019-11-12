@@ -8,7 +8,7 @@ import java.util.List;
 @Mapper
 public interface ReserveMapper {
 
-    @Insert("INSERT INTO reserve_data VALUES(#{userID}, #{doctor}, #{subject},#{date},#{message},#{time})")
+    @Insert("INSERT INTO reserve_data VALUES(#{userID}, #{doctor}, #{subject},#{date},#{message},#{time},'waiting')")
     void registerData(ReserveDataDTO reserveDataDTO);
 
     //날자와 예약 시간이 제일 최근 날짜인것으로 가져옴 날짜, 시간이 같아도 1개만 가져옴
@@ -26,4 +26,7 @@ public interface ReserveMapper {
 
     @Update("UPDATE reserve_data SET status = 'accept' WHERE userID=#{userID}")
     void accept(String userID);
+
+    @Update("UPDATE reserve_data SET status = 'reject' WHERE userID=#{userID}")
+    void reject(String userID);
 }

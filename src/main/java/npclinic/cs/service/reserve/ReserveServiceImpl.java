@@ -36,7 +36,9 @@ public class ReserveServiceImpl implements ReserveService {
     public void acceptReserve(String userID){
         reserveMapper.accept(userID);
     }
-
+    public void rejectReserve(String userID){
+        reserveMapper.reject(userID);
+    }
 
     public List<ReserveDataDTO> getReserveList(){
         List<ReserveDataDTO> reserveDataDTOS = reserveMapper.getReserveList();
