@@ -24,6 +24,13 @@ public class BoardDTO {
     public Date getDate() {return this.last_modified;}
     public String getContent() {return this.content;}
 
+    public void setBoardUserId(String user_id){ this.user_id = user_id; }
+    public void setBoardTitle(String title){ this.title = title; }
+    public void setBoardDropMenuId(int drop_menu_id){ this.drop_menu_id = drop_menu_id; }
+    public void setBoardViews(int views){ this.views = views; }
+    public void setBoardLastModified(Date last_modified){ this.last_modified = last_modified; }
+    public void setBoardContent(String content){ this.content = content; }
+
     public void setBoard(int id, String user_id, String title, int drop_menu_id, int views, Date last_modified, String Cotent) {
         this.id = id;
         this.user_id = user_id;

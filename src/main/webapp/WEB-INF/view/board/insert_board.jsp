@@ -70,7 +70,7 @@
                 <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="contact-area style-two">
                         <div class="section-title">
-                            <form action="/insert_board" method="POST">
+                            <form action="/boardData" method="POST">
                                 <div class="createForm">
                                     <label >제목</label>
                                     <input type="text" name="board_title" class="createForm" placeholder = "게시판 제목">
