@@ -20,5 +20,6 @@ public class ReserveDataDTO {
     private String dataStr;
     private String name;
     private String gender;
+    private String status;
 
 }

@@ -16,13 +16,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 public class CsApplicationTests {
 
-    @Autowired
-    MockMvc mockMvc;
 
-
-
-    @Test
-    public void contextLoads() {
-    }
 
 }

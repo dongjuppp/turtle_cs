@@ -96,8 +96,18 @@
                                                 <td>${data.dataStr}</td>
                                                 <td>${data.time}</td>
                                                 <div id="test1">
-                                                <td ><input type="button" onclick="updateStatus(${num.index},'accept')" value="승인"></td>
-                                                <td ><input type="button" onclick="updateStatus(${num.index},'reject')" value="거절"></td>
+
+                                                    <c:if test="${data.status eq 'accept'}">
+                                                    <td id="status${num.index}">승인됨</td>
+                                                    </c:if>
+                                                    <c:if test="${data.status eq 'reject'}">
+                                                        <td id="status${num.index}">거절됨</td>
+                                                    </c:if>
+                                                    <c:if test="${data.status eq 'waiting'}">
+                                                        <td id="accept${num.index}"><input type="button" onclick="updateStatus(${num.index},'accept')" value="승인"></td>
+                                                        <td id="status${num.index}"><input type="button" onclick="updateStatus(${num.index},'reject')" value="거절"></td>
+                                                    </c:if>
+
                                                 </div>
                                             </tr>
                                         </c:forEach>
@@ -182,9 +192,8 @@
                 type: "post",
                 url: "<%request.getContextPath();%>/accept",
                 data : { "idid" : idid , "status" : status},
-                success : function(data) {
+                success : function() {
                     alert("처리되었습니다");
-                    $("#tr"+index).append('<td>'+data+'</td>');
                 }
             });
         }
