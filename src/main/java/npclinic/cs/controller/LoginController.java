@@ -126,4 +126,31 @@ public class LoginController {
         return "index";
     }
 
+    //테스트를 위해 만든 메소드(jong hun, 이 메소드는 사용하지 말 것)
+    public String testaddUser(){
+
+        UserDTO userDTO = new UserDTO();
+        Date current = new Date();
+        String id = "";
+
+        for(int i = 3; i < 100; i++){
+            id = "user" + i;
+
+            userDTO.setId(id);
+            userDTO.setPassword("1234");
+            userDTO.setName("user");
+            userDTO.setGender("남");
+            userDTO.setBirth("1998/02/11");
+            userDTO.setType("user");
+            userDTO.setEmail("user@gmail.com");
+            userDTO.setPhone("01011111111");
+            userDTO.setLast_login(current);
+            userDTO.setReg_login(current);
+
+            userService.insertUser(userDTO);
+        }
+
+        return "index";
+    }
+
 }
