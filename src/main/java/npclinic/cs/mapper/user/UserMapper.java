@@ -1,5 +1,6 @@
 package npclinic.cs.mapper.user;
 
+import npclinic.cs.dto.paging.Criteria;
 import npclinic.cs.dto.user.UserDTO;
 import org.apache.ibatis.annotations.*;
 
@@ -25,6 +26,9 @@ public interface UserMapper {
 
     @Select("SELECT * FROM user WHERE isVip=1")
     List<UserDTO> getVipUserList();
+
+    @Select("SELECT * FROM board WHERE DEL_CHK = 'N' ORDER BY id DESC LIMIT #{pageStart}, #{perPageNum}")
+    List<UserDTO> getUserListByCriteria(Criteria criteria);
 
     @Insert("INSERT INTO user(id, password, name, gender, birth, type, email, phone, last_login, reg_login) " +
             "values (#{id}, #{password}, #{name}, #{gender}, #{birth}, #{type}, #{email}, #{phone}, #{last_login}, #{reg_login})")

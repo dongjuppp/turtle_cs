@@ -1,5 +1,6 @@
 package npclinic.cs.service.user;
 
+import npclinic.cs.dto.paging.Criteria;
 import npclinic.cs.dto.user.UserDTO;
 import npclinic.cs.mapper.user.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,6 @@ import java.util.List;
 @Service
 @Qualifier("NormalUserService") //이게 UserService를 구현한 구현체의 이름이 된다.
 public class UserServiceImpl implements UserService {
-    @Autowired
     private UserMapper userMapper;
 
     public UserServiceImpl(UserMapper userMapper){
@@ -21,6 +21,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserDTO> getAllUser(){
         return userMapper.getUserList();
+    }
+
+    @Override
+    public List<UserDTO> getUserListByCriteria(Criteria criteria){
+        return userMapper.getUserListByCriteria(criteria);
     }
 
     @Override
