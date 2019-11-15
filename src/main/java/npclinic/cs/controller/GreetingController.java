@@ -32,6 +32,8 @@ public class GreetingController {
 
     @RequestMapping("/introduceGreet")
     public String greetingPage(Model model){
+        model.addAttribute("doctors", doctorService.getAllDoctor());
+        model.addAttribute("introduce", introduceService.getIntroduce(1));
 
         return "greeting/greeting_page";
     }
