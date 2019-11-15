@@ -65,7 +65,7 @@
             <div style="float: right;">
             <a href="/user_add"><button type="button">회원 등록</button></a>
             </div>
-            <table class="table table-hover">
+            <table class="table table-striped table-bordered table-hover">
                 <tr>
                     <th>아이디</th>
                     <th>비밀번호</th>
