@@ -8,7 +8,7 @@ public class PageMaker {
     private int endPage;
     private boolean prev;
     private boolean next;
-    private int displayPageNum = 5;
+    private int displayPageNum = 1;
 
     public Criteria getCri() {
         return cri;
@@ -33,6 +33,9 @@ public class PageMaker {
         }
 
         startPage = (endPage - displayPageNum) + 1;
+
+        System.out.println("startPage : " + startPage);
+        System.out.println("endPage : " + endPage);
 
         prev = startPage == 1 ? false : true;
         next = endPage * cri.getPerPageNum() >= totalCount ? false : true;

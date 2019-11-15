@@ -38,7 +38,7 @@ public class AdminController {
         pageMaker.setTotalCount(userService.countUserList());
 
         ArrayList<UserDTO> userList = null;
-        userList = (ArrayList<UserDTO>) userService.getAllUser();
+        userList = (ArrayList<UserDTO>) userService.getUserListByCriteria(cri);
 
         model.addAttribute("user_list", userList);
         model.addAttribute("page_maker", pageMaker);

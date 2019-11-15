@@ -92,6 +92,23 @@
                     </tr>
                 </c:forEach>
             </table>
+            <ul class="btn-group pagination">
+                <c:if test="${page_maker.prev }">
+                    <li>
+                        <a href='<c:url value="/user_manage?page=${page_maker.startPage-1 }"/>'><i class="fa fa-chevron-left"></i></a>
+                    </li>
+                </c:if>
+                <c:forEach begin="${page_maker.startPage }" end="${page_maker.endPage }" var="idx">
+                    <li>
+                        <a href='<c:url value="/user_manage?page=${idx}"/>'><i class="fa">${idx}</i></a>
+                    </li>
+                </c:forEach>
+                <c:if test="${page_maker.next && page_maker.endPage >0 }">
+                    <li>
+                        <a href='<c:url value="/user_manage?page=${page_maker.endPage+1 }"/>'><i class="fa fa-chevron-right"></i></a>
+                    </li>
+                </c:if>
+            </ul>
         </div>
     </section>
     <!-- End Contact Section -->

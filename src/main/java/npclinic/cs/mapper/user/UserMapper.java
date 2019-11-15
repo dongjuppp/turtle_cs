@@ -27,10 +27,10 @@ public interface UserMapper {
     @Select("SELECT * FROM user WHERE isVip=1")
     List<UserDTO> getVipUserList();
 
-    @Select("SELECT * FROM user WHERE DEL_CHK = 'N' ORDER BY id DESC LIMIT #{pageStart}, #{perPageNum}")
+    @Select("SELECT * FROM user ORDER BY id DESC LIMIT #{pageStart}, #{perPageNum}")
     List<UserDTO> getUserListByCriteria(Criteria criteria);
 
-    @Select("SELECT count(*) FROM user WHERE DEL_CHK='N'")
+    @Select("SELECT count(*) FROM user")
     int countUserList();
 
     @Insert("INSERT INTO user(id, password, name, gender, birth, type, email, phone, last_login, reg_login) " +
