@@ -56,8 +56,8 @@
     </section>
     <!--End Page Title-->
 
-    <!-- Contact Section -->
-    <section class="blog-section style-four section">
+    <!-- Service Section -->
+    <section class="service-section bg-gray section">
         <div class="container">
             <div class="section-title text-center">
                 <h3>${introduce.text1}
@@ -71,12 +71,12 @@
                     <div class="item">
                         <div class="inner-box">
                             <div class="img_holder">
-                                <img src="images/gallery/1.jpg" alt="images" class="img-responsive">
+                                <img src="images/${doctor.image}" alt="images" class="img-responsive">
                             </div>
                             <div class="image-content text-center">
-                                <span>Better Service At Low Cost</span>
-                                <h6>Dormitory</h6>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, vero.</p>
+                                <span>${doctor.position}</span>
+                                <h6>${doctor.name}</h6>
+                                <p>${doctor.career}</p>
                             </div>
                         </div>
                     </div>
