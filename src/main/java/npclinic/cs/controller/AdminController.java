@@ -1,6 +1,8 @@
 package npclinic.cs.controller;
 
 import com.google.gson.Gson;
+import npclinic.cs.dto.paging.Criteria;
+import npclinic.cs.dto.paging.PageMaker;
 import npclinic.cs.dto.user.UserDTO;
 import npclinic.cs.service.user.UserService;
 import org.aspectj.asm.IModelFilter;
@@ -29,11 +31,17 @@ public class AdminController {
     Gson gson;
 
     @RequestMapping("/user_manage")
-    public String manage(Model model){
+    public String manage(Model model, Criteria cri){
+
+        PageMaker pageMaker = new PageMaker();
+        pageMaker.setCri(cri);
+        pageMaker.setTotalCount(100);
+
         ArrayList<UserDTO> userList = null;
         userList = (ArrayList<UserDTO>) userService.getAllUser();
 
         model.addAttribute("user_list", userList);
+        model.addAttribute("page_maker", pageMaker);
 
         return "admin/user_info";
     }
