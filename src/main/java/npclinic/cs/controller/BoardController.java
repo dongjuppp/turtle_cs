@@ -85,11 +85,14 @@ public class BoardController {
     public String look(){
         return INTRODUCE_URL;
     }
+
+    /*
     @RequestMapping("introduceGreet")
     public String into(){
         System.out.println("introduce");
         return INTRODUCE_URL;
     }
+     */
 
     @RequestMapping("/view_board")
     public String view(Model model){

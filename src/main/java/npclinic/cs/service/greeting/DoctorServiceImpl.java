@@ -19,6 +19,6 @@ public class DoctorServiceImpl implements DoctorService {
 
     @Override
     public List<DoctorDTO> getAllDoctor(){
-        doctorMapper.getDoctorList();
+        return doctorMapper.getDoctorList();
     }
 }
