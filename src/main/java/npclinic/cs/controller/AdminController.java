@@ -35,7 +35,7 @@ public class AdminController {
 
         PageMaker pageMaker = new PageMaker();
         pageMaker.setCri(cri);
-        pageMaker.setTotalCount(100);
+        pageMaker.setTotalCount(userService.countUserList());
 
         ArrayList<UserDTO> userList = null;
         userList = (ArrayList<UserDTO>) userService.getAllUser();

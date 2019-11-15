@@ -9,6 +9,7 @@ import java.util.List;
 public interface UserService {
     public List<UserDTO> getAllUser();
     public List<UserDTO> getUserListByCriteria(Criteria criteria);
+    public int countUserList();
     public UserDTO getUser(String id);
     public void insertUser(UserDTO userDTO);
     public void updateUser(UserDTO userDTO);

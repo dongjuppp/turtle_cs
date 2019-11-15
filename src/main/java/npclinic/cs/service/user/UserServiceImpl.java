@@ -29,6 +29,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public int countUserList(){
+        return userMapper.countUserList();
+    }
+
+    @Override
     public UserDTO getUser(String id){
         return userMapper.getUserByID(id);
     }
