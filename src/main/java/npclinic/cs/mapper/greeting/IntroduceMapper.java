@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface IntroduceMapper {
     @Select("SELECT * FROM introduce WHERE id=#{id}")
-    IntroduceDTO getIntroduceByID(@Param("id") String id);
+    IntroduceDTO getIntroduceByID(@Param("id") int id);
 }
