@@ -96,7 +96,7 @@
                                 <td align="center"> <c:out value="${index}" /></td>
                                 <td><a href="view_board?ind=${boardDTO.id}"> <c:out value="${boardDTO.title}" /> </a></td>
                                 <td align="center"> <c:out value="${boardDTO.writer}" /> </td>
-                                <td align="center"> <c:out value="${boardDTO.date}" /> </td>
+                                <td align="center"> <c:out value="${boardDTO.dateStr}" /> </td>
                                 <td align="center"> <c:out value="${boardDTO.views}" /> </td>
                             </tr>
                             </c:forEach>

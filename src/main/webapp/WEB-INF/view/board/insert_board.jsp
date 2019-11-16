@@ -80,7 +80,7 @@
                                         </th>
                                         <td>
                                             <input type="text" name="title" class="wdp_90" style="width:500px">
-                                            <input type="hidden" name="drop_menu_id" value="${dropMenuId}">
+                                            <input type="hidden" name="dropMenuId" value="${dropMenuId}">
                                         </td>
                                     </tr>
                                     <tr>

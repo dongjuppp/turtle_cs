@@ -99,6 +99,7 @@ public class BoardController {
         int ind = Integer.parseInt(httpServletRequest.getParameter("ind"));
         BoardDTO boardData =boardService.getBoard(ind);
 
+        System.out.println(boardData.getDropMenuId());
         model.addAttribute("data", boardData);
 
         return VIEW_BOARD_URL;
@@ -124,10 +125,11 @@ public class BoardController {
         System.out.println("trying insert!");
         UserDTO userDTO = (UserDTO)httpSession.getAttribute("user");
         boardDataDTO.setWriter(userDTO.getId());
+
         boardService.insertBoard(boardDataDTO);
 
-        if(boardDataDTO.getDrop_menu_id() == 16) return "redirect:communityNnotice";
-        else if(boardDataDTO.getDrop_menu_id() == 17) return "redirect:communityFree";
+        if(boardDataDTO.getDropMenuId() == 16) return "redirect:communityNnotice";
+        else if(boardDataDTO.getDropMenuId() == 17) return "redirect:communityFree";
 
         return INTRODUCE_URL;
     }
@@ -140,8 +142,16 @@ public class BoardController {
     }
 
     @RequestMapping("/delete_board")
-    public String delete(HttpSession session, Model model){
-        System.out.println("delete board 페이지");
+    public String delete(@ModelAttribute BoardDTO boardDTO, HttpServletRequest httpServletRequest, HttpSession httpSession, Model model){
+        System.out.println();
+        UserDTO userDTO = (UserDTO)httpSession.getAttribute("user");
+        int id = Integer.parseInt(httpServletRequest.getParameter("ind"));
+        int drop_menu_id = Integer.parseInt(httpServletRequest.getParameter("drop_menu_id"));
+
+        boardService.deleteBoard(id);
+
+        if(drop_menu_id == 16) return "redirect:communityNnotice";
+        else if(drop_menu_id == 17) return "redirect:communityFree";
 
         return INTRODUCE_URL;
     }

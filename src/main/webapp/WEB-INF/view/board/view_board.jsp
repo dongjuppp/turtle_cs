@@ -56,7 +56,7 @@
                     <li>
                         <a href="index.html">home &nbsp;/</a>
                     </li>
-                    <li>Free board</li>
+                    <li>board</li>
                 </ul>
             </div>
         </div>
@@ -70,7 +70,7 @@
                 <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="contact-area style-two">
                         <div class="section-title">
-                            <h3>게시판</h3>
+                            <h3>공지 게시판</h3>
                         </div>
                         <table class="container">
                             <thead>
@@ -96,7 +96,9 @@
                             </tbody>
                         </table>
                         <div class="Formfooter">
-
+                            <c:if test="${user != null && user.type == data.writer}">
+                                <button onclick="location='delete_board?ind=${data.id}&drop_menu_id=17'">글삭제</button>
+                            </c:if>
                         </div>
 
                     </div>

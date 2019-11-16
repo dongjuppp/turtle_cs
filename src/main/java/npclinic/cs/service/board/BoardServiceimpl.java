@@ -46,8 +46,8 @@ public class BoardServiceimpl implements BoardService {
     }
 
     @Override
-    public void deleteBoard(BoardDTO boardDTO) {
-        boardMapper.deleteBoard(boardDTO);
+    public void deleteBoard(int id) {
+        boardMapper.deleteBoard(id);
     }
 
     public static String formatDate(Date date){

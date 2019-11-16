@@ -14,7 +14,7 @@ public class BoardDTO {
     private int views;
     private Date date;
     private String content;
-    private int drop_menu_id;
+    private int dropMenuId;
     private String dateStr;
 
 }

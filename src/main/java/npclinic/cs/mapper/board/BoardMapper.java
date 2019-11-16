@@ -14,12 +14,12 @@ public interface BoardMapper {
     @Select("SELECT * FROM board WHERE id = #{id}")
     BoardDTO getBoardById(@Param("id") int id);
 
-    @Insert("INSERT INTO board(title, content, writer, dropMenuId, views) VALUES (#{title}, #{content}, #{writer}, #{drop_menu_id},  #{views})")
+    @Insert("INSERT INTO board(title, content, writer, dropMenuId, views) VALUES (#{title}, #{content}, #{writer}, #{dropMenuId},  #{views})")
     void insertBoard(BoardDTO boardDTO);
 
     @Update("UPDATE board SET title=#{title}, last_modified=#{last_modified}, content=#{content}")
     void updateBoard(BoardDTO boardDTO);
 
-    @Delete("DELETE board WHERE id=#{id}")
-    void deleteBoard(BoardDTO boardDTO);
+    @Delete("DELETE FROM board WHERE id = #{id}")
+    void deleteBoard(@Param("id") int id);
 }
