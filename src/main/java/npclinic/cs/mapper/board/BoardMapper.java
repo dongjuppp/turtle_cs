@@ -17,7 +17,7 @@ public interface BoardMapper {
     @Insert("INSERT INTO board(title, content, writer, dropMenuId, views) VALUES (#{title}, #{content}, #{writer}, #{dropMenuId},  #{views})")
     void insertBoard(BoardDTO boardDTO);
 
-    @Update("UPDATE board SET title=#{title}, last_modified=#{last_modified}, content=#{content}")
+    @Update("UPDATE board SET title=#{title}, content=#{content} WHERE id=#{id}")
     void updateBoard(BoardDTO boardDTO);
 
     @Delete("DELETE FROM board WHERE id = #{id}")

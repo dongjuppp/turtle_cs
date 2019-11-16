@@ -120,6 +120,18 @@ public class BoardController {
         return INTRODUCE_URL;
     }
 
+    @RequestMapping(value = "boardDataUpdate", method = RequestMethod.POST)
+    public String updateBoardData(@ModelAttribute BoardDTO boardDataDTO, Model model, HttpSession httpSession){
+        System.out.println("trying update!");
+
+        boardService.updateBoard(boardDataDTO);
+
+        if(boardDataDTO.getDropMenuId() == 16) return "redirect:communityNnotice";
+        else if(boardDataDTO.getDropMenuId() == 17) return "redirect:communityFree";
+
+        return INTRODUCE_URL;
+    }
+
     @RequestMapping(value = "boardData", method = RequestMethod.POST)
     public String getBoardData(@ModelAttribute BoardDTO boardDataDTO, Model model, HttpSession httpSession){
         System.out.println("trying insert!");
@@ -135,10 +147,15 @@ public class BoardController {
     }
 
     @RequestMapping("/update_board")
-    public String update(HttpSession session, Model model){
+    public String update(HttpServletRequest httpServletRequest, HttpSession httpSession, Model model){
         System.out.println("update board 페이지");
 
-        return INTRODUCE_URL;
+        int id = Integer.parseInt(httpServletRequest.getParameter("ind"));
+        BoardDTO boardDTO = boardService.getBoard(id);
+
+        model.addAttribute("data", boardDTO);
+
+        return BOARD_UPDATE_URL;
     }
 
     @RequestMapping("/delete_board")

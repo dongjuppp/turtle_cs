@@ -56,7 +56,7 @@
                     <li>
                         <a href="index.html">home &nbsp;/</a>
                     </li>
-                    <li>Free board</li>
+                    <li>board</li>
                 </ul>
             </div>
         </div>
@@ -70,46 +70,31 @@
                 <div class="col-md-6 col-sm-12 col-xs-12">
                     <div class="contact-area style-two">
                         <div class="section-title">
-                            <h3>게시판</h3>
+                            <h3>공지 게시판</h3>
                         </div>
-                        <table class="bbs" width="800" height="200" border="2" bgcolor="D8D8D8">
-                            <colgroup>
-                                <col width="50" />
-                                <col width="500" />
-                                <col width="100" />
-                                <col width="50" />
-                            </colgroup>
-                            <thead>
-                            <tr>
-                                <th>번 호</th>
-                                <th>제 목</th>
-                                <th>작성자</th>
-                                <th>작성일</th>
-                                <th>조 회</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <c:set var="index" value="0" />
-                            <c:forEach var="boardDTO" items="${board}">
-                            <tr>
-                                <c:set var="index" value="${index + 1}" />
-                                <td align="center"> <c:out value="${index}" /></td>
-                                <td><a href="Board_View.jsp"> <c:out value="${boardDTO.title}" /> </a></td>
-                                <td align="center"> <c:out value="${boardDTO.content}" /> </td>
-                                <td align="center"> <c:out value="${boardDTO.date}" /> </td>
-                                <td align="center"> <c:out value="${boardDTO.views}" /> </td>
-                            </tr>
-                            </c:forEach>
-
-                            </tbody>
-                            <tfoot>
-                            <tr>
-                                <td align="center" colspan="5">1</td>
-                            </tr>
-                            </tfoot>
-                        </table>
-
-
+                        <form action="/boardDataUpdate" method="POST">
+                            <table>
+                                <colgroup><col width="15%"><col width="*"/></colgroup><caption>게시글 작성</caption>
+                                <tbody>
+                                <tr>
+                                    <th scope="row">
+                                        제목
+                                    </th>
+                                    <td>
+                                        <input type="text" name="title" class="wdp_90" style="width:500px" value="${data.title}">
+                                        <input type="hidden" name="dropMenuId" value="${data.dropMenuId}">
+                                        <input type="hidden" name="id" value="${data.id}">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="view_text">
+                                        <textarea rows="20" cols="100" title="내용" name="content">${data.content}</textarea>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <input type="submit" value="수정하기">
+                        </form>
                     </div>
                 </div>
 

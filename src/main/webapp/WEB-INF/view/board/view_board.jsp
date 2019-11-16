@@ -98,6 +98,7 @@
                         <div class="Formfooter">
                             <c:if test="${user != null && user.type == data.writer}">
                                 <button onclick="location='delete_board?ind=${data.id}&drop_menu_id=17'">글삭제</button>
+                                <button onclick="location='update_board?ind=${data.id}'">글수정</button>
                             </c:if>
                         </div>
 
