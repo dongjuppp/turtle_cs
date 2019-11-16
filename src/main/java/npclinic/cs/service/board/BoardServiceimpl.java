@@ -4,6 +4,9 @@ import npclinic.cs.dto.board.BoardDTO;
 import npclinic.cs.mapper.board.BoardMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -19,7 +22,7 @@ public class BoardServiceimpl implements BoardService {
     public List<BoardDTO> getAllBoardByCategory(int dropMenuId) {
         List<BoardDTO> AllBoard =boardMapper.getAllBoardByDropMenuId(dropMenuId);
         for(BoardDTO bdto : AllBoard) {
-            System.out.println(bdto.getTitle());
+            bdto.setDateStr(formatDate(bdto.getDate()));
         }
 
         return AllBoard;
@@ -51,6 +54,11 @@ public class BoardServiceimpl implements BoardService {
     @Override
     public void deleteBoard(BoardDTO boardDTO) {
         boardMapper.deleteBoard(boardDTO);
+    }
+
+    public static String formatDate(Date date){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        return sdf.format(date);
     }
 }
 

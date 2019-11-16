@@ -67,18 +67,13 @@
     <section class="blog-section section style-three pb-0">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-sm-12 col-xs-12">
+                <div >
                     <div class="contact-area style-two">
                         <div class="section-title">
                             <h3>게시판</h3>
                         </div>
-                        <table class="bbs" width="800" height="200" border="2" bgcolor="D8D8D8">
-                            <colgroup>
-                                <col width="50" />
-                                <col width="500" />
-                                <col width="100" />
-                                <col width="50" />
-                            </colgroup>
+                        <table class="table table-hover" >
+
                             <thead>
                             <tr>
                                 <th>번 호</th>
@@ -89,15 +84,15 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:set var="index" value="0" />
-                            <c:forEach var="boardDTO" items="${board}">
+
+                            <c:forEach var="boardDTO" items="${board}" varStatus="num">
                             <tr>
-                                <c:set var="index" value="${index + 1}" />
-                                <td align="center"> <c:out value="${index}" /></td>
+
+                                <td > <c:out value="${num.index+1}" /></td>
                                 <td><a href="view_board?ind=${boardDTO.id}"> <c:out value="${boardDTO.title}" /> </a></td>
-                                <td align="center"> <c:out value="${boardDTO.content}" /> </td>
-                                <td align="center"> <c:out value="${boardDTO.date}" /> </td>
-                                <td align="center"> <c:out value="${boardDTO.views}" /> </td>
+                                <td > <c:out value="${boardDTO.writer}" /> </td>
+                                <td > <c:out value="${boardDTO.dateStr}" /> </td>
+                                <td > <c:out value="${boardDTO.views}" /> </td>
                             </tr>
                             </c:forEach>
 

@@ -130,8 +130,8 @@ public class BoardController {
 
         model.addAttribute("data",boardService);
         model.addAttribute("who","고객");
-        if(boardDataDTO.getDropMenuId() == 16) return NOTICE_BOARD_URL;
-        else if(boardDataDTO.getDropMenuId() == 17) return FREE_BOARD_URL;
+        if(boardDataDTO.getDrop_menu_id() == 16) return NOTICE_BOARD_URL;
+        else if(boardDataDTO.getDrop_menu_id() == 17) return FREE_BOARD_URL;
         return INTRODUCE_URL;
     }
 
