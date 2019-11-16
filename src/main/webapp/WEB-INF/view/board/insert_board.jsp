@@ -77,8 +77,6 @@
                                     <tr>
                                         <th scope="row">
                                             제목
-
-
                                         </th>
                                         <td>
                                             <input type="text" id="title" name="title" class="wdp_90" style="width:500px"></input>

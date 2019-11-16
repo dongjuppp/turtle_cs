@@ -77,19 +77,19 @@
                             <tr class="row">
                                 <th colspan="3" style="width: 600px; padding-left: 15px;">
                                     <h3 style="color: #1e1e1e; width: 80%; padding-bottom : 15px">
-                                        <strong style="width: 100%;">${title}</strong>
+                                        <strong style="width: 100%;">${data.title}</strong>
                                     </h3>
                                 </th>
                             </tr>
                             <tr class="userBoardView_con">
-                                <th style="width: 60%; text-align: center;">작성자 : ${writer}</th>
-                                <th style="width: 100%; text-align: right; padding-right: 20px;">등록시간 : ${date} </th>
+                                <th style="width: 60%; text-align: center;">작성자 : ${data.writer}</th>
+                                <th style="width: 100%; text-align: right; padding-right: 20px;">등록시간 : ${data.date} </th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
                                 <td colspan="3" class="col-sm-9" >
-                                    <hr> ${content}
+                                    <hr> ${data.content}
                                     <hr>
                                 </td>
                             </tr>

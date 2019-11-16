@@ -17,12 +17,25 @@ public class BoardServiceimpl implements BoardService {
 
     @Override
     public List<BoardDTO> getAllBoardByCategory(int dropMenuId) {
-        return boardMapper.getAllBoardByDropMenuId(dropMenuId);
+        List<BoardDTO> AllBoard =boardMapper.getAllBoardByDropMenuId(dropMenuId);
+        for(BoardDTO bdto : AllBoard) {
+            System.out.println(bdto.getTitle());
+        }
+
+        return AllBoard;
     }
 
     @Override
     public BoardDTO getBoard(int id) {
-        return boardMapper.getBoardById(id);
+
+        BoardDTO boardData = boardMapper.getBoardById(id);
+
+        System.out.println(boardData.getTitle());
+        System.out.println(boardData.getContent());
+        System.out.println(boardData.getUserId());
+        System.out.println(boardData.getDate());
+
+        return boardData;
     }
 
     @Override

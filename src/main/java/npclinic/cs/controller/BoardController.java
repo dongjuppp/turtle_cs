@@ -46,14 +46,14 @@ public class BoardController {
     }
     @RequestMapping("communityFree")
     public String free(Model model){
-        List<BoardDTO> boardDTO = getAndLogBoard(17);
+        List<BoardDTO> boardDTO = boardService.getAllBoardByCategory(17);
         model.addAttribute("board", boardDTO);
         return FREE_BOARD_URL;
     }
 
     @RequestMapping("communityNnotice")
     public String notice(Model model){
-        List<BoardDTO> boardDTO = getAndLogBoard(16);
+        List<BoardDTO> boardDTO = boardService.getAllBoardByCategory(16);
         model.addAttribute("board", boardDTO);
         return NOTICE_BOARD_URL;
     }
@@ -90,36 +90,21 @@ public class BoardController {
         return INTRODUCE_URL;
     }
 
-    /*
-    @RequestMapping("introduceGreet")
-    public String into(){
-        System.out.println("introduce");
-        return INTRODUCE_URL;
-    }
-     */
-
     @RequestMapping("/view_board")
     public String view(Model model, HttpServletRequest httpServletRequest){
-        System.out.println("view board 페이지");
         int ind = Integer.parseInt(httpServletRequest.getParameter("ind"));
-        System.out.println(ind);
         BoardDTO boardData =boardService.getBoard(ind);
-        System.out.println(boardData.getTitle());
-        System.out.println(boardData.getContent());
-        System.out.println(boardData.getUserId());
-        System.out.println(boardData.getDate());
 
+        model.addAttribute("data", boardData);
+        //model.addAttribute("title", boardData.getTitle());
+        //model.addAttribute("content", boardData.getContent());
+        //model.addAttribute("writer", boardData.getUserId());
+        //model.addAttribute("date", boardData.getDate());
 
-        model.addAttribute("title", boardData.getTitle());
-        model.addAttribute("content", boardData.getContent());
-        model.addAttribute("writer", boardData.getUserId());
-        model.addAttribute("date", boardData.getDate());
-        System.out.println();
         return VIEW_BOARD_URL;
     }
     @RequestMapping("/insert_board")
     public String insert(HttpSession session, Model model){
-        System.out.println("insert board 페이지");
         UserDTO userDTO = (UserDTO) session.getAttribute("user");
 
         if(userDTO != null){
@@ -163,15 +148,4 @@ public class BoardController {
 
         return INTRODUCE_URL;
     }
-
-    private List<BoardDTO> getAndLogBoard(int id) {
-        List<BoardDTO> boardDTO = boardService.getAllBoardByCategory(id);
-
-        for(BoardDTO bdto : boardDTO) {
-            System.out.println(bdto.getTitle());
-        }
-
-        return boardDTO;
-    }
-
 }
