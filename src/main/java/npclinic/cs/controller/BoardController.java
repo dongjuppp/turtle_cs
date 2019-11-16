@@ -112,7 +112,7 @@ public class BoardController {
             model.addAttribute("writer", userDTO.getName());
             model.addAttribute("id", userDTO.getId());
             model.addAttribute("dropMenuId", dropMenuId);
-            System.out.println(dropMenuId);
+
             return BOARD_INSERT_URL;
         }
 
@@ -124,7 +124,6 @@ public class BoardController {
         System.out.println("trying insert!");
         UserDTO userDTO = (UserDTO)httpSession.getAttribute("user");
         boardDataDTO.setWriter(userDTO.getId());
-
         boardService.insertBoard(boardDataDTO);
 
         if(boardDataDTO.getDrop_menu_id() == 16) return "redirect:communityNnotice";
