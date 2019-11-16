@@ -14,7 +14,7 @@ public interface BoardMapper {
     @Select("SELECT * FROM board WHERE id = #{id}")
     BoardDTO getBoardById(@Param("id") int id);
 
-    @Insert("INSERT INTO board VALUES(#{user_id}, #{title}, #{views}, #{last_modified}, #{content}, #{drop_menu_id})")
+    @Insert("INSERT INTO board(title, content, writer, dropMenuId, views) VALUES (#{title}, #{content}, #{writer}, #{drop_menu_id},  #{views})")
     void insertBoard(BoardDTO boardDTO);
 
     @Update("UPDATE board SET title=#{title}, last_modified=#{last_modified}, content=#{content}")

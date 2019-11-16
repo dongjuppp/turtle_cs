@@ -72,43 +72,32 @@
                         <div class="section-title">
                             <h3>게시판</h3>
                         </div>
-                        <table class="bbs" width="800" height="200" border="2" bgcolor="D8D8D8">
-                            <colgroup>
-                                <col width="50" />
-                                <col width="500" />
-                                <col width="100" />
-                                <col width="50" />
-                            </colgroup>
+                        <table class="container">
                             <thead>
-                            <tr>
-                                <th>번 호</th>
-                                <th>제 목</th>
-                                <th>작성자</th>
-                                <th>작성일</th>
-                                <th>조 회</th>
+                            <tr class="row">
+                                <th colspan="3" style="width: 600px; padding-left: 15px;">
+                                    <h3 style="color: #1e1e1e; width: 80%; padding-bottom : 15px">
+                                        <strong style="width: 100%;">${title}</strong>
+                                    </h3>
+                                </th>
+                            </tr>
+                            <tr class="userBoardView_con">
+                                <th style="width: 60%; text-align: center;">작성자 : ${writer}</th>
+                                <th style="width: 100%; text-align: right; padding-right: 20px;">등록시간 : ${date} </th>
                             </tr>
                             </thead>
                             <tbody>
-                            <c:set var="index" value="0" />
-                            <c:forEach var="boardDTO" items="${board}">
                             <tr>
-                                <c:set var="index" value="${index + 1}" />
-                                <td align="center"> <c:out value="${index}" /></td>
-                                <td><a href="Board_View.jsp"> <c:out value="${boardDTO.title}" /> </a></td>
-                                <td align="center"> <c:out value="${boardDTO.content}" /> </td>
-                                <td align="center"> <c:out value="${boardDTO.date}" /> </td>
-                                <td align="center"> <c:out value="${boardDTO.views}" /> </td>
+                                <td colspan="3" class="col-sm-9" >
+                                    <hr> ${content}
+                                    <hr>
+                                </td>
                             </tr>
-                            </c:forEach>
-
                             </tbody>
-                            <tfoot>
-                            <tr>
-                                <td align="center" colspan="5">1</td>
-                            </tr>
-                            </tfoot>
                         </table>
+                        <div class="Formfooter">
 
+                        </div>
 
                     </div>
                 </div>

@@ -6,10 +6,9 @@ import npclinic.cs.service.board.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -29,7 +28,12 @@ public class BoardController {
     private final String BOARD_INSERT_URL = "board/insert_board";
     private final String BOARD_UPDATE_URL = "board/update_board";
     private final String BOARD_DELETE_URL = "board/delete_board";
-
+    private final String Nnonsalary = "board/";
+    private final String Zoster = "board/";
+    private final String Arthritis = "board/";
+    private final String shingles = "board/";
+    private final String nerve = "board/";
+    private final String neck = "board/";
 
     @Autowired
     public BoardController(BoardService boardService){
@@ -95,9 +99,22 @@ public class BoardController {
      */
 
     @RequestMapping("/view_board")
-    public String view(Model model){
+    public String view(Model model, HttpServletRequest httpServletRequest){
         System.out.println("view board 페이지");
-        model.addAttribute("data", boardService.getBoard(1));
+        int ind = Integer.parseInt(httpServletRequest.getParameter("ind"));
+        System.out.println(ind);
+        BoardDTO boardData =boardService.getBoard(ind);
+        System.out.println(boardData.getTitle());
+        System.out.println(boardData.getContent());
+        System.out.println(boardData.getUserId());
+        System.out.println(boardData.getDate());
+
+
+        model.addAttribute("title", boardData.getTitle());
+        model.addAttribute("content", boardData.getContent());
+        model.addAttribute("writer", boardData.getUserId());
+        model.addAttribute("date", boardData.getDate());
+        System.out.println();
         return VIEW_BOARD_URL;
     }
     @RequestMapping("/insert_board")
@@ -111,13 +128,18 @@ public class BoardController {
             return BOARD_INSERT_URL;
         }
 
-        return FREE_BOARD_URL;
+        return INTRODUCE_URL;
     }
 
     @RequestMapping(value = "boardData", method = RequestMethod.POST)
-    public String getBoardData(@ModelAttribute BoardDTO boardDataDTO, Model model, HttpSession httpSession){
+    public String getBoardData(@ModelAttribute("") BoardDTO boardDataDTO, Model model, HttpSession httpSession){
+        System.out.println("trying insert!");
         UserDTO userDTO = (UserDTO)httpSession.getAttribute("user");
-        boardDataDTO.setBoardUserId(userDTO.getId());
+        //boardDataDTO.setBoard(userDTO.getId(), );
+        //boardDataDTO.setBoardUserId();
+        //boardDataDTO.setBoardContent();
+        //boardDataDTO.setBoardTitle();
+        //boardDataDTO.setBoardDropMenuId();
 
         boardService.insertBoard(boardDataDTO);
 

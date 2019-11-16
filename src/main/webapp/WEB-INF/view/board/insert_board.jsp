@@ -71,23 +71,27 @@
                     <div class="contact-area style-two">
                         <div class="section-title">
                             <form action="/boardData" method="POST">
-                                <div class="createForm">
-                                    <label >제목</label>
-                                    <input type="text" name="board_title" class="createForm" placeholder = "게시판 제목">
-                                </div>
-                                <div class="createForm">
-                                    <label >내용</label>
-                                    <textarea rows="4" cols="15" name="board_content" class="createForm" placeholder = "게시판 내용"></textarea>
-                                </div>
-                                <div class="createForm">
-                                    <label >작성자</label>
-                                    <c:out value="${writer}" />
-                                </div>
+                                <table>
+                                    <colgroup><col width="15%"><col width="*"/></colgroup><caption>게시글 작성</caption>
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row">
+                                            제목
 
-                                <div class="Formfooter">
-                                    <button type="submit" class="btn_button">작성하기</button>
-                                </div>
 
+                                        </th>
+                                        <td>
+                                            <input type="text" id="title" name="title" class="wdp_90" style="width:500px"></input>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class="view_text">
+                                            <textarea rows="20" cols="100" title="내용" id="content" name="content"></textarea>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <input type="submit" name="업로드" value="작성하기" id="write">
                             </form>
 
                     </div>
