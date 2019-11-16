@@ -83,7 +83,7 @@
                             </tr>
                             <tr class="userBoardView_con">
                                 <th style="width: 60%; text-align: center;">작성자 : ${data.writer}</th>
-                                <th style="width: 100%; text-align: right; padding-right: 20px;">등록시간 : ${data.date} </th>
+                                <th style="width: 100%; text-align: right; padding-right: 20px;">등록시간 : ${data.dateStr} </th>
                             </tr>
                             </thead>
                             <tbody>

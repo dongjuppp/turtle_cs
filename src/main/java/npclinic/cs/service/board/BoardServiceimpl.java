@@ -31,7 +31,7 @@ public class BoardServiceimpl implements BoardService {
     @Override
     public BoardDTO getBoard(int id) {
         BoardDTO boardData = boardMapper.getBoardById(id);
-
+        boardData.setDateStr(formatDate(boardData.getDate()));
         return boardData;
     }
 
