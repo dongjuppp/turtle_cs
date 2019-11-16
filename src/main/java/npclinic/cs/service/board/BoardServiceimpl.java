@@ -30,13 +30,7 @@ public class BoardServiceimpl implements BoardService {
 
     @Override
     public BoardDTO getBoard(int id) {
-
         BoardDTO boardData = boardMapper.getBoardById(id);
-
-        System.out.println(boardData.getTitle());
-        System.out.println(boardData.getContent());
-        System.out.println(boardData.getUserId());
-        System.out.println(boardData.getDate());
 
         return boardData;
     }

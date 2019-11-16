@@ -23,6 +23,7 @@ public class BoardController {
     private final String INTRODUCE_URL = "board/introduce";
     private final String VIEW_BOARD_URL = "board/view_board";
     private final String FREE_BOARD_URL = "board/free_board";
+    private final String FREE_BOARD_REDIRECT_URL = "communityFree";
     private final String NOTICE_BOARD_URL = "board/notice_board";
     private final String MEDI_INFO_BOARD_URL = "board/medi_info_board";
     private final String BOARD_INSERT_URL = "board/insert_board";
@@ -44,10 +45,12 @@ public class BoardController {
     public String photo(){
         return INTRODUCE_URL;
     }
+
     @RequestMapping("communityFree")
     public String free(Model model){
         List<BoardDTO> boardDTO = boardService.getAllBoardByCategory(17);
         model.addAttribute("board", boardDTO);
+        model.addAttribute("dropMenuId", 17);
         return FREE_BOARD_URL;
     }
 
@@ -55,6 +58,7 @@ public class BoardController {
     public String notice(Model model){
         List<BoardDTO> boardDTO = boardService.getAllBoardByCategory(16);
         model.addAttribute("board", boardDTO);
+        model.addAttribute("dropMenuId", 16);
         return NOTICE_BOARD_URL;
     }
     @RequestMapping("introduceNnonsalary")
@@ -96,20 +100,19 @@ public class BoardController {
         BoardDTO boardData =boardService.getBoard(ind);
 
         model.addAttribute("data", boardData);
-        //model.addAttribute("title", boardData.getTitle());
-        //model.addAttribute("content", boardData.getContent());
-        //model.addAttribute("writer", boardData.getUserId());
-        //model.addAttribute("date", boardData.getDate());
 
         return VIEW_BOARD_URL;
     }
     @RequestMapping("/insert_board")
-    public String insert(HttpSession session, Model model){
+    public String insert(HttpSession session, Model model, HttpServletRequest httpServletRequest){
         UserDTO userDTO = (UserDTO) session.getAttribute("user");
+        int dropMenuId = Integer.parseInt(httpServletRequest.getParameter("dropMenuId"));
 
         if(userDTO != null){
             model.addAttribute("writer", userDTO.getName());
             model.addAttribute("id", userDTO.getId());
+            model.addAttribute("dropMenuId", dropMenuId);
+            System.out.println(dropMenuId);
             return BOARD_INSERT_URL;
         }
 
@@ -117,21 +120,16 @@ public class BoardController {
     }
 
     @RequestMapping(value = "boardData", method = RequestMethod.POST)
-    public String getBoardData(@ModelAttribute("") BoardDTO boardDataDTO, Model model, HttpSession httpSession){
+    public String getBoardData(@ModelAttribute BoardDTO boardDataDTO, Model model, HttpSession httpSession){
         System.out.println("trying insert!");
         UserDTO userDTO = (UserDTO)httpSession.getAttribute("user");
-        //boardDataDTO.setBoard(userDTO.getId(), );
-        //boardDataDTO.setBoardUserId();
-        //boardDataDTO.setBoardContent();
-        //boardDataDTO.setBoardTitle();
-        //boardDataDTO.setBoardDropMenuId();
+        boardDataDTO.setWriter(userDTO.getId());
 
         boardService.insertBoard(boardDataDTO);
 
-        model.addAttribute("data",boardService);
-        model.addAttribute("who","고객");
-        if(boardDataDTO.getDrop_menu_id() == 16) return NOTICE_BOARD_URL;
-        else if(boardDataDTO.getDrop_menu_id() == 17) return FREE_BOARD_URL;
+        if(boardDataDTO.getDrop_menu_id() == 16) return "redirect:communityNnotice";
+        else if(boardDataDTO.getDrop_menu_id() == 17) return "redirect:communityFree";
+
         return INTRODUCE_URL;
     }
 

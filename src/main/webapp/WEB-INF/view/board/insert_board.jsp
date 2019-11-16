@@ -79,17 +79,18 @@
                                             제목
                                         </th>
                                         <td>
-                                            <input type="text" id="title" name="title" class="wdp_90" style="width:500px"></input>
+                                            <input type="text" name="title" class="wdp_90" style="width:500px">
+                                            <input type="hidden" name="drop_menu_id" value="${dropMenuId}">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" class="view_text">
-                                            <textarea rows="20" cols="100" title="내용" id="content" name="content"></textarea>
+                                            <textarea rows="20" cols="100" title="내용" name="content"></textarea>
                                         </td>
                                     </tr>
                                     </tbody>
                                 </table>
-                                <input type="submit" name="업로드" value="작성하기" id="write">
+                                <input type="submit" value="작성하기">
                             </form>
 
                     </div>
