@@ -26,6 +26,7 @@ import static org.hamcrest.Matchers.is;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+
 public class ReserveServiceTest {
 
     @Mock
@@ -60,6 +61,6 @@ public class ReserveServiceTest {
         }
     }
 
-    
+
 
 }
