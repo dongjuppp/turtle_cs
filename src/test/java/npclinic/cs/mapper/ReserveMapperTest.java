@@ -36,10 +36,10 @@ public class ReserveMapperTest {
     ReserveMapper reserveMapper;
 
 
-    // 수락시 status가 정상적으로 변하는지 검사
+    // status가 정상적으로 변하는지 검사
     @Test
     @Transactional
-    public void testAccept(){
+    public void testReserveStatus(){
         ReserveDataDTO reserveDataDTO = new ReserveDataDTO();
         reserveDataDTO.setUserID("testId");
         reserveDataDTO.setSubject("test");
@@ -47,13 +47,22 @@ public class ReserveMapperTest {
         reserveDataDTO.setDate(new Date());
         reserveDataDTO.setMessage("testM");
         reserveDataDTO.setTime(13);
-        reserveDataDTO.setStatus("false"); //초기 false로 지정
+        reserveDataDTO.setStatus("waiting"); //초기 waiting으로 지정
 
         reserveMapper.registerData(reserveDataDTO);
+        assertThat("waiting"
+                .equals(reserveMapper.getReserveDataByID("testId")
+                        .getStatus()));
         reserveMapper.accept("testId");
 
         // accept로 정상적으로 바뀌었는지 검사
         assertThat("accept"
+                .equals(reserveMapper.getReserveDataByID("testId")
+                        .getStatus()));
+
+        reserveMapper.reject("testId"); // reject로 변환
+
+        assertThat("reject"
                 .equals(reserveMapper.getReserveDataByID("testId")
                         .getStatus()));
     }

@@ -14,8 +14,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.ArrayList;
 import java.util.Date;
 
+import static junit.framework.TestCase.assertNull;
+import static junit.framework.TestCase.assertTrue;
 import static org.assertj.core.api.Java6Assertions.assertThat;
 import static org.assertj.core.internal.bytebuddy.matcher.ElementMatchers.is;
+import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
 import static org.mockito.ArgumentMatchers.isNotNull;
 import static org.mockito.Mockito.when;
 import static org.hamcrest.Matchers.anything;
@@ -32,12 +35,24 @@ public class ReserveServiceTest {
     @Mock
     ReserveMapper reserveMapper;
 
+    // 날짜 변환이 되는지 검사
+    @Test
+    public void testConvertDateOne(){
+        ReserveDataDTO reserveDataDTO = new ReserveDataDTO();
+        reserveDataDTO.setDate(new Date());
+        assertNull(reserveDataDTO.getDataStr());
+
+        when(reserveMapper.getReserveDataByID("test")).thenReturn(reserveDataDTO);
+
+        assertNotNull(reserveMapper.getReserveDataByID("test"));
+    }
+
 
 
     /*
-    * 날짜 변환이 제대로 되었는지 검사*/
+    * 리스트의 날짜 변환이 제대로 되었는지 검사*/
     @Test
-    public void testConvertDate(){
+    public void testConvertDateList(){
         ReserveDataDTO reserveDataDTO1 = new ReserveDataDTO();
         ReserveDataDTO reserveDataDTO2 = new ReserveDataDTO();
         ReserveDataDTO reserveDataDTO3 = new ReserveDataDTO();
