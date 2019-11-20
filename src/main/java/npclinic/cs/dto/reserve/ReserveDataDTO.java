@@ -22,4 +22,20 @@ public class ReserveDataDTO {
     private String gender;
     private String status;
 
+    public boolean equals(ReserveDataDTO reserveDataDTO){
+
+
+        if(!reserveDataDTO.userID.equals(userID))
+            return false;
+
+        if(!reserveDataDTO.doctor.equals(doctor))
+            return false;
+
+        if(!reserveDataDTO.subject.equals(subject))
+           return false;
+
+
+        return true;
+    }
+
 }
