@@ -35,6 +35,44 @@ public class ReserveMapperTest {
     @Autowired
     ReserveMapper reserveMapper;
 
+
+    // 수락시 status가 정상적으로 변하는지 검사
+    @Test
+    @Transactional
+    public void testAccept(){
+        ReserveDataDTO reserveDataDTO = new ReserveDataDTO();
+        reserveDataDTO.setUserID("testId");
+        reserveDataDTO.setSubject("test");
+        reserveDataDTO.setDoctor("testDoctor");
+        reserveDataDTO.setDate(new Date());
+        reserveDataDTO.setMessage("testM");
+        reserveDataDTO.setTime(13);
+        reserveDataDTO.setStatus("false"); //초기 false로 지정
+
+        reserveMapper.registerData(reserveDataDTO);
+        reserveMapper.accept("testId");
+
+        // accept로 정상적으로 바뀌었는지 검사
+        assertThat("accept"
+                .equals(reserveMapper.getReserveDataByID("testId")
+                        .getStatus()));
+    }
+
+
+    // 정상적으로 삭제가 되는지 검사
+    @Test
+    @Transactional
+    public void testDeleteData(){
+        List<ReserveDataDTO> before = reserveMapper.getReserveList();
+        reserveMapper.deleteReserveDataByID("dongjuppp");
+        List<ReserveDataDTO> after = reserveMapper.getReserveList();
+        assertTrue(before.size() != after.size());
+
+    }
+
+
+
+    // 정상적으로 삽입이 되고있는지 테스트
     @Test
     @Transactional // 이 Annotation이 test후 rollback을 해줌
     public void insertDataTest(){
@@ -49,7 +87,6 @@ public class ReserveMapperTest {
         reserveDataDTO.setStatus("test");
         reserveMapper.registerData(reserveDataDTO);
         List<ReserveDataDTO> after = reserveMapper.getReserveList();
-
         assertTrue(before.size() != after.size());
     }
 
