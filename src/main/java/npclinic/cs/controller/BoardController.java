@@ -13,10 +13,6 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 
-/*
-게시판 컨트롤러
-num을 GET방식으로 받아 어떤 게시판인지 구분
- */
 @Controller
 public class BoardController {
     private BoardService boardService;
@@ -61,6 +57,7 @@ public class BoardController {
         model.addAttribute("dropMenuId", 16);
         return NOTICE_BOARD_URL;
     }
+
     @RequestMapping("introduceNnonsalary")
     public String nonSalary(){
         return INTRODUCE_URL;
@@ -97,13 +94,15 @@ public class BoardController {
     @RequestMapping("/view_board")
     public String view(Model model, HttpServletRequest httpServletRequest){
         int ind = Integer.parseInt(httpServletRequest.getParameter("ind"));
-        BoardDTO boardData =boardService.getBoard(ind);
 
-        System.out.println(boardData.getDropMenuId());
+        BoardDTO boardData =boardService.getBoard(ind);
+        boardService.updateViews(ind, boardData.getViews());
+
         model.addAttribute("data", boardData);
 
         return VIEW_BOARD_URL;
     }
+
     @RequestMapping("/insert_board")
     public String insert(HttpSession session, Model model, HttpServletRequest httpServletRequest){
         UserDTO userDTO = (UserDTO) session.getAttribute("user");
@@ -134,7 +133,6 @@ public class BoardController {
 
     @RequestMapping(value = "boardData", method = RequestMethod.POST)
     public String getBoardData(@ModelAttribute BoardDTO boardDataDTO, Model model, HttpSession httpSession){
-        System.out.println("trying insert!");
         UserDTO userDTO = (UserDTO)httpSession.getAttribute("user");
         boardDataDTO.setWriter(userDTO.getId());
 

@@ -14,23 +14,23 @@ CREATE TABLE IF NOT EXISTS `board` (
   `title` varchar(45) DEFAULT NULL,
   `content` text DEFAULT NULL,
   `writer` varchar(45) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `dropMenuId` int(11) DEFAULT NULL,
   `views` int(11) DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8;
 
 DELETE FROM `board`;
 /*!40000 ALTER TABLE `board` DISABLE KEYS */;
 INSERT INTO `board` (`id`, `title`, `content`, `writer`, `date`, `dropMenuId`, `views`) VALUES
-	(1, 'TESTING FREE BOARD1', 'TEST CONTENT1', 'dongju', '2019-11-17 02:00:27', 17, 0),
-	(2, 'TESTING FREE BOARD1', 'TEST CONTENT1', 'dongju', '2019-11-17 02:00:27', 17, 0),
-	(3, 'TESTING FREE BOARD2', 'TEST CONTENT2', 'dongju', '2019-11-17 02:00:27', 17, 0),
-	(4, 'TESTING FREE BOARD3', 'TEST CONTENT3', 'dongju', '2019-11-17 02:00:27', 17, 0),
-	(5, 'TESTING NOTICE BOARD1', 'TEST NOTICE CONTENT1', 'dongju', '2019-11-17 02:00:27', 16, 0),
-	(6, 'TESTING NOTICE BOARD2', 'TEST NOTICE CONTENT2', 'dongju', '2019-11-17 02:00:27', 16, 0),
-	(7, 'TESTING NOTICE BOARD3', 'TEST NOTICE CONTENT3', 'dongju', '2019-11-17 02:00:27', 16, 0),
-	(8, 'TESTING NOTICE BOARD4', 'TEST NOTICE CONTENT4', 'dongju', '2019-11-17 02:00:27', 16, 0),
+	(1, 'TESTING FREE BOARD1', 'TEST CONTENT1', 'dongju', '2019-11-19 16:13:37', 17, 10),
+	(2, 'TESTING FREE BOARD1', 'TEST CONTENT1', 'dongju', '2019-11-19 16:15:03', 17, 2),
+	(3, 'TESTING FREE BOARD2', 'TEST CONTENT2', 'dongju', '2019-11-19 16:16:42', 17, 2),
+	(4, 'TESTING FREE BOARD3', 'TEST CONTENT3', 'dongju', '2019-11-19 16:18:23', 17, 2),
+	(5, 'TESTING NOTICE BOARD1', 'TEST NOTICE CONTENT1', 'dongju', '2019-11-19 16:22:52', 16, 4),
+	(6, 'TESTING NOTICE BOARD2', 'TEST NOTICE CONTENT2', 'dongju', '2019-11-19 16:23:02', 16, 4),
+	(7, 'TESTING NOTICE BOARD3', 'TEST NOTICE CONTENT3', 'dongju', '2019-11-19 16:27:45', 16, 2),
+	(8, 'TESTING NOTICE BOARD4', 'TEST NOTICE CONTENT4', 'dongju', '2019-11-19 16:28:49', 16, 2),
 	(9, '목디스크', '경추 추간판탈출증은 흔히 목디스크라고 불리는 것입니다. 정상적으로 목에도 허리와 같이 등뼈(척추)와 등뼈 사이에 있는 디스크가 있는데 이 디스크가 어떠한 원인에 의하여 신경이 지나가는 길(척수강)로 돌출되어 나오게 되면 척수강에 있는 신경이 눌리게 되고 눌리는 신경에 따라 통증, 감각 이상, 근력 마비 등의 증상이 나타나는 병을 말합니다.', 'dongju', '2019-11-17 02:00:27', 4, 0),
 	(10, '디스크의 퇴행성 변화에 의하여 증상 발생', '외상에 의해 갑자기 생기는 수도 있지만 퇴행성 변화에 의하여 서서히 증상이 생기는 경우가 많습니다. 디스크란 등뼈(척추)들의 사이에서 충격을 흡수하는 기능을 하는 것으로 일종의 물렁뼈입니다. 디스크는 사람이 생활을 하면서 충격을 받으면서 조금씩 물 성분(수분)이 빠져 노인이 되면 푸석푸석할 정도로 변합니다. 사람이 나이가 들면서 몸의 변화가 나타나는 것을 퇴행성 변화라고 하는데 이러한 디스크의 변성도 일종의 퇴행성 변화입니다.', 'dongju', '2019-11-17 02:00:27', 4, 0),
 	(11, '디스크의 퇴행성 변화에 의하여 증상 발생', '디스크가 이러한 변성을 일으키면 바깥쪽에 있는 섬유륜에 금이 갑니다. 섬유륜에 금이 가고 점점 벌어지면 틈이 생깁니다. 수핵에 가해지는 압력이 어느 정도 이상이 되면 이를 견디지 못하고 섬유륜에 생긴 틈을 비집고 수핵이 신경이 지나가는 길인 척수강으로 삐져나오게 되면 신경을 압박하여 증상이 발생하는 것입니다.', 'dongju', '2019-11-17 02:00:27', 4, 0),
@@ -86,8 +86,26 @@ INSERT INTO `board` (`id`, `title`, `content`, `writer`, `date`, `dropMenuId`, `
 	(61, '상해진단서', '10만원 ~ 30만원', 'dongju', '2019-11-17 02:00:27', 9, 0),
 	(62, '진단서', '2만원', 'dongju', '2019-11-17 02:00:27', 9, 0),
 	(63, '소견서', '1만원', 'dongju', '2019-11-17 02:00:27', 9, 0),
-	(64, '차트복사', '5천원', 'dongju', '2019-11-17 02:00:27', 9, 0);
+	(64, '차트복사', '5천원', 'dongju', '2019-11-17 02:00:27', 9, 0),
+	(66, 'insert test', 'test\r\n', 'user', '2019-11-19 16:21:41', 17, 2);
 /*!40000 ALTER TABLE `board` ENABLE KEYS */;
+
+DROP TABLE IF EXISTS `doctor`;
+CREATE TABLE IF NOT EXISTS `doctor` (
+  `id` int(10) NOT NULL,
+  `position` varchar(100) DEFAULT NULL,
+  `career` text DEFAULT NULL,
+  `image` varchar(100) DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DELETE FROM `doctor`;
+/*!40000 ALTER TABLE `doctor` DISABLE KEYS */;
+INSERT INTO `doctor` (`id`, `position`, `career`, `image`, `name`) VALUES
+	(1, '김갑수신경통증클리닉 원장', '신촌 세브란스 병원 전문의 수련/강남세브란스 교수역임/연세대학교 마취통증과 외래 정교수/대한통증과 정회원/대한척추통증학회 정회원/통증연구학회 정회원/서초구의사회 전 정보이사/서초구의사회 현 총무이사/대한마취통증 의사회 전 보험이사/대한마취통증 의사회 전 국제이사/대한마취통증 의사회 현 기획이사', 'doctor/image1.jpg', '김갑수'),
+	(2, '김갑수신경통증클리닉 부원장', '세브란스병원 전문의 수련/마취통증의학과 전문의/대한마취과학회 정회원', 'doctor/image2.jpg', '전동병');
+/*!40000 ALTER TABLE `doctor` ENABLE KEYS */;
 
 DROP TABLE IF EXISTS `drop_menu`;
 CREATE TABLE IF NOT EXISTS `drop_menu` (
@@ -153,6 +171,23 @@ DELETE FROM `hospital_info`;
 INSERT INTO `hospital_info` (`phone`, `fax`, `email`, `address`, `openTime`, `saturdayTime`, `lunchTime`) VALUES
 	('02-536-1777', '02-536-1777', 'npclinic@gmail.com', '서울 서초구 방배동 1770번지 2층 ', '09:00 ~ 19:00', '09:00 ~ 14:00', '13:00 ~ 14:00');
 /*!40000 ALTER TABLE `hospital_info` ENABLE KEYS */;
+
+DROP TABLE IF EXISTS `introduce`;
+CREATE TABLE IF NOT EXISTS `introduce` (
+  `id` int(10) NOT NULL,
+  `text1` text DEFAULT NULL,
+  `text2` text DEFAULT NULL,
+  `text3` text DEFAULT NULL,
+  `image1` varchar(100) DEFAULT NULL,
+  `image2` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DELETE FROM `introduce`;
+/*!40000 ALTER TABLE `introduce` DISABLE KEYS */;
+INSERT INTO `introduce` (`id`, `text1`, `text2`, `text3`, `image1`, `image2`) VALUES
+	(1, '안녕하세요<br>김갑수신경통증클리닉 원장 김갑수입니다.', '저희 홈페이지를 찾아주셔서 진심으로 감사드립니다.', '여러분의 질병 예방을 위해 맺은 인연으로 말미암아 따뜻한 주치의가 되어 환자의 평생건강을 지켜드리고자 노력하겠습니다.<br><br>늘 여러분과 가까이에서 보다 편리하고 편안한 진료를 제공함으로써 여러분의 평생 주치의가 되고자 하는 마음가짐으로 진료에 임하겠습니다.<br><br>또한 신속하고 정확한 진단을 위해 발 빠르게 준비하고 있으며, 언제나 여러분의 궁금증과 상담을 친절하고 열린 마음으로 답변해 드리고 있습니다.<br><br>앞으로도 항상 정성 어린 마음과 친절한 진료를 바탕으로 끊임없이 발전하는 모습을 여러분께 자신 있게 보여드리겠습니다.<br><br>감사합니다.', 'introduce/image1.jpg', NULL);
+/*!40000 ALTER TABLE `introduce` ENABLE KEYS */;
 
 DROP TABLE IF EXISTS `reserve_data`;
 CREATE TABLE IF NOT EXISTS `reserve_data` (

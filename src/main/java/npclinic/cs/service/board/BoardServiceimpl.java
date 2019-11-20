@@ -5,6 +5,7 @@ import npclinic.cs.mapper.board.BoardMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -43,6 +44,13 @@ public class BoardServiceimpl implements BoardService {
     @Override
     public void updateBoard(BoardDTO boardDTO) {
         boardMapper.updateBoard(boardDTO);
+    }
+
+    @Override
+    public void updateViews(int id, int views) {
+        System.out.println("views count system");
+        System.out.println(views);
+        boardMapper.updateViews(id, views);
     }
 
     @Override

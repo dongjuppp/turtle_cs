@@ -17,4 +17,7 @@ public class BoardDTO {
     private int dropMenuId;
     private String dateStr;
 
+    public void plusViews(){
+        this.views++;
+    }
 }
