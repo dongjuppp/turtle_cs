@@ -21,6 +21,7 @@
             <c:if test="${user != null }"><a class="btn btn-style-one" href="/logout" style="float: left">로그아웃</a></c:if>
             <c:if test="${user != null }"><a class="btn btn-style-one" href="/update_page" style="float: left">자기 정보 수정하기</a></c:if>
             <c:if test="${user != null && user.type == 'admin'}"><a class="btn btn-style-one" href="/user_manage" style="float: left">회원관리</a></c:if>
+            <c:if test="${user != null && user.type == 'admin'}"><a class="btn btn-style-one" href="/test_add" style="float: left">회원 임시 추가</a></c:if>
             <a>&nbsp;&nbsp;&nbsp;</a>
         </div>
 
