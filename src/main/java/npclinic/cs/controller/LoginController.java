@@ -40,8 +40,6 @@ public class LoginController {
     public String loginPage(){
         UserDTO userDTO = userService.getUser("test1");
 
-        System.out.println(userDTO.getId());
-
         return "login/login_page";
     }
 
@@ -55,7 +53,6 @@ public class LoginController {
         }
 
         else if(userDTO.getPassword().equals(password)){
-            System.out.println("2");
             httpSession.setAttribute("user", userDTO);
             UserDTO tmp = (UserDTO)httpSession.getAttribute("user");
 
@@ -95,9 +92,15 @@ public class LoginController {
 
     @RequestMapping("/insert_user")
     public String registerUser(@ModelAttribute("userDTO") UserDTO userDTO, @RequestParam("first_phone") String first_phone,
-                               @RequestParam("second_phone") String second_phone, @RequestParam("third_phone") String third_phone){
+                               @RequestParam("second_phone") String second_phone, @RequestParam("third_phone") String third_phone,
+                               @RequestParam("birth") String birth){
         Date current = new Date();
 
+        String[] token = birth.split("/");
+        String dateFormat = token[2] + "/" + token[1] + "/" + token[0];
+        System.out.println(dateFormat);
+
+        userDTO.setBirth(dateFormat);
         userDTO.setPhone(first_phone + "-" + second_phone + "-" + third_phone);
         userDTO.setType("customer");
         userDTO.setLast_login(current);

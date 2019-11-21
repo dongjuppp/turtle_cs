@@ -1,6 +1,5 @@
 package npclinic.cs.controller;
 
-import npclinic.cs.dto.menu.HeaderMenuDTO;
 import npclinic.cs.service.etc.HospitalInfoService;
 import npclinic.cs.service.menu.DropMenuService;
 import npclinic.cs.service.menu.HeaderMenuService;
@@ -55,6 +54,7 @@ public class WebInterceptor implements HandlerInterceptor {
             // 세션만료 혹은 처음 접속이니 유저타입을 게스트로 저장
             httpSession.setAttribute("userType"
                     ,userTypeService.getUserTypeByNumber(3));
+
 
         }
 
