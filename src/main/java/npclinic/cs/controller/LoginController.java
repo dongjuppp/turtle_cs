@@ -49,10 +49,8 @@ public class LoginController {
     public String login(@RequestParam("id") String id, @RequestParam("password") String password, HttpSession httpSession){
         UserDTO userDTO = null;
         userDTO = userService.getUser(id);
-        System.out.println("0");
 
         if(userDTO == null){
-            System.out.println("1");
             return "login/login_page";
         }
 
@@ -60,13 +58,11 @@ public class LoginController {
             System.out.println("2");
             httpSession.setAttribute("user", userDTO);
             UserDTO tmp = (UserDTO)httpSession.getAttribute("user");
-            System.out.println(tmp.getId());
 
             return "index";
         }
 
         else{
-            System.out.println("3");
             return "login/login_page";
         }
 

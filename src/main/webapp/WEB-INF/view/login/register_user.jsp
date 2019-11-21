@@ -33,6 +33,11 @@
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
+    <!--For Date-->
+    <link rel="stylesheet" href="/css/bootstrap-datetimepicker.min.css">
+    <script src="/js/moment-with-locales.min.js"></script>
+    <script src="/js/bootstrap-datetimepicker.min.js"></script>
+
 </head>
 
 
@@ -71,65 +76,89 @@
                     <h2>회원 가입</h2>
                     <p class="hint-text">회원 정보를 입력해주세요. 모든 칸은 기입되어야 합니다.</p>
                 </div>
-            <form name="register_form" class="default-form contact-form"  action="/insert_user" method="post" modelAttribute="userDTO">
+                <form name="register_form" class="default-form contact-form" action="/insert_user" method="post"
+                      modelAttribute="userDTO">
 
-                <div class="form-group">
-                    <div class="row">
-                    <div class="col-xs-9">
-                    <input type="text" class="form-control" name="id" id="id" placeholder="아이디를 입력해주세요" required="required">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-9">
+                                <input type="text" class="form-control" name="id" id="id" placeholder="아이디를 입력해주세요"
+                                       required="required">
+                            </div>
+                        </div>
                     </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-9">
+                                <input type="password" class="form-control" name="password" id="password"
+                                       placeholder="비밀번호를 입력해주세요" required="required">
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                    <div class="col-xs-9">
-                    <input type="password" class="form-control" name="password" id="password" placeholder="비밀번호를 입력해주세요" required="required">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-9">
+                                <input type="text" class="form-control" name="name" id="name" placeholder="이름을 입력해주세요"
+                                       required="required">
+                            </div>
+                        </div>
                     </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-9">
+                                <input type="email" class="form-control" name="email" id="email"
+                                       placeholder="이메일을 입력해주세요" required="required">
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                    <div class="col-xs-9">
-                    <input type="text" class="form-control" name="name" id="name" placeholder="이름을 입력해주세요" required="required">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-3"><input type="text" class="form-control" name="first_phone"
+                                                         id="first_phone" placeholder="010" required="required"></div>
+                            <div class="col-xs-3"><input type="text" class="form-control" name="second_phone"
+                                                         id="second_phone" placeholder="0000" required="required"></div>
+                            <div class="col-xs-3"><input type="text" class="form-control" name="third_phone"
+                                                         id="third_phone" placeholder="0000" required="required"></div>
+                        </div>
                     </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <input type="text" class="form-control" readonly="true" placeholder="성별">
+                            </div>
+                            <div class="col-xs-7">
+                                <select name="gender" id="gender">
+                                    <option>남</option>
+                                    <option>여</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                    <div class="col-xs-9">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="이메일을 입력해주세요" required="required">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <select name="birth_year" id="birth_year">
+                                    <c:forEach var="year" begin="1900" end="">
+                                        
+                                    </c:forEach>
+                                    <option>남</option>
+                                    <option>여</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-9">
+                                <input type="text" class="form-control" name="birth" id="birth" placeholder="생일을 입력해주세요"
+                                       required="required">
+                            </div>
+                        </div>
                     </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-9">
+                                <button type="submit" class="btn btn-success btn-lg btn-block">회원 가입</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-xs-3"><input type="text" class="form-control" name="first_phone" id="first_phone" placeholder="010" required="required"></div>
-                        <div class="col-xs-3"><input type="text" class="form-control" name="second_phone" id="second_phone" placeholder="0000" required="required"></div>
-                        <div class="col-xs-3"><input type="text" class="form-control" name="third_phone" id="third_phone" placeholder="0000" required="required"></div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                    <div class="col-xs-9">
-                    <input type="text" class="form-control" name="gender" id="gender" placeholder="성별을 입력해주세요" required="required">
-                    </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                    <div class="col-xs-9">
-                    <input type="text" class="form-control" name="birth" id="birth" placeholder="생일을 입력해주세요" required="required">
-                    </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                    <div class="col-xs-9">
-                    <button type="submit" class="btn btn-success btn-lg btn-block">회원 가입</button>
-                    </div>
-                    </div>
-                </div>
-            </form>
+                </form>
             </div>
         </div>
     </section>
