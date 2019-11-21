@@ -40,7 +40,7 @@ public class GreetingController {
 
     @RequestMapping("introduceLook")
     public String look(){
-        return INTRODUCE_URL;
+        return "greeting/greeting_service";
     }
 
 }
