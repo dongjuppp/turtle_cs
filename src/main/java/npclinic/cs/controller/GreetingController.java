@@ -4,10 +4,7 @@ import javax.servlet.http.HttpSession;
 import com.google.gson.Gson;
 import npclinic.cs.dto.greeting.DoctorDTO;
 import npclinic.cs.dto.greeting.IntroduceDTO;
-import npclinic.cs.service.greeting.IntroduceService;
-import npclinic.cs.service.greeting.IntroduceServiceImpl;
-import npclinic.cs.service.greeting.DoctorService;
-import npclinic.cs.service.greeting.DoctorServiceImpl;
+import npclinic.cs.service.greeting.*;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,12 +18,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class GreetingController {
     private IntroduceService introduceService;
     private DoctorService doctorService;
+    private ServiceService serviceService;
     private Gson gson;
 
     @Autowired
-    public GreetingController(IntroduceService introduceService, DoctorService doctorService, Gson gson){
+    public GreetingController(IntroduceService introduceService, DoctorService doctorService, ServiceService serviceService, Gson gson){
         this.introduceService = introduceService;
         this.doctorService = doctorService;
+        this.serviceService = serviceService;
         this.gson = gson;
     }
 
@@ -39,7 +38,10 @@ public class GreetingController {
     }
 
     @RequestMapping("introduceLook")
-    public String look(){
+    public String lookPage(Model model){
+        model.addAttribute("services", serviceService.getAllService());
+        model.addAttribute("introduce", introduceService.getIntroduce(2));
+
         return "greeting/greeting_service";
     }
 
