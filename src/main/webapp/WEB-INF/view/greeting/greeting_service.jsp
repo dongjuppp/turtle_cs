@@ -38,7 +38,7 @@
     <!-- Preloader -->
     <!-- <div class="preloader"></div> -->
     <!-- Preloader -->
-    <%@include file="../common/header.jsp"%>
+    <%@include file="../common/header.jsp" %>
     <!--End Main Header -->
 
     <!--Page Title-->
@@ -61,34 +61,31 @@
     <section class="service-section bg-gray section">
         <div class="container">
             <div class="section-title text-center">
-                <h3>Provided
-                    <span>Services</span>
+                <h3>둘러보기
+                    <span>${introduce.text1}</span>
                 </h3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet. qui suscipit atque <br>
-                    fugiat officia corporis rerum eaque neque totam animi, sapiente culpa. Architecto!</p>
+                <p>${introduce.text2}</p>
             </div>
             <div class="row items-container clearfix">
-                <div class="item">
-                    <div class="inner-box">
-                        <div class="img_holder">
-                                <img src="images/gallery/1.jpg" alt="images" class="img-responsive">
-                            </a>
-                        </div>
-                        <div class="image-content text-center">
-                            <span>Better Service At Low Cost</span>
-                            <a href="service.html">
-                                <h6>Dormitory</h6>
-                            </a>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, vero.</p>
+                <c:forEach items="${services}" var="service" varStatus="status">
+                    <div class="item">
+                        <div class="inner-box">
+                            <div class="img_holder">
+                                <img src="images/${service.image}" alt="images" class="img-responsive">
+                                </a>
+                            </div>
+                            <div class="image-content text-center">
+                                <span>${service.text}</span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </c:forEach>
             </div>
         </div>
     </section>
     <!-- End Contact Section -->
 
-    <%@include file="../common/footer.jsp"%>
+    <%@include file="../common/footer.jsp" %>
 
     <script src="plugins/jquery.js"></script>
     <script src="plugins/bootstrap.min.js"></script>
