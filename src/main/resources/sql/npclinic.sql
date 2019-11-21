@@ -1,13 +1,23 @@
+-- --------------------------------------------------------
+-- 호스트:                          127.0.0.1
+-- 서버 버전:                        10.4.8-MariaDB - mariadb.org binary distribution
+-- 서버 OS:                        Win64
+-- HeidiSQL 버전:                  10.2.0.5599
+-- --------------------------------------------------------
+
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET NAMES utf8 */;
 /*!50503 SET NAMES utf8mb4 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
+
+-- npclinic 데이터베이스 구조 내보내기
 DROP DATABASE IF EXISTS `npclinic`;
 CREATE DATABASE IF NOT EXISTS `npclinic` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `npclinic`;
 
+-- 테이블 npclinic.board 구조 내보내기
 DROP TABLE IF EXISTS `board`;
 CREATE TABLE IF NOT EXISTS `board` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -20,6 +30,7 @@ CREATE TABLE IF NOT EXISTS `board` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8;
 
+-- 테이블 데이터 npclinic.board:~65 rows (대략적) 내보내기
 DELETE FROM `board`;
 /*!40000 ALTER TABLE `board` DISABLE KEYS */;
 INSERT INTO `board` (`id`, `title`, `content`, `writer`, `date`, `dropMenuId`, `views`) VALUES
@@ -90,6 +101,7 @@ INSERT INTO `board` (`id`, `title`, `content`, `writer`, `date`, `dropMenuId`, `
 	(66, 'insert test', 'test\r\n', 'user', '2019-11-19 16:21:41', 17, 2);
 /*!40000 ALTER TABLE `board` ENABLE KEYS */;
 
+-- 테이블 npclinic.doctor 구조 내보내기
 DROP TABLE IF EXISTS `doctor`;
 CREATE TABLE IF NOT EXISTS `doctor` (
   `id` int(10) NOT NULL,
@@ -100,6 +112,7 @@ CREATE TABLE IF NOT EXISTS `doctor` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- 테이블 데이터 npclinic.doctor:~2 rows (대략적) 내보내기
 DELETE FROM `doctor`;
 /*!40000 ALTER TABLE `doctor` DISABLE KEYS */;
 INSERT INTO `doctor` (`id`, `position`, `career`, `image`, `name`) VALUES
@@ -107,6 +120,7 @@ INSERT INTO `doctor` (`id`, `position`, `career`, `image`, `name`) VALUES
 	(2, '김갑수신경통증클리닉 부원장', '세브란스병원 전문의 수련/마취통증의학과 전문의/대한마취과학회 정회원', 'doctor/image2.jpg', '전동병');
 /*!40000 ALTER TABLE `doctor` ENABLE KEYS */;
 
+-- 테이블 npclinic.drop_menu 구조 내보내기
 DROP TABLE IF EXISTS `drop_menu`;
 CREATE TABLE IF NOT EXISTS `drop_menu` (
   `id` int(11) NOT NULL,
@@ -116,6 +130,7 @@ CREATE TABLE IF NOT EXISTS `drop_menu` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- 테이블 데이터 npclinic.drop_menu:~15 rows (대략적) 내보내기
 DELETE FROM `drop_menu`;
 /*!40000 ALTER TABLE `drop_menu` DISABLE KEYS */;
 INSERT INTO `drop_menu` (`id`, `title`, `orderNum`, `url`) VALUES
@@ -136,6 +151,7 @@ INSERT INTO `drop_menu` (`id`, `title`, `orderNum`, `url`) VALUES
 	(20, '예약확인', 5, 'ReserveCheck');
 /*!40000 ALTER TABLE `drop_menu` ENABLE KEYS */;
 
+-- 테이블 npclinic.header_menu 구조 내보내기
 DROP TABLE IF EXISTS `header_menu`;
 CREATE TABLE IF NOT EXISTS `header_menu` (
   `id` int(11) NOT NULL,
@@ -145,6 +161,7 @@ CREATE TABLE IF NOT EXISTS `header_menu` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- 테이블 데이터 npclinic.header_menu:~5 rows (대략적) 내보내기
 DELETE FROM `header_menu`;
 /*!40000 ALTER TABLE `header_menu` DISABLE KEYS */;
 INSERT INTO `header_menu` (`id`, `title`, `orderNum`, `url`) VALUES
@@ -155,6 +172,7 @@ INSERT INTO `header_menu` (`id`, `title`, `orderNum`, `url`) VALUES
 	(6, '예약', 5, 'reserve');
 /*!40000 ALTER TABLE `header_menu` ENABLE KEYS */;
 
+-- 테이블 npclinic.hospital_info 구조 내보내기
 DROP TABLE IF EXISTS `hospital_info`;
 CREATE TABLE IF NOT EXISTS `hospital_info` (
   `phone` varchar(45) DEFAULT NULL,
@@ -166,12 +184,14 @@ CREATE TABLE IF NOT EXISTS `hospital_info` (
   `lunchTime` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- 테이블 데이터 npclinic.hospital_info:~0 rows (대략적) 내보내기
 DELETE FROM `hospital_info`;
 /*!40000 ALTER TABLE `hospital_info` DISABLE KEYS */;
 INSERT INTO `hospital_info` (`phone`, `fax`, `email`, `address`, `openTime`, `saturdayTime`, `lunchTime`) VALUES
 	('02-536-1777', '02-536-1777', 'npclinic@gmail.com', '서울 서초구 방배동 1770번지 2층 ', '09:00 ~ 19:00', '09:00 ~ 14:00', '13:00 ~ 14:00');
 /*!40000 ALTER TABLE `hospital_info` ENABLE KEYS */;
 
+-- 테이블 npclinic.introduce 구조 내보내기
 DROP TABLE IF EXISTS `introduce`;
 CREATE TABLE IF NOT EXISTS `introduce` (
   `id` int(10) NOT NULL,
@@ -183,12 +203,15 @@ CREATE TABLE IF NOT EXISTS `introduce` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- 테이블 데이터 npclinic.introduce:~1 rows (대략적) 내보내기
 DELETE FROM `introduce`;
 /*!40000 ALTER TABLE `introduce` DISABLE KEYS */;
 INSERT INTO `introduce` (`id`, `text1`, `text2`, `text3`, `image1`, `image2`) VALUES
-	(1, '안녕하세요<br>김갑수신경통증클리닉 원장 김갑수입니다.', '저희 홈페이지를 찾아주셔서 진심으로 감사드립니다.', '여러분의 질병 예방을 위해 맺은 인연으로 말미암아 따뜻한 주치의가 되어 환자의 평생건강을 지켜드리고자 노력하겠습니다.<br><br>늘 여러분과 가까이에서 보다 편리하고 편안한 진료를 제공함으로써 여러분의 평생 주치의가 되고자 하는 마음가짐으로 진료에 임하겠습니다.<br><br>또한 신속하고 정확한 진단을 위해 발 빠르게 준비하고 있으며, 언제나 여러분의 궁금증과 상담을 친절하고 열린 마음으로 답변해 드리고 있습니다.<br><br>앞으로도 항상 정성 어린 마음과 친절한 진료를 바탕으로 끊임없이 발전하는 모습을 여러분께 자신 있게 보여드리겠습니다.<br><br>감사합니다.', 'introduce/image1.jpg', NULL);
+	(1, '안녕하세요<br>김갑수신경통증클리닉 원장 김갑수입니다.', '저희 홈페이지를 찾아주셔서 진심으로 감사드립니다.', '여러분의 질병 예방을 위해 맺은 인연으로 말미암아 따뜻한 주치의가 되어 환자의 평생건강을 지켜드리고자 노력하겠습니다.<br><br>늘 여러분과 가까이에서 보다 편리하고 편안한 진료를 제공함으로써 여러분의 평생 주치의가 되고자 하는 마음가짐으로 진료에 임하겠습니다.<br><br>또한 신속하고 정확한 진단을 위해 발 빠르게 준비하고 있으며, 언제나 여러분의 궁금증과 상담을 친절하고 열린 마음으로 답변해 드리고 있습니다.<br><br>앞으로도 항상 정성 어린 마음과 친절한 진료를 바탕으로 끊임없이 발전하는 모습을 여러분께 자신 있게 보여드리겠습니다.<br><br>감사합니다.', 'introduce/image1.jpg', NULL),
+	(2, '쾌적하고 편리한 환경', '작은 부분까지 배려한 공간입니다.<br>항상 청결한 환경을 위해 노력하고 있습니다.', NULL, NULL, NULL);
 /*!40000 ALTER TABLE `introduce` ENABLE KEYS */;
 
+-- 테이블 npclinic.reserve_data 구조 내보내기
 DROP TABLE IF EXISTS `reserve_data`;
 CREATE TABLE IF NOT EXISTS `reserve_data` (
   `userID` varchar(50) NOT NULL,
@@ -200,6 +223,7 @@ CREATE TABLE IF NOT EXISTS `reserve_data` (
   `status` varchar(50) NOT NULL DEFAULT 'waiting'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- 테이블 데이터 npclinic.reserve_data:~3 rows (대략적) 내보내기
 DELETE FROM `reserve_data`;
 /*!40000 ALTER TABLE `reserve_data` DISABLE KEYS */;
 INSERT INTO `reserve_data` (`userID`, `doctor`, `subject`, `date`, `message`, `time`, `status`) VALUES
@@ -208,6 +232,35 @@ INSERT INTO `reserve_data` (`userID`, `doctor`, `subject`, `date`, `message`, `t
 	('user', '전동병', '목/허리디스크(비수술)', '2019-10-26 00:00:00', 'adsf', 13, 'waiting');
 /*!40000 ALTER TABLE `reserve_data` ENABLE KEYS */;
 
+-- 테이블 npclinic.service 구조 내보내기
+DROP TABLE IF EXISTS `service`;
+CREATE TABLE IF NOT EXISTS `service` (
+  `id` int(11) NOT NULL,
+  `text` varchar(50) DEFAULT NULL,
+  `image` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- 테이블 데이터 npclinic.service:~0 rows (대략적) 내보내기
+DELETE FROM `service`;
+/*!40000 ALTER TABLE `service` DISABLE KEYS */;
+INSERT INTO `service` (`id`, `text`, `image`) VALUES
+	(1, '진료실 원장님', 'service/image1.jpg'),
+	(2, '간호사', 'service/image2.jpg'),
+	(3, '진료실', 'service/image3.jpg'),
+	(4, '치료실', 'service/image4.jpg'),
+	(5, '물리치료실', 'service/image5.jpg'),
+	(6, '대기실', 'service/image6.jpg'),
+	(7, '기계', 'service/image7.jpg'),
+	(8, '기계1', 'service/image8.jpg'),
+	(9, '기계2', 'service/image9.jpg'),
+	(10, '기계3', 'service/image10.jpg'),
+	(11, '기계4', 'service/image11.jpg'),
+	(12, '접수대', 'service/image12.jpg'),
+	(13, '진료모습', 'service/image13.jpg');
+/*!40000 ALTER TABLE `service` ENABLE KEYS */;
+
+-- 테이블 npclinic.user 구조 내보내기
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `id` varchar(45) NOT NULL,
@@ -223,6 +276,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- 테이블 데이터 npclinic.user:~4 rows (대략적) 내보내기
 DELETE FROM `user`;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`id`, `password`, `name`, `gender`, `birth`, `type`, `email`, `phone`, `last_login`, `reg_login`) VALUES
@@ -232,6 +286,7 @@ INSERT INTO `user` (`id`, `password`, `name`, `gender`, `birth`, `type`, `email`
 	('user', '123', '박지우', '여', '1998/03/25', 'user', 'dpfmsk11@naver.com', '01074761054', '2019-11-05 21:16:43', '2019-11-05 21:16:44');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
+-- 테이블 npclinic.user_type 구조 내보내기
 DROP TABLE IF EXISTS `user_type`;
 CREATE TABLE IF NOT EXISTS `user_type` (
   `id` int(11) DEFAULT NULL,
@@ -239,6 +294,7 @@ CREATE TABLE IF NOT EXISTS `user_type` (
   `typeName` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- 테이블 데이터 npclinic.user_type:~3 rows (대략적) 내보내기
 DELETE FROM `user_type`;
 /*!40000 ALTER TABLE `user_type` DISABLE KEYS */;
 INSERT INTO `user_type` (`id`, `typeNumber`, `typeName`) VALUES
