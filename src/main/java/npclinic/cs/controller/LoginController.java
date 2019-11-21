@@ -127,6 +127,7 @@ public class LoginController {
     }
 
     //테스트를 위해 만든 메소드(jong hun, 이 메소드는 사용하지 말 것)
+    @RequestMapping("/test_add")
     public String testaddUser(){
 
         UserDTO userDTO = new UserDTO();
