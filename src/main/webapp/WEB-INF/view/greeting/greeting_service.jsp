@@ -71,7 +71,6 @@
                 <div class="item">
                     <div class="inner-box">
                         <div class="img_holder">
-                            <a href="service.html">
                                 <img src="images/gallery/1.jpg" alt="images" class="img-responsive">
                             </a>
                         </div>

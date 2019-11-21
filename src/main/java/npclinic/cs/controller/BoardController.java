@@ -86,10 +86,7 @@ public class BoardController {
     public String time(){
         return INTRODUCE_URL;
     }
-    @RequestMapping("introduceLook")
-    public String look(){
-        return INTRODUCE_URL;
-    }
+
 
     @RequestMapping("/view_board")
     public String view(Model model, HttpServletRequest httpServletRequest){

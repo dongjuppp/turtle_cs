@@ -38,4 +38,9 @@ public class GreetingController {
         return "greeting/greeting_page";
     }
 
+    @RequestMapping("introduceLook")
+    public String look(){
+        return INTRODUCE_URL;
+    }
+
 }
