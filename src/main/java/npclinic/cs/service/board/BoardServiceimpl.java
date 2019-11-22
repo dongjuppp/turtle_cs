@@ -47,11 +47,7 @@ public class BoardServiceimpl implements BoardService {
     }
 
     @Override
-    public void updateViews(int id, int views) {
-        System.out.println("views count system");
-        System.out.println(views);
-        boardMapper.updateViews(id, views);
-    }
+    public void updateViews(int id, int views) { boardMapper.updateViews(id, views); }
 
     @Override
     public void deleteBoard(int id) {

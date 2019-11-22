@@ -97,8 +97,15 @@
                         </table>
                         <div class="Formfooter">
                             <c:if test="${user != null && user.type == data.writer}">
-                                <button onclick="location='delete_board?ind=${data.id}&drop_menu_id=17'">글삭제</button>
+                                <button onclick="location='delete_board?ind=${data.id}&drop_menu_id=${data.dropMenuId}'">글삭제</button>
                                 <button onclick="location='update_board?ind=${data.id}'">글수정</button>
+                            </c:if>
+
+                            <c:if test="${data.dropMenuId == 16}">
+                                <button onclick="location='communityNnotice'"> 목록으로</button>
+                            </c:if>
+                            <c:if test="${data.dropMenuId == 17}">
+                                <button onclick="location='communityFree'"> 목록으로</button>
                             </c:if>
                         </div>
 

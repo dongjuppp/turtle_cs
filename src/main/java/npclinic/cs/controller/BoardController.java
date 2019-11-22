@@ -19,9 +19,7 @@ public class BoardController {
     private final String INTRODUCE_URL = "board/introduce";
     private final String VIEW_BOARD_URL = "board/view_board";
     private final String FREE_BOARD_URL = "board/free_board";
-    private final String FREE_BOARD_REDIRECT_URL = "communityFree";
     private final String NOTICE_BOARD_URL = "board/notice_board";
-    private final String MEDI_INFO_BOARD_URL = "board/medi_info_board";
     private final String BOARD_INSERT_URL = "board/insert_board";
     private final String BOARD_UPDATE_URL = "board/update_board";
     private final String BOARD_DELETE_URL = "board/delete_board";
@@ -124,8 +122,6 @@ public class BoardController {
 
     @RequestMapping(value = "boardDataUpdate", method = RequestMethod.POST)
     public String updateBoardData(@ModelAttribute BoardDTO boardDataDTO, Model model, HttpSession httpSession){
-        System.out.println("trying update!");
-
         boardService.updateBoard(boardDataDTO);
 
         if(boardDataDTO.getDropMenuId() == 16) return "redirect:communityNnotice";
