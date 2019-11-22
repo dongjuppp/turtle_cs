@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <title>Title</title>
@@ -51,7 +52,7 @@
     <section class="page-title text-center" style="background-image:url();">
         <div class="container">
             <div class="title-text">
-                <h1>FREE BOARD</h1>
+                <h1>NOTICE BOARD</h1>
                 <ul class="title-menu clearfix">
                     <li>
                         <a href="index.html">home &nbsp;/</a>
@@ -67,7 +68,7 @@
     <section class="blog-section section style-three pb-0">
         <div class="container">
             <div class="row">
-                <div >
+                <div>
                     <div class="contact-area style-two">
                         <div class="section-title">
                             <h3>게시판</h3>
@@ -84,15 +85,15 @@
                             </tr>
                             </thead>
                             <tbody>
-
                             <c:forEach var="boardDTO" items="${board}" varStatus="num">
+                                <fmt:parseNumber var = "view" integerOnly = "true"
+                                                 type = "number" value = "${boardDTO.views/2}" />
                             <tr>
-
                                 <td > <c:out value="${num.index+1}" /></td>
                                 <td><a href="view_board?ind=${boardDTO.id}"> <c:out value="${boardDTO.title}" /> </a></td>
                                 <td > <c:out value="${boardDTO.writer}" /> </td>
                                 <td > <c:out value="${boardDTO.dateStr}" /> </td>
-                                <td > <c:out value="${boardDTO.views}" /> </td>
+                                <td > <c:out value="${view}" /> </td>
                             </tr>
                             </c:forEach>
 
@@ -105,7 +106,9 @@
                         </table>
 
                         <div class="Formfooter">
+                            <c:if test="${user.type eq 'admin'}">
                             <button onclick="location='insert_board?dropMenuId=${dropMenuId}'">새글쓰기</button>
+                            </c:if>
                         </div>
 
                     </div>

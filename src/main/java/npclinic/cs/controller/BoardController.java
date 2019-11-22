@@ -43,16 +43,22 @@ public class BoardController {
     }
 
     @RequestMapping("communityFree")
-    public String free(Model model){
+    public String free(Model model, HttpSession session){
+        UserDTO userDTO = (UserDTO) session.getAttribute("user");
         List<BoardDTO> boardDTO = boardService.getAllBoardByCategory(17);
+
+        model.addAttribute("user", userDTO);
         model.addAttribute("board", boardDTO);
         model.addAttribute("dropMenuId", 17);
         return FREE_BOARD_URL;
     }
 
     @RequestMapping("communityNnotice")
-    public String notice(Model model){
+    public String notice(Model model, HttpSession session){
+        UserDTO userDTO = (UserDTO) session.getAttribute("user");
         List<BoardDTO> boardDTO = boardService.getAllBoardByCategory(16);
+
+        model.addAttribute("user", userDTO);
         model.addAttribute("board", boardDTO);
         model.addAttribute("dropMenuId", 16);
         return NOTICE_BOARD_URL;
