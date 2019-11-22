@@ -98,7 +98,7 @@
                                                 <div id="test1">
 
                                                     <c:if test="${data.status eq 'accept'}">
-                                                    <td id="status${num.index}">승인됨</td>
+                                                        <td id="status${num.index}">승인됨</td>
                                                     </c:if>
                                                     <c:if test="${data.status eq 'reject'}">
                                                         <td id="status${num.index}">거절됨</td>
@@ -184,10 +184,8 @@
     <script src="plugins/timePicker.js"></script>
     <script src="js/script.js"></script>
     <script>
-
         function updateStatus(index, status){
             var idid  = $("#idid"+index).val();
-
             $.ajax({
                 type: "post",
                 url: "<%request.getContextPath();%>/accept",
