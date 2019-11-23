@@ -192,6 +192,7 @@
                 data : { "idid" : idid , "status" : status},
                 success : function() {
                     alert("처리되었습니다");
+                    location.reload();
                 }
             });
         }

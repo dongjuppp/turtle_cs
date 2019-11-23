@@ -4,12 +4,13 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Comparator;
 import java.util.Date;
 
 @Getter
 @Setter
 @ToString
-public class ReserveDataDTO {
+public class ReserveDataDTO implements Comparable<ReserveDataDTO> {
 
     private Date Date;
     private int time;
@@ -21,6 +22,12 @@ public class ReserveDataDTO {
     private String name;
     private String gender;
     private String status;
+
+    @Override
+    public int compareTo(ReserveDataDTO reserveDataDTO) {
+
+        return -Date.compareTo(reserveDataDTO.getDate());
+    }
 
     public boolean equals(ReserveDataDTO reserveDataDTO){
 

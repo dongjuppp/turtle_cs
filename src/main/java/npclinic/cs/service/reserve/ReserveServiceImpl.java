@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -45,6 +46,7 @@ public class ReserveServiceImpl implements ReserveService {
         for(ReserveDataDTO reserveDataDTO:reserveDataDTOS){
             convertDateFormat(reserveDataDTO);
         }
+        Collections.sort(reserveDataDTOS);
         return reserveDataDTOS;
     }
 
