@@ -40,7 +40,8 @@ public class ReserveController {
             else if(userDTO.getType().equals("admin")){
                 model.addAttribute("who","관리자");
                 //return RESERVE_CHECK;
-                return "redirect:reserveReserveCheck"; //관리자가 예약하기를 누르면 예약확인 페이지로 이동
+                //return "redirect:reserveReserveCheck"; //관리자가 예약하기를 누르면 예약확인 페이지로 이동
+                return RESERVE_JSP;
 
                 /*
                 그런데 이거 내가 관리자가 고객예약 가능하게 하겠다고
@@ -64,17 +65,22 @@ public class ReserveController {
     @RequestMapping(value = "reserveData", method = RequestMethod.POST)
     public String getReserveData(@ModelAttribute ReserveDataDTO reserveDataDTO,Model model,HttpSession httpSession){
         UserDTO userDTO = (UserDTO)httpSession.getAttribute("user");
-        reserveDataDTO.setUserID(userDTO.getId());
+        if(userDTO.getType().equals("admin")){
+            reserveService.deleteReserveDataByID(reserveDataDTO.getUserID());
+            reserveService.registerData(reserveDataDTO);
+            reserveService.convertDateFormat(reserveDataDTO);
+            model.addAttribute("who","관리자");
+            model.addAttribute("datas",reserveService.getReserveList());
+        }
+        else{
+            reserveDataDTO.setUserID(userDTO.getId());
+            reserveService.deleteReserveDataByID(userDTO.getId());
+            reserveService.registerData(reserveDataDTO);
+            reserveService.convertDateFormat(reserveDataDTO);
+            model.addAttribute("data",reserveDataDTO);
+            model.addAttribute("who","고객");
+        }
 
-        //유저의 예약이 새로 들어오면 해당 유저의 기존 예약 데이터 삭제
-        reserveService.deleteReserveDataByID(userDTO.getId());
-
-        //유저의 예약을 새로 추가
-        reserveService.registerData(reserveDataDTO);
-        reserveService.convertDateFormat(reserveDataDTO);
-
-        model.addAttribute("data",reserveDataDTO);
-        model.addAttribute("who","고객");
         return RESERVE_CHECK_JSP;
     }
 
