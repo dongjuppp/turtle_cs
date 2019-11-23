@@ -15,4 +15,5 @@ public class HospitalInfoDTO {
     private String openTime;
     private String SaturdayTime;
     private String lunchTime;
+    private String image;
 }

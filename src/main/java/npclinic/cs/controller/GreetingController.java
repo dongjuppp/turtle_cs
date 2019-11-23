@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 import com.google.gson.Gson;
 import npclinic.cs.dto.greeting.DoctorDTO;
 import npclinic.cs.dto.greeting.IntroduceDTO;
+import npclinic.cs.service.etc.HospitalInfoService;
 import npclinic.cs.service.greeting.*;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,13 +20,15 @@ public class GreetingController {
     private IntroduceService introduceService;
     private DoctorService doctorService;
     private ServiceService serviceService;
+    private HospitalInfoService hospitalInfoService;
     private Gson gson;
 
     @Autowired
-    public GreetingController(IntroduceService introduceService, DoctorService doctorService, ServiceService serviceService, Gson gson){
+    public GreetingController(IntroduceService introduceService, DoctorService doctorService, ServiceService serviceService, HospitalInfoService hospitalInfoService , Gson gson){
         this.introduceService = introduceService;
         this.doctorService = doctorService;
         this.serviceService = serviceService;
+        this.hospitalInfoService = hospitalInfoService;
         this.gson = gson;
     }
 
@@ -43,6 +46,12 @@ public class GreetingController {
         model.addAttribute("introduce", introduceService.getIntroduce(2));
 
         return "greeting/greeting_service";
+    }
+
+    @RequestMapping("introduceTime")
+    public String time(Model model) {
+        model.addAttribute("info", hospitalInfoService.getHospitalInfo());
+        return "greeting/greeting_time";
     }
 
 }

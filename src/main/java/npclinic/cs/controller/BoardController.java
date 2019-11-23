@@ -86,10 +86,6 @@ public class BoardController {
     public String neck(){
         return INTRODUCE_URL;
     }
-    @RequestMapping("introduceTime")
-    public String time(){
-        return INTRODUCE_URL;
-    }
 
 
     @RequestMapping("/view_board")

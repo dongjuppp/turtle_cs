@@ -181,14 +181,15 @@ CREATE TABLE IF NOT EXISTS `hospital_info` (
   `address` varchar(45) DEFAULT NULL,
   `openTime` varchar(45) DEFAULT NULL,
   `saturdayTime` varchar(45) DEFAULT NULL,
-  `lunchTime` varchar(45) DEFAULT NULL
+  `lunchTime` varchar(45) DEFAULT NULL,
+  `image` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- 테이블 데이터 npclinic.hospital_info:~0 rows (대략적) 내보내기
 DELETE FROM `hospital_info`;
 /*!40000 ALTER TABLE `hospital_info` DISABLE KEYS */;
-INSERT INTO `hospital_info` (`phone`, `fax`, `email`, `address`, `openTime`, `saturdayTime`, `lunchTime`) VALUES
-	('02-536-1777', '02-536-1777', 'npclinic@gmail.com', '서울 서초구 방배동 1770번지 2층 ', '09:00 ~ 19:00', '09:00 ~ 14:00', '13:00 ~ 14:00');
+INSERT INTO `hospital_info` (`phone`, `fax`, `email`, `address`, `openTime`, `saturdayTime`, `lunchTime`, `image`) VALUES
+	('02-536-1777', '02-536-1777', 'npclinic@gmail.com', '서울 서초구 방배동 1770번지 2층 ', '09:00 ~ 19:00', '09:00 ~ 14:00', '13:00 ~ 14:00', 'service/map.png');
 /*!40000 ALTER TABLE `hospital_info` ENABLE KEYS */;
 
 -- 테이블 npclinic.introduce 구조 내보내기
@@ -203,7 +204,7 @@ CREATE TABLE IF NOT EXISTS `introduce` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- 테이블 데이터 npclinic.introduce:~1 rows (대략적) 내보내기
+-- 테이블 데이터 npclinic.introduce:~2 rows (대략적) 내보내기
 DELETE FROM `introduce`;
 /*!40000 ALTER TABLE `introduce` DISABLE KEYS */;
 INSERT INTO `introduce` (`id`, `text1`, `text2`, `text3`, `image1`, `image2`) VALUES
@@ -228,8 +229,8 @@ DELETE FROM `reserve_data`;
 /*!40000 ALTER TABLE `reserve_data` DISABLE KEYS */;
 INSERT INTO `reserve_data` (`userID`, `doctor`, `subject`, `date`, `message`, `time`, `status`) VALUES
 	('dongju', '김갑수', '신경성형술', '2019-10-16 00:00:00', '.', 0, 'accept'),
-	('dongjuppp', '전동병', '목/허리디스크(비수술)', '2019-11-13 00:00:00', 'asdas', 14, 'waiting'),
-	('user', '전동병', '목/허리디스크(비수술)', '2019-10-26 00:00:00', 'adsf', 13, 'waiting');
+	('dongjuppp', '전동병', '목/허리디스크(비수술)', '2019-11-13 00:00:00', 'asdas', 14, 'accept'),
+	('user', '전동병', '목/허리디스크(비수술)', '2019-10-26 00:00:00', 'adsf', 13, 'accept');
 /*!40000 ALTER TABLE `reserve_data` ENABLE KEYS */;
 
 -- 테이블 npclinic.service 구조 내보내기
@@ -241,7 +242,7 @@ CREATE TABLE IF NOT EXISTS `service` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- 테이블 데이터 npclinic.service:~0 rows (대략적) 내보내기
+-- 테이블 데이터 npclinic.service:~13 rows (대략적) 내보내기
 DELETE FROM `service`;
 /*!40000 ALTER TABLE `service` DISABLE KEYS */;
 INSERT INTO `service` (`id`, `text`, `image`) VALUES
