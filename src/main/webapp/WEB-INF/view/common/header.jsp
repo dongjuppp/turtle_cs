@@ -14,7 +14,7 @@
         <div class="top-left">
             <h6>진료시간 : 평일 ${hospitalInfo.openTime}, 토요일 ${hospitalInfo.saturdayTime}, 점심시간 ${hospitalInfo.lunchTime}</h6>
         </div>
-        <div class="top-right">
+        <div class="top-right" style="padding: 10px">
             <c:if test="${user == null }"><a class="btn btn-style-one" href="/login_page" style="float: left">로그인</a></c:if>
             <c:if test="${user == null }"><a class="btn btn-style-one" href="/register_page" style="float: left">회원가입</a></c:if>
             <c:if test="${user != null }"><a class="btn btn-style-one" href="/login_info?id=${user.id}" style="float: left">로그인 정보(테스트용으로 만듬)</a></c:if>

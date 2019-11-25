@@ -61,6 +61,8 @@ public class AdminController {
     @RequestMapping("/info_edit_finish")
     public String updateUser(@ModelAttribute("userDTO") UserDTO userDTO, HttpSession httpSession, Model model ){
         userDTO.setId(((UserDTO)httpSession.getAttribute("user")).getId());
+
+        System.out.println((UserDTO)httpSession.getAttribute("user"));
         userService.updateUser(userDTO);
 
         ArrayList<UserDTO> userList = null;

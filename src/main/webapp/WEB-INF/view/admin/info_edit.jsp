@@ -66,6 +66,8 @@
     <!-- Contact Section -->
     <section class="blog-section section style-three pb-0">
         <div class="container">
+            <div class="contact-area style-two">
+                <div class="section-title">
             <div class="card">
                 <div class="card-header"><h3 style="color:black; text-align:left">회원 수정<h3></div>
                 <div class="card-body">
@@ -73,10 +75,11 @@
                                modelAttribute="userDetail" method="post"
                                action="/info_edit_finish">
 
-                        <div style="height: 400; width:600; border:3px solid #EAEAEA;">
+
                             <br>
-                        <div class="form-group row"><label for="name"
+                        <div class="form-group row "><label for="name"
                                                            class="col-md-3 col-form-label text-md-right">이름</label>
+
                             <div class="col-md-5"><form:input path="name" id="name" class="form-control"
                                                               placeholder="이름을 입력해 주세요" value="${userDetail.name}" /></div>
                         </div>
@@ -113,13 +116,16 @@
                     </form:form>
                 </div>
             </div>
-            <div style="margin-top:10px">
-                <button type="button" onclick = "location.href = 'info_edit_f'" class="btn btn-sm btn-primary" id="btnSignup" >수정하기</button>
-                <button type="button" class="btn btn-sm btn-primary" id="btnCancel">취소</button>
-            </div>
+            <div style="margin-top:10px;overflow: hidden;" >
+                <div style="float: left; padding:10px 10px 10px 0px"> <button type="button" onclick = "location.replace('info_edit_finish') " class="btn btn-style-one" id="btnSignup" >수정하기</button></div>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+               <div style="float: left; padding:10px;"> <button type="button" onclick = "location.replace('user_manage') "class="btn btn-style-one" id="btnCancel">취소</button></div>
+
 
 
         </div>
+        </div>
+            </div>
         </div>
     </section>
 
