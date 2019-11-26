@@ -71,26 +71,27 @@
                     <div class="contact-area style-two">
                         <div class="section-title">
                             <form action="/boardData" method="POST">
-                                <table>
-                                    <colgroup><col width="15%"><col width="*"/></colgroup><caption>게시글 작성</caption>
+                                <h3><caption>게시글 작성</caption></h3>
+                                <table class="container" style="text-align: center; border: 1px solid #dddddd">
+
                                     <tbody>
                                     <tr>
-                                        <th scope="row">
+                                        <th scope="col" style="text-align: center; width: 170px">
                                             제목
                                         </th>
                                         <td>
-                                            <input type="text" name="title" class="wdp_90" style="width:500px">
+                                            <input type="text" name="title" class="wdp_90" style="width:1000px">
                                             <input type="hidden" name="dropMenuId" value="${dropMenuId}">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" class="view_text">
-                                            <textarea rows="20" cols="100" title="내용" name="content"></textarea>
+                                            <textarea rows="20" cols="100" title="내용" name="content" ></textarea>
                                         </td>
                                     </tr>
                                     </tbody>
                                 </table>
-                                <input type="submit" value="작성하기">
+                                <input type="submit" class="btn-style-two" value="작성하기">
                             </form>
 
                     </div>
