@@ -30,6 +30,18 @@ public class BoardServiceimpl implements BoardService {
     }
 
     @Override
+    public String getTitleName(List<BoardDTO> data) {
+        BoardDTO titleName = null;
+        for(BoardDTO bdto : data){
+            if(bdto.getContent().length() == 0){
+                titleName = bdto;
+            }
+        }
+
+        data.remove(titleName);
+        return titleName.getTitle();
+    }
+    @Override
     public BoardDTO getBoard(int id) {
         BoardDTO boardData = boardMapper.getBoardById(id);
         boardData.setDateStr(formatDate(boardData.getDate()));

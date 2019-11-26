@@ -23,12 +23,12 @@ public class BoardController {
     private final String BOARD_INSERT_URL = "board/insert_board";
     private final String BOARD_UPDATE_URL = "board/update_board";
     private final String BOARD_DELETE_URL = "board/delete_board";
-    private final String Nnonsalary = "board/";
-    private final String Zoster = "board/";
-    private final String Arthritis = "board/";
-    private final String shingles = "board/";
-    private final String nerve = "board/";
-    private final String neck = "board/";
+    private final String Nnonsalary = "board/medi_info_board";
+    private final String Zoster = "board/medi_info_board";
+    private final String Arthritis = "board/medi_info_board";
+    private final String Shingles = "board/medi_info_board";
+    private final String Nerve = "board/medi_info_board";
+    private final String Neck = "board/medi_info_board";
 
     @Autowired
     public BoardController(BoardService boardService){
@@ -62,29 +62,60 @@ public class BoardController {
         return NOTICE_BOARD_URL;
     }
 
-    @RequestMapping("introduceNnonsalary")
-    public String nonSalary(){
-        return INTRODUCE_URL;
+    @RequestMapping("medicinfoNnonsalary")//9
+    public String nonSalary(Model model){
+        List<BoardDTO> boardDTO = boardService.getAllBoardByCategory(9);
+        String titleName = boardService.getTitleName(boardDTO);
+
+        model.addAttribute("titleName", titleName);
+        model.addAttribute("data", boardDTO);
+        return Nnonsalary;
     }
-    @RequestMapping("introduceZoster")
-    public String zoster(){
-        return INTRODUCE_URL;
+    @RequestMapping("medicinfoZoster") //8
+    public String zoster(Model model){
+        List<BoardDTO> boardDTO = boardService.getAllBoardByCategory(8);
+        String titleName = boardService.getTitleName(boardDTO);
+
+        model.addAttribute("titleName", titleName);
+        model.addAttribute("data", boardDTO);
+        return Zoster;
     }
-    @RequestMapping("introdueArthritis")
-    public String arthritis(){
-        return INTRODUCE_URL;
+    @RequestMapping("medicinfoArthritis")//7
+    public String arthritis(Model model){
+        List<BoardDTO> boardDTO = boardService.getAllBoardByCategory(7);
+        String titleName = boardService.getTitleName(boardDTO);
+
+        model.addAttribute("titleName", titleName);
+        model.addAttribute("data", boardDTO);
+        return Arthritis;
     }
-    @RequestMapping("medicinfoShingles")
-    public String shingles(){
-        return INTRODUCE_URL;
+    @RequestMapping("medicinfoShingles")//6
+    public String shingles(Model model){
+        List<BoardDTO> boardDTO = boardService.getAllBoardByCategory(6);
+        String titleName = boardService.getTitleName(boardDTO);
+
+        System.out.println(titleName);
+        model.addAttribute("titleName", titleName);
+        model.addAttribute("data", boardDTO);
+        return Shingles;
     }
-    @RequestMapping("medicinfoNerve")
-    public String nerve(){
-        return INTRODUCE_URL;
+    @RequestMapping("medicinfoNerve")//5
+    public String nerve(Model model){
+        List<BoardDTO> boardDTO = boardService.getAllBoardByCategory(5);
+        String titleName = boardService.getTitleName(boardDTO);
+
+        model.addAttribute("titleName", titleName);
+        model.addAttribute("data", boardDTO);
+        return Nerve;
     }
-    @RequestMapping("medicinfoNeck")
-    public String neck(){
-        return INTRODUCE_URL;
+    @RequestMapping("medicinfoNeck")//4
+    public String neck(Model model){
+        List<BoardDTO> boardDTO = boardService.getAllBoardByCategory(4);
+        String titleName = boardService.getTitleName(boardDTO);
+
+        model.addAttribute("titleName", titleName);
+        model.addAttribute("data", boardDTO);
+        return Neck;
     }
 
 
@@ -141,8 +172,6 @@ public class BoardController {
 
     @RequestMapping("/update_board")
     public String update(HttpServletRequest httpServletRequest, HttpSession httpSession, Model model){
-        System.out.println("update board 페이지");
-
         int id = Integer.parseInt(httpServletRequest.getParameter("ind"));
         BoardDTO boardDTO = boardService.getBoard(id);
 
@@ -153,7 +182,6 @@ public class BoardController {
 
     @RequestMapping("/delete_board")
     public String delete(@ModelAttribute BoardDTO boardDTO, HttpServletRequest httpServletRequest, HttpSession httpSession, Model model){
-        System.out.println();
         UserDTO userDTO = (UserDTO)httpSession.getAttribute("user");
         int id = Integer.parseInt(httpServletRequest.getParameter("ind"));
         int drop_menu_id = Integer.parseInt(httpServletRequest.getParameter("drop_menu_id"));

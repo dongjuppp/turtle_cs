@@ -12,4 +12,5 @@ public interface BoardService {
     public void updateBoard(BoardDTO boardDTO);
     public void deleteBoard(int id);
     public void updateViews(int id, int views);
+    public String getTitleName(List<BoardDTO> data);
 }
