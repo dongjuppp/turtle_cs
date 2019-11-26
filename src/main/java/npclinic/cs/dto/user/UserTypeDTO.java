@@ -11,4 +11,5 @@ public class UserTypeDTO {
     private int typeNumber;
     private String typeName;
 
+
 }

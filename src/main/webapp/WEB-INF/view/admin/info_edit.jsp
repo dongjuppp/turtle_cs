@@ -73,7 +73,7 @@
                 <div class="card-body">
                     <form:form name="form" id="form" class="form-signup" role="form"
                                modelAttribute="userDetail" method="post"
-                               action="/info_edit_finish">
+                               action="/info_edit_finish?id=${id}">
 
 
                             <br>
