@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <title>Title</title>
@@ -42,16 +43,15 @@
     <!-- Preloader -->
 
 
-
     <!--header top-->
-    <%@include file="../common/header.jsp"%>
+    <%@include file="../common/header.jsp" %>
     <!--End Main Header -->
 
     <!--Page Title-->
     <section class="page-title text-center" style="background-image:url();">
         <div class="container">
             <div class="title-text">
-                <h1>FREE BOARD</h1>
+                <h1>BOARD</h1>
                 <ul class="title-menu clearfix">
                     <li>
                         <a href="index.html">home &nbsp;/</a>
@@ -66,61 +66,67 @@
     <!-- Contact Section -->
     <section class="blog-section section style-three pb-0">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-sm-12 col-xs-12">
+            <div>
+                <div>
                     <div class="contact-area style-two">
                         <div class="section-title">
-                            <h3>공지 게시판</h3>
+                            <h3>게시판</h3>
                         </div>
-                        <table class="container">
-                            <thead>
-                            <tr class="row">
-                                <th colspan="3" style="width: 600px; padding-left: 15px;">
-                                    <h3 style="color: #1e1e1e; width: 80%; padding-bottom : 15px">
-                                        <strong style="width: 100%;">${data.title}</strong>
-                                    </h3>
-                                </th>
-                            </tr>
-                            <tr class="userBoardView_con">
-                                <th style="width: 60%; text-align: center;">작성자 : ${data.writer}</th>
-                                <th style="width: 100%; text-align: right; padding-right: 20px;">등록시간 : ${data.dateStr} </th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td colspan="3" class="col-sm-9" >
-                                    <hr> ${data.content}
-                                    <hr>
-                                </td>
-                            </tr>
-                            </tbody>
+
+                        <table class="container" style="text-align: center; border: 1px solid #dddddd">
+                            <div class="board-view-head">
+                                <div class="board-view-title">
+                                    <h3 class="vtitle">${data.title}</h3>
+                                    <fmt:parseNumber var="view" integerOnly="true"
+                                                     type="number" value="${data.views/2}"/>
+
+                                    <div class="vtitle-winfo">
+                                        <span>작성자 : ${data.writer}</span>
+                                        <span>작성일자 : ${data.dateStr}</span>
+                                        <span>조회 : ${view}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="board-view-cont">
+                                <div class="board-view-contents">
+                                    <h3>${data.content}</h3>
+                                </div>
+                                <br><br><br>
+                                <div style="text-align: right;">
+                                <c:if test="${data.dropMenuId == 16}">
+                                    <a href="communityNnotice"><span>목록으로</span></a>
+                                </c:if>
+                                <c:if test="${data.dropMenuId == 17}">
+                                    <a href="communityFree"><span>목록으로</span></a>
+                                </c:if>
+                                </div>
+                            </div>
                         </table>
-                        <div class="Formfooter">
-                            <c:if test="${user != null && user.type == data.writer}">
-                                <button onclick="location='delete_board?ind=${data.id}&drop_menu_id=${data.dropMenuId}'">글삭제</button>
-                                <button onclick="location='update_board?ind=${data.id}'">글수정</button>
-                            </c:if>
 
-                            <c:if test="${data.dropMenuId == 16}">
-                                <button onclick="location='communityNnotice'"> 목록으로</button>
-                            </c:if>
-                            <c:if test="${data.dropMenuId == 17}">
-                                <button onclick="location='communityFree'"> 목록으로</button>
+                        <div style="width: 300px">
+                            <c:if test="${user != null && user.type == data.writer}">
+                                <table>
+                                <tr>
+                                    <td><button class="btn-style-two"
+                                            onclick="location='delete_board?ind=${data.id}&drop_menu_id=${data.dropMenuId}'">
+                                        삭제
+                                    </button></td>
+                                    <td><button class="btn-style-two" onclick="location='update_board?ind=${data.id}'">수정
+                                    </button></td>
+                                </tr></table>
                             </c:if>
                         </div>
-
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
     <!-- End Contact Section -->
 
 
-
     <!--footer-main-->
-    <%@include file="../common/footer.jsp"%>
+    <%@include file="../common/footer.jsp" %>
 
     <script src="plugins/jquery.js"></script>
     <script src="plugins/bootstrap.min.js"></script>

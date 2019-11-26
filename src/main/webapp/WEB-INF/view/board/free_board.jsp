@@ -43,9 +43,8 @@
     <!-- Preloader -->
 
 
-
     <!--header top-->
-    <%@include file="../common/header.jsp"%>
+    <%@include file="../common/header.jsp" %>
     <!--End Main Header -->
 
     <!--Page Title-->
@@ -68,12 +67,12 @@
     <section class="blog-section section style-three pb-0">
         <div class="container">
             <div class="row">
-                <div >
+                <div>
                     <div class="contact-area style-two">
                         <div class="section-title">
                             <h3>게시판</h3>
                         </div>
-                        <table class="table table-hover" >
+                        <table class="table table-hover">
 
                             <thead>
                             <tr>
@@ -87,15 +86,16 @@
                             <tbody>
 
                             <c:forEach var="boardDTO" items="${board}" varStatus="num">
-                                <fmt:parseNumber var = "view" integerOnly = "true"
-                                                 type = "number" value = "${boardDTO.views/2}" />
+                                <fmt:parseNumber var="view" integerOnly="true"
+                                                 type="number" value="${boardDTO.views/2}"/>
                                 <tr>
 
-                                    <td > <c:out value="${num.index+1}" /></td>
-                                    <td><a href="view_board?ind=${boardDTO.id}"> <c:out value="${boardDTO.title}" /> </a></td>
-                                    <td > <c:out value="${boardDTO.writer}" /> </td>
-                                    <td > <c:out value="${boardDTO.dateStr}" /> </td>
-                                    <td > <c:out value="${view}" /> </td>
+                                    <td><c:out value="${num.index+1}"/></td>
+                                    <td><a href="view_board?ind=${boardDTO.id}"> <c:out value="${boardDTO.title}"/> </a>
+                                    </td>
+                                    <td><c:out value="${boardDTO.writer}"/></td>
+                                    <td><c:out value="${boardDTO.dateStr}"/></td>
+                                    <td><c:out value="${view}"/></td>
                                 </tr>
                             </c:forEach>
 
@@ -106,10 +106,13 @@
                             </tr>
                             </tfoot>
                         </table>
-
-                        <div class="Formfooter">
-                            <button onclick="location='insert_board?dropMenuId=${dropMenuId}'">새글쓰기</button>
-                        </div>
+                        <c:if test="${user != null}">
+                            <div class="Formfooter">
+                                <button onclick="location='insert_board?dropMenuId=${dropMenuId}'"
+                                        class="btn-style-two">새글쓰기
+                                </button>
+                            </div>
+                        </c:if>
 
                     </div>
                 </div>
@@ -120,9 +123,8 @@
     <!-- End Contact Section -->
 
 
-
     <!--footer-main-->
-    <%@include file="../common/footer.jsp"%>
+    <%@include file="../common/footer.jsp" %>
 
     <script src="plugins/jquery.js"></script>
     <script src="plugins/bootstrap.min.js"></script>
