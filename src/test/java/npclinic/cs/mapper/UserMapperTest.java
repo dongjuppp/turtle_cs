@@ -118,7 +118,6 @@ public class UserMapperTest {
 
         assertTrue(!beforeName.equals(afterName));
 
-
     }
 
 

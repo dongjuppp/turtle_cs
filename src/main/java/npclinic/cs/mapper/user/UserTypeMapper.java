@@ -15,4 +15,5 @@ public interface UserTypeMapper {
 
     @Select("SELECT * FROM user_type")
     List<UserTypeDTO> getAllUserType();
+
 }

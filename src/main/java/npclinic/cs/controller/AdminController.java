@@ -53,22 +53,26 @@ public class AdminController {
         userDTO = userService.getUser(id);
 
         model.addAttribute("userDetail", userDTO);
+        model.addAttribute("id", id);
 
 
         return "admin/info_edit";
     }
 
     @RequestMapping("/info_edit_finish")
-    public String updateUser(@ModelAttribute("userDTO") UserDTO userDTO, HttpSession httpSession, Model model ){
-        userDTO.setId(((UserDTO)httpSession.getAttribute("user")).getId());
+    public String updateUser(@ModelAttribute("userDTO") UserDTO userDTO, Model model, @RequestParam("id") String id, Criteria cri ){
+        PageMaker pageMaker = new PageMaker();
+        pageMaker.setCri(cri);
+        pageMaker.setTotalCount(userService.countUserList());
 
-        System.out.println((UserDTO)httpSession.getAttribute("user"));
+        userDTO.setId(id);
         userService.updateUser(userDTO);
 
         ArrayList<UserDTO> userList = null;
-        userList = (ArrayList<UserDTO>) userService.getAllUser();
+        userList = (ArrayList<UserDTO>) userService.getUserListByCriteria(cri);
 
         model.addAttribute("user_list", userList);
+        model.addAttribute("page_maker", pageMaker);
 
         return "admin/user_info";
     }
