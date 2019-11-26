@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>김갑수마취통증의학과</title>
 </head>
 <!--footer-main-->
 <footer class="footer-main">
