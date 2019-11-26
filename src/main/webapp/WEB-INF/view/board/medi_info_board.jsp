@@ -72,7 +72,7 @@
                         <div class="section-title">
                             <h3>${titleName} 진료정보</h3>
                         </div>
-
+                        <br>
                         <c:forEach var="boardDTO" items="${data}" varStatus="num">
                             <table class="container" style="text-align: center; border: 1px solid #dddddd">
                                 <div class="board-view-head">
@@ -80,14 +80,13 @@
                                         <h3 class="vtitle">${boardDTO.title}</h3>
 
                                         <div class="vtitle-winfo">
-                                            <span>${boardDTO.content}</span>
+                                            <h5><span>${boardDTO.content}</span></h5>
                                         </div>
                                     </div>
                                 </div>
                             </table>
-
                         </c:forEach>
-
+                        <br><br><br>
                     </div>
                 </div>
             </div>
