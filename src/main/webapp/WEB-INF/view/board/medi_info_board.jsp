@@ -51,12 +51,12 @@
     <section class="page-title text-center" style="background-image:url();">
         <div class="container">
             <div class="title-text">
-                <h1>BOARD</h1>
+                <h1>${titleName}</h1>
                 <ul class="title-menu clearfix">
                     <li>
-                        <a href="index.html">home &nbsp;/</a>
+                        <a href="/">홈으로 &nbsp;/</a>
                     </li>
-                    <li>board</li>
+                    <li>${titleName}</li>
                 </ul>
             </div>
         </div>
