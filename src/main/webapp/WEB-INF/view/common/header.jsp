@@ -7,25 +7,51 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<style>
+    /*ul{width:650px;height:30px;background:green;list-style:none;padding-top:15px}*/
+    /*ul li{float:left;margin-right:10px}*/
+    /*ul li a{font-size:12px;color:yellow;font-weight:bold;text-decoration:none}*/
 
+</style>
 <header>
+
 <div class="header-top">
-    <div class="container clearfix">
-        <div class="top-left">
-            <h6>진료시간 : 평일 ${hospitalInfo.openTime}, 토요일 ${hospitalInfo.saturdayTime}, 점심시간 ${hospitalInfo.lunchTime}</h6>
+<%--    <div class="container clearfix">--%>
+<%--        <div class="top-right" style="padding: 10px">--%>
+<%--            <c:if test="${user == null }"><a class="btn btn-style-one" href="/login_page" style="float: left">로그인</a></c:if>--%>
+<%--            <c:if test="${user == null }"><a class="btn btn-style-one" href="/register_page" style="float: left">회원가입</a></c:if>--%>
+<%--            <c:if test="${user != null }"><a class="btn btn-style-one" href="/login_info?id=${user.id}" style="float: left">로그인 정보(테스트용으로 만듬)</a></c:if>--%>
+<%--            <c:if test="${user != null }"><a class="btn btn-style-one" href="/logout" style="float: left">로그아웃</a></c:if>--%>
+<%--            <c:if test="${user != null }"><a class="btn btn-style-one" href="/update_page" style="float: left">자기 정보 수정하기</a></c:if>--%>
+<%--            <c:if test="${user != null && user.type == '1'}"><a class="btn btn-style-one" href="/user_manage" style="float: left">회원관리</a></c:if>--%>
+<%--        </div>--%>
+    <div class="container">
+        <div class="top-right" style="padding:  10px">
+            <ul class="list-inline" style="font-size: 20px">
+                <c:if test="${user == null }">
+                <li style="float:left;border-left: none; padding-left: 0;"><a href="/login_page">로그인</a></li>
+                </c:if>
+                <c:if test="${user == null }">
+                    <li style="float:left;display: inline; border-left: 2px solid; padding-left: 0.3em;"><a href="/register_page">회원가입</a></li>
+                </c:if>
+                <c:if test="${user != null }">
+                    <li style="float:left;border-left: none; padding-left: 0;"><a href="/login_info?id=${user.id}">로그인 정보(테스트용으로 만듬)</a></li>
+                </c:if>
+                <c:if test="${user != null }">
+                    <li style="float:left;display: inline; border-left: 2px solid; padding-left: 0.3em;"><a href="/logout">로그아웃</a></li>
+                </c:if>
+                <c:if test="${user != null }">
+                    <li style="float:left;display: inline; border-left: 2px solid; padding-left: 0.3em;"><a href="/update_page">자기 정보 수정하기</a></li>
+                </c:if>
+                <c:if test="${user != null && user.type == '1'}">
+                    <li style="float:left;display: inline; border-left: 2px solid; padding-left: 0.3em;"><a href="/user_manage">회원관리</a></li>
+                </c:if>
+            </ul>
+            </div>
         </div>
-        <div class="top-right" style="padding: 10px">
-            <c:if test="${user == null }"><a class="btn btn-style-one" href="/login_page" style="float: left">로그인</a></c:if>
-            <c:if test="${user == null }"><a class="btn btn-style-one" href="/register_page" style="float: left">회원가입</a></c:if>
-            <c:if test="${user != null }"><a class="btn btn-style-one" href="/login_info?id=${user.id}" style="float: left">로그인 정보(테스트용으로 만듬)</a></c:if>
-            <c:if test="${user != null }"><a class="btn btn-style-one" href="/logout" style="float: left">로그아웃</a></c:if>
-            <c:if test="${user != null }"><a class="btn btn-style-one" href="/update_page" style="float: left">자기 정보 수정하기</a></c:if>
-            <c:if test="${user != null && user.type == '1'}"><a class="btn btn-style-one" href="/user_manage" style="float: left">회원관리</a></c:if>
-            <a>&nbsp;&nbsp;&nbsp;</a>
-        </div>
-
+<%--        </div>--%>
+</div>
     </div>
-
 </div>
 <!--header top-->
 
@@ -63,8 +89,23 @@
     </div>
 </section>
 <!--Header Upper-->
+<%--<!--테스트-->--%>
+<%--    <div class="dropdown">--%>
+<%--        <c:forEach var="head" items="${headerMenu}" varStatus="status">--%>
+<%--            <button class="dropbtn">${head.title}</button>--%>
+<%--            <div class="dropdown-content">--%>
+<%--                <c:forEach var="drop" items="${head.dropMenus}" varStatus="status2">--%>
+<%--                    <c:if test="${user != null && user.type <= drop.level}">--%>
+<%--                        <a href="${head.url}${drop.url}">${drop.title}</a>--%>
+<%--                    </c:if>--%>
+<%--                    <c:if test="${user == null && drop.level=='3'}">--%>
+<%--                        <a href="${head.url}${drop.url}">${drop.title}</a>--%>
+<%--                    </c:if>--%>
+<%--                </c:forEach>--%>
 
-
+<%--            </div>--%>
+<%--                </c:forEach>--%>
+<%--            </div>--%>
 <!--Main Header-->
 <nav class="navbar navbar-default">
     <div class="container">
@@ -84,7 +125,7 @@
             <ul class="nav navbar-nav">
 
                 <c:forEach var="head" items="${headerMenu}" varStatus="status">
-                    <li class="dropdown">
+                    <li class="dropdown" style="background-color: inherit">
                         <a href="${head.url}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 ${head.title}<span class="caret"></span>
                         </a>
@@ -92,10 +133,10 @@
                         <ul class="dropdown-menu">
                             <c:forEach var="drop" items="${head.dropMenus}" varStatus="status2">
                                 <c:if test="${user != null && user.type <= drop.level}">
-                                    <li><a href="${head.url}${drop.url}">${drop.title}</a> </li>
+                                    <li style="background-color: inherit"><a href="${head.url}${drop.url}">${drop.title}</a> </li>
                                 </c:if>
                                 <c:if test="${user == null && drop.level=='3'}">
-                                    <li><a href="${head.url}${drop.url}">${drop.title}</a> </li>
+                                    <li style="background-color: inherit"><a href="${head.url}${drop.url}">${drop.title}</a> </li>
                                 </c:if>
                             </c:forEach>
                         </ul>
@@ -111,5 +152,6 @@
 </nav>
 </header>
 <script>
+
 </script>
 
