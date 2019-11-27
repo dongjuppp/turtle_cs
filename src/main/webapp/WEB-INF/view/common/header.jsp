@@ -27,7 +27,7 @@
 <%--        </div>--%>
     <div class="container">
         <div class="top-right" style="padding:  10px">
-            <ul class="list-inline" style="font-size: 20px">
+            <ul class="list-inline" style="font-size: 0.8em">
                 <c:if test="${user == null }">
                 <li style="float:left;border-left: none; padding-left: 0;"><a href="/login_page">로그인</a></li>
                 </c:if>
