@@ -4,6 +4,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
 
@@ -22,6 +25,19 @@ public class ReserveDataDTO implements Comparable<ReserveDataDTO> {
     private String name;
     private String gender;
     private String status;
+
+    public ArrayList<String> toArrayList(){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        ArrayList<String> tmp = new ArrayList<>();
+        tmp.add(userID);
+        tmp.add(name);
+        tmp.add(sdf.format(Date));
+        tmp.add(Integer.toString(time));
+        tmp.add(subject);
+        tmp.add(doctor);
+        tmp.add(status);
+        return tmp;
+    }
 
     @Override
     public int compareTo(ReserveDataDTO reserveDataDTO) {
