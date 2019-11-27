@@ -22,7 +22,7 @@ public class UserDTO {
     private String name;
     private String gender;
     private String birth;
-    private String type; //string 으로 할지 int 로 할지 미정
+    private int type; //string 으로 할지 int 로 할지 미정
     private String email;
     private String phone;
     private Date last_login;
@@ -68,11 +68,11 @@ public class UserDTO {
         this.birth = birth;
     }
 
-    public String getType() {
+    public int getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(int type) {
         this.type = type;
     }
 

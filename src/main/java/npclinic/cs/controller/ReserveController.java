@@ -37,7 +37,7 @@ public class ReserveController {
             if(userDTO == null){
                 model.addAttribute("who","방문자");
             }
-            else if(userDTO.getType().equals("admin")){
+            else if(userDTO.getType()==1){
                 model.addAttribute("who","관리자");
                 //return RESERVE_CHECK;
                 //return "redirect:reserveReserveCheck"; //관리자가 예약하기를 누르면 예약확인 페이지로 이동
@@ -65,7 +65,7 @@ public class ReserveController {
     @RequestMapping(value = "reserveData", method = RequestMethod.POST)
     public String getReserveData(@ModelAttribute ReserveDataDTO reserveDataDTO,Model model,HttpSession httpSession){
         UserDTO userDTO = (UserDTO)httpSession.getAttribute("user");
-        if(userDTO.getType().equals("admin")){
+        if(userDTO.getType()==1){
             reserveService.deleteReserveDataByID(reserveDataDTO.getUserID());
             reserveService.registerData(reserveDataDTO);
             reserveService.convertDateFormat(reserveDataDTO);
@@ -107,7 +107,7 @@ public class ReserveController {
         try{
             ReserveDataDTO reserveDataDTO = reserveService.getReserveDataByID(userDTO.getId());
             //reserveService.convertDateFormat(reserveDataDTO);
-            if(userDTO.getType().equals("admin")){
+            if(userDTO.getType()==1){
                 model.addAttribute("who","관리자");
                 model.addAttribute("datas",reserveService.getReserveList());
             }

@@ -102,7 +102,7 @@ public class LoginController {
 
         userDTO.setBirth(dateFormat);
         userDTO.setPhone(first_phone + "-" + second_phone + "-" + third_phone);
-        userDTO.setType("customer");
+        userDTO.setType(3);
         userDTO.setLast_login(current);
         userDTO.setReg_login(current);
 
@@ -141,7 +141,7 @@ public class LoginController {
             userDTO.setName("user");
             userDTO.setGender("남");
             userDTO.setBirth("1998/02/11");
-            userDTO.setType("user");
+            userDTO.setType(2);
             userDTO.setEmail("user@gmail.com");
             userDTO.setPhone("01011111111");
             userDTO.setLast_login(current);

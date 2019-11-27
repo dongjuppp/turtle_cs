@@ -20,7 +20,7 @@
             <c:if test="${user != null }"><a class="btn btn-style-one" href="/login_info?id=${user.id}" style="float: left">로그인 정보(테스트용으로 만듬)</a></c:if>
             <c:if test="${user != null }"><a class="btn btn-style-one" href="/logout" style="float: left">로그아웃</a></c:if>
             <c:if test="${user != null }"><a class="btn btn-style-one" href="/update_page" style="float: left">자기 정보 수정하기</a></c:if>
-            <c:if test="${user != null && user.type == 'admin'}"><a class="btn btn-style-one" href="/user_manage" style="float: left">회원관리</a></c:if>
+            <c:if test="${user != null && user.type == '1'}"><a class="btn btn-style-one" href="/user_manage" style="float: left">회원관리</a></c:if>
             <a>&nbsp;&nbsp;&nbsp;</a>
         </div>
 
@@ -91,7 +91,12 @@
 
                         <ul class="dropdown-menu">
                             <c:forEach var="drop" items="${head.dropMenus}" varStatus="status2">
-                                <li><a href="${head.url}${drop.url}">${drop.title}</a> </li>
+                                <c:if test="${user != null && user.type <= drop.level}">
+                                    <li><a href="${head.url}${drop.url}">${drop.title}</a> </li>
+                                </c:if>
+                                <c:if test="${user == null && drop.level=='3'}">
+                                    <li><a href="${head.url}${drop.url}">${drop.title}</a> </li>
+                                </c:if>
                             </c:forEach>
                         </ul>
                     </li>

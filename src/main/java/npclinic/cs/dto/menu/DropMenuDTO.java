@@ -10,4 +10,5 @@ public class DropMenuDTO {
     private String title;
     private int orderNum;
     private String url;
+    private int level;
 }

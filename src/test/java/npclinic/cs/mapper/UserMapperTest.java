@@ -42,7 +42,7 @@ public class UserMapperTest {
         userDTO.setName("testName");
         userDTO.setGender("testGender");
         userDTO.setBirth("1999/01/01");
-        userDTO.setType("user");
+        userDTO.setType(2);
         userDTO.setEmail("test@gmail.com");
         userDTO.setPhone("01011112222");
         userDTO.setLast_login(date);
@@ -65,7 +65,7 @@ public class UserMapperTest {
         userDTO.setName("testName");
         userDTO.setGender("testGender");
         userDTO.setBirth("1999/01/01");
-        userDTO.setType("user");
+        userDTO.setType(2);
         userDTO.setEmail("test@gmail.com");
         userDTO.setPhone("01011112222");
         userDTO.setLast_login(date);
@@ -101,7 +101,7 @@ public class UserMapperTest {
         userDTO.setName("testName");
         userDTO.setGender("testGender");
         userDTO.setBirth("1999/01/01");
-        userDTO.setType("user");
+        userDTO.setType(2);
         userDTO.setEmail("test@gmail.com");
         userDTO.setPhone("01011112222");
         userDTO.setLast_login(date);
