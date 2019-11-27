@@ -9,11 +9,11 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>김갑수마취통증의학과</title>
 </head>
 <head>
     <meta charset="utf-8">
-    <title>Medic | Medical HTML Template</title>
+    <title>김갑수마취통증의학과</title>
 
 
     <!-- mobile responsive meta -->
@@ -51,12 +51,12 @@
     <section class="page-title text-center" style="background-image:url();">
         <div class="container">
             <div class="title-text">
-                <h1>FREE BOARD</h1>
+                <h1>자유게시판</h1>
                 <ul class="title-menu clearfix">
                     <li>
-                        <a href="index.html">home &nbsp;/</a>
+                        <a href="/">홈으로 &nbsp;/</a>
                     </li>
-                    <li>Free board</li>
+                    <li>자유게시판</li>
                 </ul>
             </div>
         </div>

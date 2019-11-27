@@ -8,9 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>김갑수마취통증의학과</title>
     <meta charset="utf-8">
-    <title>Medic | Medical HTML Template</title>
+    <title>김갑수마취통증의학과</title>
 
 
     <!-- mobile responsive meta -->

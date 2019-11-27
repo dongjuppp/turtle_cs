@@ -9,11 +9,11 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>김갑수마취통증의학과</title>
 </head>
 <head>
     <meta charset="utf-8">
-    <title>Medic | Medical HTML Template</title>
+    <title>김갑수마취통증의학과</title>
 
 
     <!-- mobile responsive meta -->
@@ -51,12 +51,12 @@
     <section class="page-title text-center" style="background-image:url();">
         <div class="container">
             <div class="title-text">
-                <h1>BOARD</h1>
+                <h1>${titleName}</h1>
                 <ul class="title-menu clearfix">
                     <li>
-                        <a href="index.html">home &nbsp;/</a>
+                        <a href="/">홈으로 &nbsp;/</a>
                     </li>
-                    <li>board</li>
+                    <li>${titleName}</li>
                 </ul>
             </div>
         </div>
@@ -72,7 +72,7 @@
                         <div class="section-title">
                             <h3>${titleName} 진료정보</h3>
                         </div>
-
+                        <br>
                         <c:forEach var="boardDTO" items="${data}" varStatus="num">
                             <table class="container" style="text-align: center; border: 1px solid #dddddd">
                                 <div class="board-view-head">
@@ -80,14 +80,13 @@
                                         <h3 class="vtitle">${boardDTO.title}</h3>
 
                                         <div class="vtitle-winfo">
-                                            <span>${boardDTO.content}</span>
+                                            <h5><span>${boardDTO.content}</span></h5>
                                         </div>
                                     </div>
                                 </div>
                             </table>
-
                         </c:forEach>
-
+                        <br><br><br>
                     </div>
                 </div>
             </div>

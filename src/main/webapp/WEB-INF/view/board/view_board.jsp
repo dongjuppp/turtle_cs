@@ -13,7 +13,7 @@
 </head>
 <head>
     <meta charset="utf-8">
-    <title>Medic | Medical HTML Template</title>
+    <title>김갑수마취통증의학과</title>
 
 
     <!-- mobile responsive meta -->
@@ -51,12 +51,12 @@
     <section class="page-title text-center" style="background-image:url();">
         <div class="container">
             <div class="title-text">
-                <h1>BOARD</h1>
+                <h1>${data.title}</h1>
                 <ul class="title-menu clearfix">
                     <li>
-                        <a href="index.html">home &nbsp;/</a>
+                        <a href="/">홈으로 &nbsp;/</a>
                     </li>
-                    <li>board</li>
+                    <li>${data.title}</li>
                 </ul>
             </div>
         </div>
