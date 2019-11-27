@@ -139,7 +139,7 @@
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" name="Date" placeholder="Date" required="" id="datepicker">
+                                            <input type="text" name="Date" placeholder="Date" required="" id="datepicker" autocomplete="off">
                                             <i class="fa fa-calendar" aria-hidden="true"></i>
                                         </div>
                                     </div>
@@ -152,10 +152,17 @@
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <select name="time">
+                                            <select name="time"autocomplete="off">
                                                 <option>시간</option>
-                                                <option>13</option>
-                                                <option>14</option>
+                                                <option>09:00</option>
+                                                <option>10:00</option>
+                                                <option>11:00</option>
+                                                <option>12:00</option>
+                                                <option>14:00</option>
+                                                <option>15:00</option>
+                                                <option>16:00</option>
+                                                <option>17:00</option>
+                                                <option>18:00</option>
                                             </select>
                                         </div>
                                     </div>
