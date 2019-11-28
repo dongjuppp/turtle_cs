@@ -152,9 +152,18 @@
                             </c:when>
                         </c:choose>
 
-
                     </div>
-                </div>
+                    <c:choose>
+                        <c:when test="${who=='관리자'}">
+                            <div align="right">
+                                <a href="/excelReserve">
+                                    <button  class="btn-style-two">엑셀다운
+                                    </button>
+                                </a>
+                            </div>
+                        </c:when>
+                    </c:choose>
+               </div>
 
             </div>
         </div>
@@ -196,6 +205,7 @@
                 }
             });
         }
+
     </script>
 </body>
 

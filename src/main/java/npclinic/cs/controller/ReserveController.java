@@ -2,6 +2,7 @@ package npclinic.cs.controller;
 
 import npclinic.cs.dto.user.UserDTO;
 import npclinic.cs.dto.reserve.ReserveDataDTO;
+import npclinic.cs.service.common.ExcelService;
 import npclinic.cs.service.reserve.ReserveService;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +10,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.*;
+import java.util.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /*
 예약 페이지 컨트롤러
@@ -20,10 +28,12 @@ import java.awt.*;
 public class ReserveController {
 
     private ReserveService reserveService;
+    private ExcelService excelService;
 
     @Autowired
-    public ReserveController(ReserveService reserveService){
+    public ReserveController(ReserveService reserveService,ExcelService excelService){
         this.reserveService=reserveService;
+        this.excelService = excelService;
     }
 
         private final String RESERVE_JSP = "reserve/reserve";
@@ -121,5 +131,22 @@ public class ReserveController {
             return RESERVE_CHECK_JSP;
         }
         return RESERVE_CHECK_JSP;
+    }
+
+    @RequestMapping("excelReserve")
+    @ResponseBody
+    public String excel(HttpServletRequest request, HttpServletResponse response){
+
+        String path = request.getServletContext().getRealPath("/excelFile");
+        String[] format = {"아이디","이름","날짜","시간","진료과목","의사","접수상태"};
+        String excelFileName= "예약상황";
+        List<ReserveDataDTO> reserveDataDTOS = reserveService.getReserveList();
+        ArrayList<ArrayList<String>> list = new ArrayList<>();
+        for(ReserveDataDTO reserveDataDTO:reserveDataDTOS){
+            list.add(reserveDataDTO.toArrayList());
+        }
+        return excelService.deliveExcel(excelService.writeExcel(format,list,path,excelFileName),
+                path,request,response);
+
     }
 }

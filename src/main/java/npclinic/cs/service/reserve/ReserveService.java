@@ -19,4 +19,5 @@ public interface ReserveService {
     void acceptReserve(String userID);
 
     void rejectReserve(String userID);
+
 }

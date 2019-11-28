@@ -92,6 +92,12 @@
                     </tr>
                 </c:forEach>
             </table>
+            <div align="right">
+                <a href="/excelUser">
+                    <button  class="btn-style-two">엑셀다운
+                    </button>
+                </a>
+            </div>
             <ul class="btn-group pagination">
                 <c:if test="${page_maker.prev }">
                     <li>
@@ -109,7 +115,9 @@
                     </li>
                 </c:if>
             </ul>
+
         </div>
+
     </section>
     <!-- End Contact Section -->
 
