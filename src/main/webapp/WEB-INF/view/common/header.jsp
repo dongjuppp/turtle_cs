@@ -32,19 +32,19 @@
                 <li style="float:left;border-left: none; padding-left: 0;"><a href="/login_page">로그인</a></li>
                 </c:if>
                 <c:if test="${user == null }">
-                    <li style="float:left;display: inline; border-left: 2px solid; padding-left: 0.3em;"><a href="/register_page">회원가입</a></li>
+                    <li style="float:left;display: inline; border-left: 1px solid; padding-left: 0.3em;"><a href="/register_page">회원가입</a></li>
                 </c:if>
                 <c:if test="${user != null }">
                     <li style="float:left;border-left: none; padding-left: 0;"><a href="/login_info?id=${user.id}">로그인 정보(테스트용으로 만듬)</a></li>
                 </c:if>
                 <c:if test="${user != null }">
-                    <li style="float:left;display: inline; border-left: 2px solid; padding-left: 0.3em;"><a href="/logout">로그아웃</a></li>
+                    <li style="float:left;display: inline; border-left: 1px solid; padding-left: 0.3em;"><a href="/logout">로그아웃</a></li>
                 </c:if>
                 <c:if test="${user != null }">
-                    <li style="float:left;display: inline; border-left: 2px solid; padding-left: 0.3em;"><a href="/update_page">자기 정보 수정하기</a></li>
+                    <li style="float:left;display: inline; border-left: 1px solid; padding-left: 0.3em;"><a href="/update_page">자기 정보 수정하기</a></li>
                 </c:if>
                 <c:if test="${user != null && user.type == '1'}">
-                    <li style="float:left;display: inline; border-left: 2px solid; padding-left: 0.3em;"><a href="/user_manage">회원관리</a></li>
+                    <li style="float:left;display: inline; border-left: 1px solid; padding-left: 0.3em;"><a href="/user_manage">회원관리</a></li>
                 </c:if>
             </ul>
             </div>
@@ -107,7 +107,7 @@
 <%--                </c:forEach>--%>
 <%--            </div>--%>
 <!--Main Header-->
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default"  style="background-color: #0d95e8">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -125,8 +125,8 @@
             <ul class="nav navbar-nav">
 
                 <c:forEach var="head" items="${headerMenu}" varStatus="status">
-                    <li class="dropdown" style="background-color: inherit">
-                        <a href="${head.url}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <li class="dropdown">
+                        <a href="${head.url}" style="color: white" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 ${head.title}<span class="caret"></span>
                         </a>
 

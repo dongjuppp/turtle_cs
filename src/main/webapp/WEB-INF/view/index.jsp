@@ -91,18 +91,18 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="cta-block">
-                        <div class="emmergency item">
+                        <div class="emmergency item" style="background-color: #2e6da4">
                             <i class="fa fa-phone"></i>
                             <h2>전화 상담 문의</h2>
                             <h2>02-536-1777</h2>
                             <h2>FAX. 02-536-1777</h2>
                         </div>
-                        <div class="top-doctor item">
+                        <div class="top-doctor item" style="background-color: #2e6da4;">
                             <i class="fa fa-stethoscope"></i>
                             <h2>진료안내</h2>
                             <a href="/medicinfoNeck" class="btn btn-main">진료정보보기</a>
                         </div>
-                        <div class="working-time item">
+                        <div class="working-time item" style="background-color: #2e6da4">
                             <i class="fa fa-hourglass-o"></i>
                             <h2>진료시간 안내</h2>
                             <ul class="w-hours">
