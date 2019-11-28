@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /*
@@ -27,6 +28,17 @@ public class UserDTO {
     private String phone;
     private Date last_login;
     private Date reg_login;
+
+    public ArrayList<String> toArrayList(){
+        ArrayList<String> tmp = new ArrayList<>();
+        tmp.add(id);
+        tmp.add(name);
+        tmp.add(birth);
+        tmp.add(email);
+        tmp.add(gender);
+        tmp.add(phone);
+        return tmp;
+    }
 
     public String getId() {
         return id;

@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import npclinic.cs.dto.paging.Criteria;
 import npclinic.cs.dto.paging.PageMaker;
 import npclinic.cs.dto.user.UserDTO;
+import npclinic.cs.service.common.ExcelService;
 import npclinic.cs.service.user.UserService;
 import org.aspectj.asm.IModelFilter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,16 +14,21 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class AdminController {
 
     private UserService userService;
+    private ExcelService excelService;
 
     @Autowired
-    public AdminController(UserService userService){
+    public AdminController(UserService userService,ExcelService excelService){
+        this.excelService = excelService;
         this.userService=userService;
     }
 
@@ -82,6 +88,20 @@ public class AdminController {
 
 
         return "admin/user_add";
+    }
+
+    @RequestMapping("excelUser")
+    public String excelUser(HttpServletRequest request, HttpServletResponse response){
+        String path = request.getServletContext().getRealPath("/excelFile");
+        String[] format = {"아이디","이름","생년월일","이메일","성벌","전화번호"};
+        String fileName = "고객명단";
+        List<UserDTO> tmp = userService.getAllUser();
+        ArrayList<ArrayList<String>> list = new ArrayList<>();
+        for(UserDTO userDTO:tmp){
+            list.add(userDTO.toArrayList());
+        }
+        return excelService.deliveExcel(excelService.writeExcel(format,list,path,fileName),
+                path,request,response);
     }
 
 }
