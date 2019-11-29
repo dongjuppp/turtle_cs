@@ -61,8 +61,8 @@
     <section class="service-section bg-gray section">
         <div class="container">
             <div class="section-title text-center">
-                <h3>둘러보기
-                    <span>${introduce.text1}</span>
+                <h3 style="font-family: 나눔명조">둘러보기
+                    <span style="font-family: 나눔명조">${introduce.text1}</span>
                 </h3>
                 <p>${introduce.text2}</p>
             </div>

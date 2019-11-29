@@ -70,9 +70,9 @@
                 <div>
                     <div class="contact-area style-two">
                         <div class="section-title">
-                            <h3>게시판</h3>
+                            <h3 style="margin-top: 10%;margin-bottom: 5%">게시판</h3>
                         </div>
-                        <table class="table table-hover">
+                        <table style="margin-top: 5%;margin-bottom: 10%" class="table table-hover">
 
                             <thead>
                             <tr>

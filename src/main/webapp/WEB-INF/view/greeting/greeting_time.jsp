@@ -29,7 +29,6 @@
     <!--Favicon-->
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-
 </head>
 
 
@@ -61,7 +60,7 @@
     <section class="bg-gray section">
         <div class="container text-center">
             <div class="section-title">
-                <h3>진료시간</h3>
+                <h3 style="font-family: 나눔명조">진료시간</h3>
                 <br>
             </div>
             <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
@@ -73,7 +72,7 @@
             </div>
             <hr class="col-md-12 col-sm-12 col-xs-12">
             <div class="col-md-12 col-sm-12 col-xs-12 section-title text-center">
-                <h3>오시는길</h3>
+                <h3 style="font-family: 나눔명조">오시는길</h3>
                 <br>
             </div >
                 <div class="text-center">
