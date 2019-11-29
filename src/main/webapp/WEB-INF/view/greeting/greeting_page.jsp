@@ -29,7 +29,11 @@
     <!--Favicon-->
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-
+    <style>
+        h3,span{
+            font-family: 나눔명조;!important;
+        }
+    </style>
 </head>
 
 
@@ -61,12 +65,18 @@
     <section class="service-section bg-gray section">
         <div class="container">
             <div class="section-title text-center">
-                <h3>${introduce.text1}
+                <h3  style="font-family: 나눔명조">${introduce.text1}
+                    <br><br>
                     <span>${introduce.text2}</span>
                 </h3>
+                <br>
+                <hr>
+                <br>
                 <p>${introduce.text3}</p>
             </div>
-
+            <br>
+            <hr>
+            <br>
             <div class="row items-container clearfix">
                 <c:forEach items="${doctors}" var="doctor" varStatus="status">
                     <div class="item">

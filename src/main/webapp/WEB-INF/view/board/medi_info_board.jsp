@@ -10,6 +10,8 @@
 <html>
 <head>
     <title>김갑수마취통증의학과</title>
+    <style>
+    </style>
 </head>
 <head>
     <meta charset="utf-8">
@@ -68,19 +70,20 @@
         <div class="container">
             <div>
                 <div>
-                    <div class="contact-area style-two">
+                    <div class="contact-area style-five">
                         <div class="section-title">
-                            <h3>${titleName} 진료정보</h3>
+                            <h3 style=" font-family: 나눔명조;">${titleName} 진료정보</h3>
                         </div>
                         <br>
+                        <br>
                         <c:forEach var="boardDTO" items="${data}" varStatus="num">
-                            <table class="container" style="text-align: center; border: 1px solid #dddddd">
+                            <table class="container" style="text-align: center;">
                                 <div class="board-view-head">
-                                    <div class="board-view-title">
-                                        <h3 class="vtitle">${boardDTO.title}</h3>
-
+                                    <div style="padding-top: 8%;padding-bottom: 8%;padding-left: 5%;padding-right: 5%" class="board-view-title">
+                                        <h3 style=" font-family: 나눔명조;"class="vtitle">${boardDTO.title}</h3>
+                                        <br>
                                         <div class="vtitle-winfo">
-                                            <h5><span>${boardDTO.content}</span></h5>
+                                            <p>${boardDTO.content}</p>
                                         </div>
                                     </div>
                                 </div>

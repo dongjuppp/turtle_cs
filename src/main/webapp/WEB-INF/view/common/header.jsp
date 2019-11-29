@@ -11,7 +11,9 @@
     /*ul{width:650px;height:30px;background:green;list-style:none;padding-top:15px}*/
     /*ul li{float:left;margin-right:10px}*/
     /*ul li a{font-size:12px;color:yellow;font-weight:bold;text-decoration:none}*/
-
+    body,li,a,strong{
+        font-family: '맑은 고딕';!important;
+    }
 </style>
 <header>
 
@@ -71,7 +73,7 @@
                     <div class="icon-box">
                         <i class="fa fa-fax"></i>
                     </div>
-                    <strong>팩스</strong>
+                    <strong style="font-family: '맑은 고딕'">팩스</strong>
                     <br>
                     <span>${hospitalInfo.fax}</span>
                 </li>
@@ -80,7 +82,7 @@
                     <div class="icon-box">
                         <i class="fa fa-phone"></i>
                     </div>
-                    <strong>전화 번호</strong>
+                    <strong style="font-family: '맑은 고딕'">전화 번호</strong>
                    <br>
                     <span>${hospitalInfo.phone}</span>
                 </li>
@@ -107,7 +109,7 @@
 <%--                </c:forEach>--%>
 <%--            </div>--%>
 <!--Main Header-->
-<nav class="navbar navbar-default"  style="background-color: #0d95e8">
+<nav class="navbar navbar-default"  style="background-color: #0d95e8;">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -122,11 +124,11 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav" >
 
                 <c:forEach var="head" items="${headerMenu}" varStatus="status">
                     <li class="dropdown">
-                        <a href="${head.url}" style="color: white" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <a href="${head.url}" style="color: white;font-family: '맑은 고딕'" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 ${head.title}<span class="caret"></span>
                         </a>
 

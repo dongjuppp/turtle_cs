@@ -30,7 +30,11 @@
     <!--Favicon-->
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-
+    <style>
+        body{
+        font-family: '맑은 고딕'; !important;
+        }
+    </style>
 </head>
 
 
@@ -57,9 +61,9 @@
                     <div class="col-12">
                         <!-- Slide Content Start -->
                         <div class="content style text-right">
-                            <h2 class="text-white text-bold mb-2">통증 없는 세상을 도와드립니다</h2>
+                            <h2 style="font-family: 나눔명조" class="text-white text-bold mb-2">통증 없는 세상을 도와드립니다</h2>
                             <br>
-                            <p class="tag-text mb-5">통증치료의 모든것 김갑수 마취통증의학과</p>
+                            <p style="font-family: 나눔명조" class="tag-text mb-5">통증치료의 모든것 김갑수 마취통증의학과</p>
                         </div>
                         <!-- Slide Content End -->
                     </div>
