@@ -105,7 +105,7 @@
                         </table>
 
                         <div style="width: 270px">
-                            <table>  <td> </td>
+                            <table>
                                 <c:if test="${user != null && (user.type == 1 || user.id eq data.writer)}">
                                     <td>
                                         <button class="btn-style-two"
@@ -120,6 +120,7 @@
                                     </td>
                                 </c:if>
                             </table>
+                            <br><br>
                         </div>
                     </div>
                 </div>
