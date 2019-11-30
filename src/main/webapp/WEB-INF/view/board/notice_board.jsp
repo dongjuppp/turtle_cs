@@ -69,11 +69,11 @@
         <div class="container">
             <div class="row">
                 <div>
-                    <div class="contact-area style-two">
+                    <div style="margin-top: 5%;margin-bottom: 10%"class="contact-area style-two">
                         <div style="margin-top: 10%;margin-bottom: 5%" class="section-title">
                             <h3>게시판</h3>
                         </div>
-                        <table style="margin-top: 5%;margin-bottom: 10%" class="table table-hover" >
+                        <table class="table table-hover" >
 
                             <thead>
                             <tr>
@@ -107,7 +107,7 @@
 
                         <div class="Formfooter">
                             <c:if test="${user.type eq '1'}">
-                            <button onclick="location='insert_board?dropMenuId=${dropMenuId}'" class="btn-style-two">새글쓰기</button>
+                            <button onclick="location='insert_board?dropMenuId=${dropMenuId}'" style="width: 8%;height: 4%"class="btn-white">새글쓰기</button>
                             </c:if>
                         </div>
 
