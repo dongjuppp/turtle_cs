@@ -3613,4 +3613,7 @@ li {
   margin-bottom: 10px;
   word-wrap: normal;
 }
+.radius-rect {
+  border-radius: 50%;
+}
 /*# sourceMappingURL=maps/style.css.map */
