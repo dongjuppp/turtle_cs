@@ -119,6 +119,8 @@ public class BoardController {
     }
 
 
+
+
     @RequestMapping("/view_board")
     public String view(Model model, HttpServletRequest httpServletRequest){
         int ind = Integer.parseInt(httpServletRequest.getParameter("ind"));
@@ -127,7 +129,6 @@ public class BoardController {
         boardService.updateViews(ind, boardData.getViews());
 
         model.addAttribute("data", boardData);
-        System.out.println("view access");
         return VIEW_BOARD_URL;
     }
 

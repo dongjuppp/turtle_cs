@@ -64,58 +64,54 @@
     <!--End Page Title-->
 
     <!-- Contact Section -->
-    <section class="blog-section section style-three pb-0">
+    <section class="blog-section style-three ">
         <div class="container">
             <div class="row">
-                <div>
-                    <div class="contact-area style-two">
-                        <div class="section-title">
-                            <h3 style="margin-top: 10%;margin-bottom: 5%">게시판</h3>
-                        </div>
-                        <table style="margin-top: 5%;margin-bottom: 10%" class="table table-hover">
-
-                            <thead>
-                            <tr>
-                                <th>번 호</th>
-                                <th>제 목</th>
-                                <th>작성자</th>
-                                <th>작성일</th>
-                                <th>조 회</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-
-                            <c:forEach var="boardDTO" items="${board}" varStatus="num">
-                                <fmt:parseNumber var="view" integerOnly="true"
-                                                 type="number" value="${boardDTO.views/2}"/>
-                                <tr>
-
-                                    <td><c:out value="${num.index+1}"/></td>
-                                    <td><a href="view_board?ind=${boardDTO.id}"> <c:out value="${boardDTO.title}"/> </a>
-                                    </td>
-                                    <td><c:out value="${boardDTO.writer}"/></td>
-                                    <td><c:out value="${boardDTO.dateStr}"/></td>
-                                    <td><c:out value="${view}"/></td>
-                                </tr>
-                            </c:forEach>
-
-                            </tbody>
-                            <tfoot>
-                            <tr>
-                                <td align="center" colspan="5">1</td>
-                            </tr>
-                            </tfoot>
-                        </table>
-                        <c:if test="${user != null}">
-                            <div class="Formfooter">
-                                <button onclick="location='insert_board?dropMenuId=${dropMenuId}'"
-                                        class="btn-style-two">새글쓰기
-                                </button>
-                            </div>
-                        </c:if>
-
+                <div class="contact-area style-two">
+                    <div class="section-title">
+                        <h3 style="margin-top: 10%;margin-bottom: 5%">게시판</h3>
                     </div>
+                    <table style="margin-top: 5%;margin-bottom: 10%" class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>번 호</th>
+                            <th>제 목</th>
+                            <th>작성자</th>
+                            <th>작성일</th>
+                            <th>조 회</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <c:forEach var="boardDTO" items="${board}" varStatus="num">
+                            <fmt:parseNumber var="view" integerOnly="true"
+                                             type="number" value="${boardDTO.views/2}"/>
+                            <tr>
+
+                                <td><c:out value="${num.index+1}"/></td>
+                                <td><a href="view_board?ind=${boardDTO.id}"> <c:out value="${boardDTO.title}"/> </a>
+                                </td>
+                                <td><c:out value="${boardDTO.writer}"/></td>
+                                <td><c:out value="${boardDTO.dateStr}"/></td>
+                                <td><c:out value="${view}"/></td>
+                            </tr>
+                        </c:forEach>
+
+                        </tbody>
+                        <tr>
+                            <td align="center" colspan="5">1</td>
+                        </tr>
+                    </table>
+                    <c:if test="${user != null}">
+                        <div class="Formfooter">
+                            <button onclick="location='insert_board?dropMenuId=${dropMenuId}'"
+                                    class="btn-style-two">새글쓰기
+                            </button>
+                        </div>
+                    </c:if>
+
                 </div>
+
 
             </div>
         </div>

@@ -72,23 +72,49 @@
                 <div>
                     <div class="contact-area style-five">
                         <div class="section-title">
-                            <h3 style=" font-family: 나눔명조;">${titleName} 진료정보</h3>
-                        </div>
-                        <br>
-                        <br>
-                        <c:forEach var="boardDTO" items="${data}" varStatus="num">
-                            <table class="container" style="text-align: center;">
-                                <div class="board-view-head">
-                                    <div style="padding-top: 8%;padding-bottom: 8%;padding-left: 5%;padding-right: 5%" class="board-view-title">
-                                        <h3 style=" font-family: 나눔명조;"class="vtitle">${boardDTO.title}</h3>
-                                        <br>
-                                        <div class="vtitle-winfo">
-                                            <p>${boardDTO.content}</p>
-                                        </div>
-                                    </div>
-                                </div>
+
+
+                            <table border="0" cellpadding="0" cellspacing="0" width="90%">
+                                <tr>
+                                    <td colspan="2" height="15"></td>
+                                </tr>
+                                <tr>
+                                    <td width='19'><i class="fa fa-comment fa-2x"></i></td>
+                                    <td><span style="color: #FF9900; font-family: 나눔명조; "><span
+                                            style='font-size:17pt;'><b>${titleName} 진료정보</b></span></span></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" height="10"></td>
+                                </tr>
                             </table>
-                        </c:forEach>
+                            <br>
+                            <TABLE cellSpacing=3 cellPadding=0 width=810 border=0>
+                                <TBODY>
+                                <c:forEach var="boardDTO" items="${data}" varStatus="num">
+                                    <TR>
+                                        <TD>
+                                            <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                                                <TBODY>
+                                                <TR>
+                                                    <TD>
+                                                        <div style="font-size: 14pt; padding-left: 1.8em"><i
+                                                                class="fa fa-bookmark fa-2x"></i><B>&nbsp${boardDTO.title}</B>
+                                                        </div>
+
+                                                        <BR><BR>
+                                                        <div style="padding-left: 1.9em">&nbsp${boardDTO.content}</div>
+                                                    </TD>
+                                                </TR>
+                                                </TBODY>
+                                            </TABLE>
+                                            <BR>
+                                        </TD>
+                                    </TR>
+                                </c:forEach>
+
+                                </TBODY>
+                            </TABLE>
+                        </div>
                         <br><br><br>
                     </div>
                 </div>
