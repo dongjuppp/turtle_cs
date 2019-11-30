@@ -63,7 +63,7 @@
         <div class="logo">
             <figure>
                 <a href="/">
-                    <img src="images/main_logo.jpg" alt="" width="250">
+                    <img src="images/main_logo.jpg" alt="" width="250" height="60" style="padding-left: 2.0em">
                 </a>
             </figure>
         </div>
