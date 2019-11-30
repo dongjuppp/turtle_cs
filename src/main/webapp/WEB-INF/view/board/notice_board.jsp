@@ -106,7 +106,7 @@
                         </table>
 
                         <div class="Formfooter">
-                            <c:if test="${user.type eq 'admin'}">
+                            <c:if test="${user.type eq '1'}">
                             <button onclick="location='insert_board?dropMenuId=${dropMenuId}'" class="btn-style-two">새글쓰기</button>
                             </c:if>
                         </div>
