@@ -73,49 +73,54 @@
                             <h3>게시판</h3>
                         </div>
 
-                        <table class="container" style="text-align: center; border: 1px solid #dddddd">
+                        <table style="text-align: center; border: 1px solid #dddddd">
                             <div class="board-view-head">
                                 <div class="board-view-title">
                                     <h3 class="vtitle">${data.title}</h3>
                                     <fmt:parseNumber var="view" integerOnly="true"
                                                      type="number" value="${data.views/2}"/>
 
-                                    <div class="vtitle-winfo">
+                                    <div class="vtitle-winfo"><h5>
                                         <span>작성자 : ${data.writer}</span>
                                         <span>작성일자 : ${data.dateStr}</span>
                                         <span>조회 : ${view}</span>
-                                    </div>
+                                    </h5></div>
                                 </div>
                             </div>
 
                             <div class="board-view-cont">
                                 <div class="board-view-contents">
-                                    <h3>${data.content}</h3>
+                                    ${data.content}
                                 </div>
                                 <br><br><br>
                                 <div style="text-align: right;">
-                                <c:if test="${data.dropMenuId == 16}">
-                                    <a href="communityNnotice"><span>목록으로</span></a>
-                                </c:if>
-                                <c:if test="${data.dropMenuId == 17}">
-                                    <a href="communityFree"><span>목록으로</span></a>
-                                </c:if>
+                                    <c:if test="${data.dropMenuId == 16}">
+                                        <a href="communityNnotice"><span>목록으로</span></a>
+                                    </c:if>
+                                    <c:if test="${data.dropMenuId == 17}">
+                                        <a href="communityFree"><span>목록으로</span></a>
+                                    </c:if>
                                 </div>
                             </div>
                         </table>
 
-                        <div style="width: 300px">
-                            <c:if test="${user != null && user.type == data.writer}">
-                                <table>
-                                <tr>
-                                    <td><button class="btn-style-two"
-                                            onclick="location='delete_board?ind=${data.id}&drop_menu_id=${data.dropMenuId}'">
-                                        삭제
-                                    </button></td>
-                                    <td><button class="btn-style-two" onclick="location='update_board?ind=${data.id}'">수정
-                                    </button></td>
-                                </tr></table>
-                            </c:if>
+                        <div style="width: 270px">
+                            <table>
+                                <c:if test="${user != null && (user.type == 1 || user.id eq data.writer)}">
+                                    <td>
+                                        <button class="btn-style-two"
+                                                onclick="location='delete_board?ind=${data.id}&drop_menu_id=${data.dropMenuId}'">
+                                            삭제
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button class="btn-style-two"
+                                                onclick="location='update_board?ind=${data.id}'">수정
+                                        </button>
+                                    </td>
+                                </c:if>
+                            </table>
+                            <br><br>
                         </div>
                     </div>
                 </div>
@@ -124,7 +129,9 @@
     </section>
     <!-- End Contact Section -->
 
+    <script>
 
+    </script>
     <!--footer-main-->
     <%@include file="../common/footer.jsp" %>
 

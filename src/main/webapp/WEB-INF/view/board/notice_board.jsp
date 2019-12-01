@@ -65,7 +65,7 @@
     <!--End Page Title-->
 
     <!-- Contact Section -->
-    <section class="blog-section section style-three pb-0">
+    <section class="blog-section style-three pb-0">
         <div class="container">
             <div class="row">
                 <div>
@@ -99,6 +99,7 @@
 
                             </tbody>
                             <tfoot>
+                            <br>
                             <tr>
                                 <td align="center" colspan="5">1</td>
                             </tr>

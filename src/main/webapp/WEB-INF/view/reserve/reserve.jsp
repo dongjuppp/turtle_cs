@@ -42,9 +42,8 @@
     <!-- Preloader -->
 
 
-
     <!--header top-->
-   <%@include file="../common/header.jsp"%>
+    <%@include file="../common/header.jsp" %>
     <!--End Main Header -->
 
     <!--Page Title-->
@@ -73,110 +72,121 @@
                             <h3>예약하기 <span>${who}</span></h3>
                         </div>
                         <c:choose>
-                        <c:when test="${who=='고객'}">
-                            <form name="contact_form" class="default-form contact-form" action="/reserveData" method="post">
-                                <div class="row">
-                                    <div class="col-md-6 col-sm-12 col-xs-12">
-                                        <div class="form-group">
-                                            <select name="subject">
-                                                <option>진료 항목</option>
-                                                <option>목/허리디스크(비수술)</option>
-                                                <option>신경성형술</option>
-                                                <option>대상포진 신경통</option>
-                                                <option>퇴행성 관절염</option>
-                                                <option>오십견/ 버거병</option>
-                                                <option>비급여항목</option>
-                                            </select>
+                            <c:when test="${who=='방문자'}">
+                                <br><br>
+                                <h4>${pleaseLogin}</h4>
+                                <br><br>
+                            </c:when>
+                            <c:when test="${who=='고객'}">
+                                <form name="contact_form" class="default-form contact-form" action="/reserveData"
+                                      method="post">
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <select name="subject">
+                                                    <option>진료 항목</option>
+                                                    <option>목/허리디스크(비수술)</option>
+                                                    <option>신경성형술</option>
+                                                    <option>대상포진 신경통</option>
+                                                    <option>퇴행성 관절염</option>
+                                                    <option>오십견/ 버거병</option>
+                                                    <option>비급여항목</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" name="Date" placeholder="Date" required=""
+                                                       id="datepicker">
+                                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <input type="text" name="Date" placeholder="Date" required="" id="datepicker">
-                                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <select name="doctor">
+                                                    <option>의사</option>
+                                                    <option>김갑수</option>
+                                                    <option>전동병</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <select name="time">
+                                                    <option>시간</option>
+                                                    <option>13</option>
+                                                    <option>14</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-12 col-xs-12">
-                                        <div class="form-group">
-                                            <select name="doctor">
-                                                <option>의사</option>
-                                                <option>김갑수</option>
-                                                <option>전동병</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <select name="time">
-                                                <option>시간</option>
-                                                <option>13</option>
-                                                <option>14</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 col-sm-12 col-xs-12">
-                                        <div class="form-group">
-                                            <textarea name="message" placeholder="Your Message" required=""></textarea>
-                                        </div>
-                                        <div class="form-group text-center">
-                                            <button type="submit" class="btn-style-one">제출 하기</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </c:when>
-                        <c:when test="${who=='관리자'}">
-                            <form name="contact_form" class="default-form contact-form" action="/reserveData" method="post">
-                                <div class="row">
-                                    <div class="col-md-6 col-sm-12 col-xs-12">
-                                        <div class="form-group">
-                                            <input type="text" name="userID" placeholder="아이디" required="">
-                                        </div>
-                                        <div class="form-group">
-                                            <select name="subject">
-                                                <option>진료 항목</option>
-                                                <option>목/허리디스크(비수술)</option>
-                                                <option>신경성형술</option>
-                                                <option>대상포진 신경통</option>
-                                                <option>퇴행성 관절염</option>
-                                                <option>오십견/ 버거병</option>
-                                                <option>비급여항목</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" name="Date" placeholder="Date" required="" id="datepicker" autocomplete="off">
-                                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <textarea name="message" placeholder="Your Message"
+                                                          required=""></textarea>
+                                            </div>
+                                            <div class="form-group text-center">
+                                                <button type="submit" class="btn-style-one">제출 하기</button>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-sm-12 col-xs-12">
-                                        <div class="form-group">
-                                            <select name="doctor">
-                                                <option>의사</option>
-                                                <option>김갑수</option>
-                                                <option>전동병</option>
-                                            </select>
+                                </form>
+                            </c:when>
+                            <c:when test="${who=='관리자'}">
+                                <form name="contact_form" class="default-form contact-form" action="/reserveData"
+                                      method="post">
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <input type="text" name="userID" placeholder="아이디" required="">
+                                            </div>
+                                            <div class="form-group">
+                                                <select name="subject">
+                                                    <option>진료 항목</option>
+                                                    <option>목/허리디스크(비수술)</option>
+                                                    <option>신경성형술</option>
+                                                    <option>대상포진 신경통</option>
+                                                    <option>퇴행성 관절염</option>
+                                                    <option>오십견/ 버거병</option>
+                                                    <option>비급여항목</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" name="Date" placeholder="Date" required=""
+                                                       id="datepicker" autocomplete="off">
+                                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <select name="time"autocomplete="off">
-                                                <option>시간</option>
-                                                <option>09:00</option>
-                                                <option>10:00</option>
-                                                <option>11:00</option>
-                                                <option>12:00</option>
-                                                <option>14:00</option>
-                                                <option>15:00</option>
-                                                <option>16:00</option>
-                                                <option>17:00</option>
-                                                <option>18:00</option>
-                                            </select>
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <select name="doctor">
+                                                    <option>의사</option>
+                                                    <option>김갑수</option>
+                                                    <option>전동병</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <select name="time" autocomplete="off">
+                                                    <option>시간</option>
+                                                    <option>09:00</option>
+                                                    <option>10:00</option>
+                                                    <option>11:00</option>
+                                                    <option>12:00</option>
+                                                    <option>14:00</option>
+                                                    <option>15:00</option>
+                                                    <option>16:00</option>
+                                                    <option>17:00</option>
+                                                    <option>18:00</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <textarea name="message" placeholder="Your Message"
+                                                          required=""></textarea>
+                                            </div>
+                                            <div class="form-group text-center">
+                                                <button type="submit" class="btn-style-one">제출 하기</button>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-12 col-sm-12 col-xs-12">
-                                        <div class="form-group">
-                                            <textarea name="message" placeholder="Your Message" required=""></textarea>
-                                        </div>
-                                        <div class="form-group text-center">
-                                            <button type="submit" class="btn-style-one">제출 하기</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </c:when>
+                                </form>
+                            </c:when>
                         </c:choose>
                     </div>
                 </div>
@@ -187,26 +197,25 @@
     <!-- End Contact Section -->
 
 
-
     <!--footer-main-->
-    <%@include file="../common/footer.jsp"%>
+    <%@include file="../common/footer.jsp" %>
 
-<script src="plugins/jquery.js"></script>
-<script src="plugins/bootstrap.min.js"></script>
-<script src="plugins/bootstrap-select.min.js"></script>
-<!-- Slick Slider -->
-<script src="plugins/slick/slick.min.js"></script>
-<!-- FancyBox -->
-<script src="plugins/fancybox/jquery.fancybox.min.js"></script>
-<!-- Google Map -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
-<script src="plugins/google-map/gmap.js"></script>
+    <script src="plugins/jquery.js"></script>
+    <script src="plugins/bootstrap.min.js"></script>
+    <script src="plugins/bootstrap-select.min.js"></script>
+    <!-- Slick Slider -->
+    <script src="plugins/slick/slick.min.js"></script>
+    <!-- FancyBox -->
+    <script src="plugins/fancybox/jquery.fancybox.min.js"></script>
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
+    <script src="plugins/google-map/gmap.js"></script>
 
-<script src="plugins/validate.js"></script>
-<script src="plugins/wow.js"></script>
-<script src="plugins/jquery-ui.js"></script>
-<script src="plugins/timePicker.js"></script>
-<script src="js/script.js"></script>
+    <script src="plugins/validate.js"></script>
+    <script src="plugins/wow.js"></script>
+    <script src="plugins/jquery-ui.js"></script>
+    <script src="plugins/timePicker.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

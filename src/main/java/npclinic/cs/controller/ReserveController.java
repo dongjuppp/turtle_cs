@@ -36,7 +36,7 @@ public class ReserveController {
         this.excelService = excelService;
     }
 
-        private final String RESERVE_JSP = "reserve/reserve";
+    private final String RESERVE_JSP = "reserve/reserve";
     private final String RESERVE_CHECK_JSP = "reserve/reserve_check";
 
     @RequestMapping("reserveDoReserve")
@@ -44,8 +44,9 @@ public class ReserveController {
         String url = null;
         UserDTO userDTO = (UserDTO) session.getAttribute("user");
         //userDTO.setType("admin");
-            if(userDTO == null){
+            if(userDTO == null) {
                 model.addAttribute("who","방문자");
+                model.addAttribute("pleaseLogin", "로그인 후 이용해 주세요.");
             }
             else if(userDTO.getType()==1){
                 model.addAttribute("who","관리자");
@@ -61,7 +62,6 @@ public class ReserveController {
             }
             else{
                 model.addAttribute("who","고객");
-
             }
             url = RESERVE_JSP;
             //고객의 아이디로 가져오는데 예약을 2회 이상한 고객에 대하여 어떤식으로 처리할지..
