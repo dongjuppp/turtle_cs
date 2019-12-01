@@ -112,8 +112,11 @@ public class LoginController {
     }
 
     @RequestMapping("/update_page")
-    public String updatePage(Model model){
-        model.addAttribute("userDTO", new UserDTO());
+    public String updatePage(Model model, HttpSession httpSession){
+        UserDTO userDTO = null;
+        userDTO = userService.getUser(((UserDTO)httpSession.getAttribute("user")).getId());
+
+        model.addAttribute("userDTO", userDTO);
         return "login/update_user";
     }
 

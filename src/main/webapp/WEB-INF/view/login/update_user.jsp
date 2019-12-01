@@ -73,20 +73,11 @@
                 </div>
                 <form name="register_form" class="default-form contact-form" action="/update_user" method="post"
                       modelAttribute="userDTO">
-
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-xs-9">
-                                <input type="text" class="form-control" name="id" id="id" placeholder="아이디를 입력해주세요"
-                                       required="required">
-                            </div>
-                        </div>
-                    </div>
                     <div class="form-group">
                         <div class="row">
                             <div class="col-xs-9">
                                 <input type="password" class="form-control" name="password" id="password"
-                                       placeholder="비밀번호를 입력해주세요" required="required">
+                                       placeholder="비밀번호를 입력해주세요" required="required" value="${userDTO.password}">
                             </div>
                         </div>
                     </div>
@@ -94,7 +85,7 @@
                         <div class="row">
                             <div class="col-xs-9">
                                 <input type="text" class="form-control" name="name" id="name" placeholder="이름을 입력해주세요"
-                                       required="required">
+                                       required="required" value="${userDTO.name}">
                             </div>
                         </div>
                     </div>
@@ -102,7 +93,7 @@
                         <div class="row">
                             <div class="col-xs-9">
                                 <input type="email" class="form-control" name="email" id="email"
-                                       placeholder="이메일을 입력해주세요" required="required">
+                                       placeholder="이메일을 입력해주세요" required="required" value="${userDTO.email}">
                             </div>
                         </div>
                     </div>
@@ -133,7 +124,7 @@
                         <div class="row">
                             <div class="col-xs-9">
                                 <input type="text" name="birth" placeholder="생일을 입력해주세요" required="required" id="birth">
-                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                <i class="fa fa-calendar" aria-hidden="true" value="${userDTO.birth}"></i>
                             </div>
                         </div>
                     </div>
