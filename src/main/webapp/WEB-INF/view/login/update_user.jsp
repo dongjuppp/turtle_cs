@@ -140,7 +140,7 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-xs-9">
-                                <button type="submit" class="btn btn-success btn-lg btn-block">회원 가입</button>
+                                <button type="submit" class="btn btn-success btn-lg btn-block">수정하기</button>
                             </div>
                         </div>
                     </div>
