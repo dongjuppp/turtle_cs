@@ -29,7 +29,12 @@
     <!--Favicon-->
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-
+    <style>
+        @font-face {
+            font-family: 나눔명조;
+            src: local(NanumMyeongju);
+        }
+    </style>
 </head>
 
 
