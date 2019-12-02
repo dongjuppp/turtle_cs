@@ -1,23 +1,13 @@
--- --------------------------------------------------------
--- 호스트:                          127.0.0.1
--- 서버 버전:                        10.4.8-MariaDB - mariadb.org binary distribution
--- 서버 OS:                        Win64
--- HeidiSQL 버전:                  10.2.0.5599
--- --------------------------------------------------------
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET NAMES utf8 */;
 /*!50503 SET NAMES utf8mb4 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
-
--- npclinic 데이터베이스 구조 내보내기
 DROP DATABASE IF EXISTS `npclinic`;
 CREATE DATABASE IF NOT EXISTS `npclinic` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `npclinic`;
 
--- 테이블 npclinic.board 구조 내보내기
 DROP TABLE IF EXISTS `board`;
 CREATE TABLE IF NOT EXISTS `board` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -28,20 +18,11 @@ CREATE TABLE IF NOT EXISTS `board` (
   `dropMenuId` int(11) DEFAULT NULL,
   `views` int(11) DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8;
 
--- 테이블 데이터 npclinic.board:~63 rows (대략적) 내보내기
 DELETE FROM `board`;
 /*!40000 ALTER TABLE `board` DISABLE KEYS */;
 INSERT INTO `board` (`id`, `title`, `content`, `writer`, `date`, `dropMenuId`, `views`) VALUES
-	(1, 'TESTING FREE BOARD1', 'TEST CONTENT1', 'dongju', '2019-11-19 16:13:37', 17, 10),
-	(2, 'TESTING FREE BOARD1', 'TEST CONTENT1', 'dongju', '2019-11-19 16:15:03', 17, 2),
-	(3, 'TESTING FREE BOARD2', 'TEST CONTENT2', 'dongju', '2019-11-19 16:16:42', 17, 2),
-	(4, 'TESTING FREE BOARD3', 'TEST CONTENT3', 'dongju', '2019-11-27 21:09:36', 17, 4),
-	(5, 'TESTING NOTICE BOARD1', 'TEST NOTICE CONTENT1', 'dongju', '2019-11-19 16:22:52', 16, 4),
-	(6, 'TESTING NOTICE BOARD2', 'TEST NOTICE CONTENT2', 'dongju', '2019-11-19 16:23:02', 16, 4),
-	(7, 'TESTING NOTICE BOARD3', 'TEST NOTICE CONTENT3', 'dongju', '2019-11-26 17:09:15', 16, 4),
-	(8, 'TESTING NOTICE BOARD4', 'TEST NOTICE CONTENT4', 'dongju', '2019-11-26 17:09:11', 16, 6),
 	(12, '자세 불량이나 오래 앉아있으면 디스크 변성을 심화시켜', '무거운 짐을 많이 들거나 평소 삐딱한 자세를 가지고 있거나 장시간 앉아서 일하는 등 디스크에 무리가 가는 경우가 많은 사람은 그렇지 않은 사람보다 디스크의 변성이 심하게 됩니다. <br>이러한 디스크의 변화는 목, 등, 허리 어느 곳에서도 나타납니다. <br>특히 허리에서는 4번과 5번 허리뼈(요추;腰椎) 사이 5번 허리뼈와 꼬리뼈(천추;薦椎) 사이에 있는 디스크에서 빈번히 발생하고 목에서는 5번과 6번 목뼈(경추;頸椎) 사이와 6번과 7번 목뼈 사이에 있는 디스크에서 자주 발생합니다.', 'dongju', '2019-11-29 21:41:01', 4, 0),
 	(13, '목이 뻣뻣하고 어깨와 팔을 따라 손가락 끝까지 통증 발생', '디스크 탈출의 부위에 따라 증상이 다르지만 목이 뻣뻣해지면서 어깨와 팔을 따라 손가락 끝까지 저리고 아프며 등뒤나 견갑골(날개뼈)사이에도 통증을 느끼게 됩니다. 또한 팔의 통 증이 목을 돌리거나 뒤로 젖힐 때 악화되고 팔을 들고 있으면 증상이 좋아집니다.', 'dongju', '2019-11-17 02:00:27', 4, 0),
 	(15, '진단 방법', '의사의 진찰 소견이 가장 중요합니다. <br>단순 방사선 촬영은 목디스크를 보다 강력하게 의심하는 방법은 되지만 확진은 어렵습니다. <br>근전도 검사가 의료 보험 적용이 되는 디스크 확진 방법이며, MRI는 영상으로 목디스크가 뒤로 밀린 것을 확인 할 수 있습니다.', 'dongju', '2019-11-29 21:58:55', 4, 0),
@@ -94,12 +75,12 @@ INSERT INTO `board` (`id`, `title`, `content`, `writer`, `date`, `dropMenuId`, `
 	(62, '진단서', '2만원', 'dongju', '2019-11-17 02:00:27', 9, 0),
 	(63, '소견서', '1만원', 'dongju', '2019-11-17 02:00:27', 9, 0),
 	(64, '차트복사', '5천원', 'dongju', '2019-11-17 02:00:27', 9, 0),
-	(66, 'insert test', 'test\r\n', 'user', '2019-11-27 21:09:20', 17, 6),
 	(67, '목디스크', '', 'dongju', '2019-11-26 15:55:55', 4, 0),
-	(68, '디스크의 퇴행성 변화에 의하여 증상 발생', '외상에 의해 갑자기 생기는 수도 있지만 퇴행성 변화에 의하여 서서히 증상이 생기는 경우가 많습니다. <br>디스크란 등뼈(척추)들의 사이에서 충격을 흡수하는 기능을 하는 것으로 일종의 물렁뼈입니다. <br>디스크는 사람이 생활을 하면서 충격을 받으면서 조금씩 물 성분(수분)이 빠져 노인이 되면 푸석푸석할 정도로 변합니다. <br>사람이 나이가 들면서 몸의 변화가 나타나는 것을 퇴행성 변화라고 하는데 이러한 디스크의 변성도 일종의 퇴행성 변화입니다.\r\n\r\n디스크가 이러한 변성을 일으키면 바깥쪽에 있는 섬유륜에 금이 갑니다. <br>섬유륜에 금이 가고 점점 벌어지면 틈이 생깁니다. 수핵에 가해지는 압력이 어느 정도 이상이 되면 이를 견디지 못하고 섬유륜에 생긴 틈을 비집고 수핵이 신경이 지나가는 길인 척수강으로 삐져나오게 되면 신경을 압박하여 증상이 발생하는 것입니다.', 'dongju', '2019-11-29 21:57:11', 4, 0);
+	(68, '디스크의 퇴행성 변화에 의하여 증상 발생', '외상에 의해 갑자기 생기는 수도 있지만 퇴행성 변화에 의하여 서서히 증상이 생기는 경우가 많습니다. <br>디스크란 등뼈(척추)들의 사이에서 충격을 흡수하는 기능을 하는 것으로 일종의 물렁뼈입니다. <br>디스크는 사람이 생활을 하면서 충격을 받으면서 조금씩 물 성분(수분)이 빠져 노인이 되면 푸석푸석할 정도로 변합니다. <br>사람이 나이가 들면서 몸의 변화가 나타나는 것을 퇴행성 변화라고 하는데 이러한 디스크의 변성도 일종의 퇴행성 변화입니다.\r\n\r\n디스크가 이러한 변성을 일으키면 바깥쪽에 있는 섬유륜에 금이 갑니다. <br>섬유륜에 금이 가고 점점 벌어지면 틈이 생깁니다. 수핵에 가해지는 압력이 어느 정도 이상이 되면 이를 견디지 못하고 섬유륜에 생긴 틈을 비집고 수핵이 신경이 지나가는 길인 척수강으로 삐져나오게 되면 신경을 압박하여 증상이 발생하는 것입니다.', 'dongju', '2019-11-29 21:57:11', 4, 0),
+	(73, '병원 홈페이지가 새로 개설 되었습니다.', '안녕하세요. <br><br>\r\n김갑수 통증의학과 입니다. <br><br>\r\n홈페이지가 새로 개설되었습니다. <br><br>\r\n감사합니다.<br><br>', 'admin', '2019-12-02 23:42:03', 16, 4),
+	(74, '감기조심하세요', '날씨가 추워지는데 다들 감기 조심하세요.<br>\r\n화이팅입니다!<br>', 'user', '2019-12-02 23:41:55', 17, 2);
 /*!40000 ALTER TABLE `board` ENABLE KEYS */;
 
--- 테이블 npclinic.doctor 구조 내보내기
 DROP TABLE IF EXISTS `doctor`;
 CREATE TABLE IF NOT EXISTS `doctor` (
   `id` int(10) NOT NULL,
@@ -110,15 +91,13 @@ CREATE TABLE IF NOT EXISTS `doctor` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- 테이블 데이터 npclinic.doctor:~2 rows (대략적) 내보내기
 DELETE FROM `doctor`;
 /*!40000 ALTER TABLE `doctor` DISABLE KEYS */;
 INSERT INTO `doctor` (`id`, `position`, `career`, `image`, `name`) VALUES
-	(1, '김갑수신경통증클리닉 원장', '신촌 세브란스 병원 전문의 수련/강남세브란스 교수역임/연세대학교 마취통증과 외래 정교수/대한통증과 정회원/대한척추통증학회 정회원/통증연구학회 정회원/서초구의사회 전 정보이사/서초구의사회 현 총무이사/대한마취통증 의사회 전 보험이사/대한마취통증 의사회 전 국제이사/대한마취통증 의사회 현 기획이사', 'doctor/image1.jpg', '김갑수'),
-	(2, '김갑수신경통증클리닉 부원장', '세브란스병원 전문의 수련/마취통증의학과 전문의/대한마취과학회 정회원', 'doctor/image2.jpg', '전동병');
+	(1, '김갑수신경통증클리닉 원장', '신촌 세브란스 병원 전문의 수련/<br>강남세브란스 교수역임/<br>연세대학교 마취통증과 외래 정교수/<br>대한통증과 정회원/<br>대한척추통증학회 정회원/<br>통증연구학회 정회원/<br>서초구의사회 전 정보이사/<br>서초구의사회 현 총무이사/<br>대한마취통증 의사회 전 보험이사/<br>대한마취통증 의사회 전 국제이사/<br>대한마취통증 의사회 현 기획이사', 'doctor/image1.jpg', '김갑수'),
+	(2, '김갑수신경통증클리닉 부원장', '세브란스병원 전문의 수련/<br>마취통증의학과 전문의/<br>대한마취과학회 정회원<br>', 'doctor/image2.jpg', '전동병');
 /*!40000 ALTER TABLE `doctor` ENABLE KEYS */;
 
--- 테이블 npclinic.drop_menu 구조 내보내기
 DROP TABLE IF EXISTS `drop_menu`;
 CREATE TABLE IF NOT EXISTS `drop_menu` (
   `id` int(11) NOT NULL,
@@ -129,11 +108,10 @@ CREATE TABLE IF NOT EXISTS `drop_menu` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- 테이블 데이터 npclinic.drop_menu:~14 rows (대략적) 내보내기
 DELETE FROM `drop_menu`;
 /*!40000 ALTER TABLE `drop_menu` DISABLE KEYS */;
 INSERT INTO `drop_menu` (`id`, `title`, `orderNum`, `url`, `level`) VALUES
-	(0, '홈으로', 1, '/', 3),
+	(0, '홈으로', 1, '', 3),
 	(1, '인사말', 2, 'Greet', 3),
 	(2, '둘러보기', 2, 'Look', 3),
 	(3, '진료시간/약도', 2, 'Time', 3),
@@ -149,7 +127,6 @@ INSERT INTO `drop_menu` (`id`, `title`, `orderNum`, `url`, `level`) VALUES
 	(21, '방문접수', 5, 'DoReserve', 1);
 /*!40000 ALTER TABLE `drop_menu` ENABLE KEYS */;
 
--- 테이블 npclinic.header_menu 구조 내보내기
 DROP TABLE IF EXISTS `header_menu`;
 CREATE TABLE IF NOT EXISTS `header_menu` (
   `id` int(11) NOT NULL,
@@ -159,7 +136,6 @@ CREATE TABLE IF NOT EXISTS `header_menu` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- 테이블 데이터 npclinic.header_menu:~5 rows (대략적) 내보내기
 DELETE FROM `header_menu`;
 /*!40000 ALTER TABLE `header_menu` DISABLE KEYS */;
 INSERT INTO `header_menu` (`id`, `title`, `orderNum`, `url`) VALUES
@@ -170,7 +146,6 @@ INSERT INTO `header_menu` (`id`, `title`, `orderNum`, `url`) VALUES
 	(6, '예약', 5, 'reserve');
 /*!40000 ALTER TABLE `header_menu` ENABLE KEYS */;
 
--- 테이블 npclinic.hospital_info 구조 내보내기
 DROP TABLE IF EXISTS `hospital_info`;
 CREATE TABLE IF NOT EXISTS `hospital_info` (
   `phone` varchar(45) DEFAULT NULL,
@@ -183,14 +158,12 @@ CREATE TABLE IF NOT EXISTS `hospital_info` (
   `image` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- 테이블 데이터 npclinic.hospital_info:~0 rows (대략적) 내보내기
 DELETE FROM `hospital_info`;
 /*!40000 ALTER TABLE `hospital_info` DISABLE KEYS */;
 INSERT INTO `hospital_info` (`phone`, `fax`, `email`, `address`, `openTime`, `saturdayTime`, `lunchTime`, `image`) VALUES
 	('02-536-1777', '02-536-1777', 'npclinic@gmail.com', '서울 서초구 방배동 1770번지 2층 ', '09:00 ~ 19:00', '09:00 ~ 14:00', '13:00 ~ 14:00', 'service/map.png');
 /*!40000 ALTER TABLE `hospital_info` ENABLE KEYS */;
 
--- 테이블 npclinic.introduce 구조 내보내기
 DROP TABLE IF EXISTS `introduce`;
 CREATE TABLE IF NOT EXISTS `introduce` (
   `id` int(10) NOT NULL,
@@ -202,7 +175,6 @@ CREATE TABLE IF NOT EXISTS `introduce` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- 테이블 데이터 npclinic.introduce:~2 rows (대략적) 내보내기
 DELETE FROM `introduce`;
 /*!40000 ALTER TABLE `introduce` DISABLE KEYS */;
 INSERT INTO `introduce` (`id`, `text1`, `text2`, `text3`, `image1`, `image2`) VALUES
@@ -210,7 +182,6 @@ INSERT INTO `introduce` (`id`, `text1`, `text2`, `text3`, `image1`, `image2`) VA
 	(2, '쾌적하고 편리한 환경', '작은 부분까지 배려한 공간입니다.<br>항상 청결한 환경을 위해 노력하고 있습니다.', NULL, NULL, NULL);
 /*!40000 ALTER TABLE `introduce` ENABLE KEYS */;
 
--- 테이블 npclinic.reserve_data 구조 내보내기
 DROP TABLE IF EXISTS `reserve_data`;
 CREATE TABLE IF NOT EXISTS `reserve_data` (
   `userID` varchar(50) NOT NULL,
@@ -222,16 +193,14 @@ CREATE TABLE IF NOT EXISTS `reserve_data` (
   `status` varchar(50) NOT NULL DEFAULT 'waiting'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- 테이블 데이터 npclinic.reserve_data:~3 rows (대략적) 내보내기
 DELETE FROM `reserve_data`;
 /*!40000 ALTER TABLE `reserve_data` DISABLE KEYS */;
 INSERT INTO `reserve_data` (`userID`, `doctor`, `subject`, `date`, `message`, `time`, `status`) VALUES
 	('dongju', '김갑수', '신경성형술', '2019-10-16 00:00:00', '.', 0, 'accept'),
 	('dongjuppp', '전동병', '목/허리디스크(비수술)', '2019-11-13 00:00:00', 'asdas', 14, 'accept'),
-	('user', '전동병', '목/허리디스크(비수술)', '2019-10-26 00:00:00', 'adsf', 13, 'accept');
+	('user', '김갑수', '목/허리디스크(비수술)', '2019-11-28 00:00:00', '1234', 13, 'waiting');
 /*!40000 ALTER TABLE `reserve_data` ENABLE KEYS */;
 
--- 테이블 npclinic.service 구조 내보내기
 DROP TABLE IF EXISTS `service`;
 CREATE TABLE IF NOT EXISTS `service` (
   `id` int(11) NOT NULL,
@@ -240,7 +209,6 @@ CREATE TABLE IF NOT EXISTS `service` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- 테이블 데이터 npclinic.service:~13 rows (대략적) 내보내기
 DELETE FROM `service`;
 /*!40000 ALTER TABLE `service` DISABLE KEYS */;
 INSERT INTO `service` (`id`, `text`, `image`) VALUES
@@ -259,7 +227,6 @@ INSERT INTO `service` (`id`, `text`, `image`) VALUES
 	(13, '진료모습', 'service/image13.jpg');
 /*!40000 ALTER TABLE `service` ENABLE KEYS */;
 
--- 테이블 npclinic.user 구조 내보내기
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `id` varchar(45) NOT NULL,
@@ -275,17 +242,15 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- 테이블 데이터 npclinic.user:~4 rows (대략적) 내보내기
 DELETE FROM `user`;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`id`, `password`, `name`, `gender`, `birth`, `type`, `email`, `phone`, `last_login`, `reg_login`) VALUES
+	('admin', '456as', '홍길동', '남', '19991205', '1', 'test1@naver.com', '01012345678', '2019-01-10 00:00:00', '2019-01-01 00:00:00'),
 	('dongju', '123asd23', '최동주', '남', '19930623', '1', 'dongju@', '01028008891', '2019-10-19 00:00:00', '2019-10-18 00:00:00'),
 	('dongjuppp', '123456', '최동주', '남자', '1993/06/23', '2', 'dongjuppp@gmail.com', '01028008891', '2019-10-29 23:32:25', '2019-10-29 23:32:25'),
-	('test1', '456as', '홍길동', '남', '19991205', '1', 'test1@naver.com', '01012345678', '2019-01-10 00:00:00', '2019-01-01 00:00:00'),
 	('user', '123', '박지우', '여', '1998/03/25', '2', 'dpfmsk11@naver.com', '01074761054', '2019-11-05 21:16:43', '2019-11-05 21:16:44');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
--- 테이블 npclinic.user_type 구조 내보내기
 DROP TABLE IF EXISTS `user_type`;
 CREATE TABLE IF NOT EXISTS `user_type` (
   `id` int(11) NOT NULL,
@@ -294,7 +259,6 @@ CREATE TABLE IF NOT EXISTS `user_type` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- 테이블 데이터 npclinic.user_type:~3 rows (대략적) 내보내기
 DELETE FROM `user_type`;
 /*!40000 ALTER TABLE `user_type` DISABLE KEYS */;
 INSERT INTO `user_type` (`id`, `typeNumber`, `typeName`) VALUES
