@@ -148,7 +148,7 @@
                                                 <!--<textarea name="message" placeholder="Your Message" required=""></textarea>-->
                                                 <c:if test="${data.status == 'waiting'}"><p class="reserve_data">현재 관리자가 예약 승인 여부를 정하는 중입니다.</p></c:if>
                                                 <c:if test="${data.status == 'accept'}"><p class="reserve_data">예약이 승인되었습니다.</p></c:if>
-                                                <c:if test="${data.status == 'reject'}"><p class="reserve_data">예약이 거부되었습니다. 문의 사항이 02-536-1777로 연락주시기 바랍니다.</p></c:if>
+                                                <c:if test="${data.status == 'reject'}"><p class="reserve_data">예약이 거부되었습니다. 문의 사항이 있으시면 02-536-1777로 연락주시기 바랍니다.</p></c:if>
                                             </div>
 
                                         </div>
