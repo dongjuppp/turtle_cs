@@ -12,16 +12,17 @@ import org.springframework.stereotype.Service;
 public class MailServiceImpl implements MailService {
 
     private UserMapper userMapper;
+    private JavaMailSender javaMailSender;
 
-    public MailServiceImpl(UserMapper userMapper){
+    public MailServiceImpl(UserMapper userMapper, JavaMailSender javaMailSender){
         this.userMapper = userMapper;
+        this.javaMailSender = javaMailSender;
     }
 
     public void sendAcceptMail(String userId){
         UserDTO userDTO = userMapper.getUserByID(userId);
         String email = userDTO.getEmail();
         SimpleMailMessage msg = new SimpleMailMessage();
-        JavaMailSender javaMailSender = new JavaMailSenderImpl();
 
         msg.setTo(email);
         msg.setSubject("김갑수마취통증의학과 예약 승인 메일입니다.");
@@ -34,7 +35,6 @@ public class MailServiceImpl implements MailService {
         UserDTO userDTO = userMapper.getUserByID(userId);
         String email = userDTO.getEmail();
         SimpleMailMessage msg = new SimpleMailMessage();
-        JavaMailSender javaMailSender = new JavaMailSenderImpl();
 
         msg.setTo(email);
         msg.setSubject("김갑수마취통증의학과 예약 거절 메일입니다.");
