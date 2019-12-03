@@ -102,7 +102,7 @@ public class LoginController {
 
         userDTO.setBirth(dateFormat);
         userDTO.setPhone(first_phone + "-" + second_phone + "-" + third_phone);
-        userDTO.setType(3);
+        userDTO.setType(2);
         userDTO.setLast_login(current);
         userDTO.setReg_login(current);
 

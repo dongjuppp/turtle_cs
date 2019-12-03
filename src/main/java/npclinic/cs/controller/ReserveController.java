@@ -3,6 +3,7 @@ package npclinic.cs.controller;
 import npclinic.cs.dto.user.UserDTO;
 import npclinic.cs.dto.reserve.ReserveDataDTO;
 import npclinic.cs.service.common.ExcelService;
+import npclinic.cs.service.reserve.MailService;
 import npclinic.cs.service.reserve.ReserveService;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,11 +30,13 @@ public class ReserveController {
 
     private ReserveService reserveService;
     private ExcelService excelService;
+    private MailService mailService;
 
     @Autowired
-    public ReserveController(ReserveService reserveService,ExcelService excelService){
+    public ReserveController(ReserveService reserveService,ExcelService excelService, MailService mailService){
         this.reserveService=reserveService;
         this.excelService = excelService;
+        this.mailService = mailService;
     }
 
     private final String RESERVE_JSP = "reserve/reserve";
@@ -100,10 +103,12 @@ public class ReserveController {
     public String accept(@RequestParam("idid") String idid, @RequestParam("status") String status){
         if (status.equals("accept")) {
             reserveService.acceptReserve(idid);
+            mailService.sendAcceptMail(idid);
             return "승인됨";
         }
         else {
             reserveService.rejectReserve(idid);
+            mailService.sendRejectMail(idid);
             return "거절됨";
         }
     }
@@ -115,13 +120,15 @@ public class ReserveController {
         UserDTO userDTO = (UserDTO)session.getAttribute("user");
         System.out.println(userDTO);
         try{
-            ReserveDataDTO reserveDataDTO = reserveService.getReserveDataByID(userDTO.getId());
             //reserveService.convertDateFormat(reserveDataDTO);
+
             if(userDTO.getType()==1){
                 model.addAttribute("who","관리자");
                 model.addAttribute("datas",reserveService.getReserveList());
             }
             else{
+                ReserveDataDTO reserveDataDTO = reserveService.getReserveDataByID(userDTO.getId());
+
                 model.addAttribute("who","고객");
                 model.addAttribute("data",reserveDataDTO);
 
