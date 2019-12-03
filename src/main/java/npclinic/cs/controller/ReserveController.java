@@ -87,6 +87,7 @@ public class ReserveController {
         }
         else{
             reserveDataDTO.setUserID(userDTO.getId());
+            reserveDataDTO.setStatus("waiting");
             reserveService.deleteReserveDataByID(userDTO.getId());
             reserveService.registerData(reserveDataDTO);
             reserveService.convertDateFormat(reserveDataDTO);
