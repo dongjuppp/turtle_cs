@@ -115,13 +115,15 @@ public class ReserveController {
         UserDTO userDTO = (UserDTO)session.getAttribute("user");
         System.out.println(userDTO);
         try{
-            ReserveDataDTO reserveDataDTO = reserveService.getReserveDataByID(userDTO.getId());
             //reserveService.convertDateFormat(reserveDataDTO);
+
             if(userDTO.getType()==1){
                 model.addAttribute("who","관리자");
                 model.addAttribute("datas",reserveService.getReserveList());
             }
             else{
+                ReserveDataDTO reserveDataDTO = reserveService.getReserveDataByID(userDTO.getId());
+
                 model.addAttribute("who","고객");
                 model.addAttribute("data",reserveDataDTO);
 
