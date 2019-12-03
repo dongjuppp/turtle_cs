@@ -46,8 +46,6 @@ public class BoardMapperTest {
         assertThat( boardMapper.getBoardById(1) == null);
     }
 
-
-
     @Test
     @Transactional
     public void testModifyBoard(){

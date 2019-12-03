@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="184.99999999999997" y="0.0">npclinic.cs.dto.board.BoardDTO</node>
+    <node x="48.24999999999997" y="76.0">npclinic.cs.service.board.BoardService</node>
+    <node x="241.24999999999997" y="152.0">npclinic.cs.service.board.BoardServiceimpl</node>
+    <node x="198.24999999999997" y="76.0">npclinic.cs.mapper.BoardMapperTest</node>
+    <node x="0.0" y="152.0">npclinic.cs.controller.BoardController</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="npclinic.cs.controller.BoardController" target="npclinic.cs.dto.board.BoardDTO">
+      <point x="-50.33333333333337" y="-13.0" />
+      <point x="25.16666666666663" y="127.0" />
+      <point x="37.75" y="127.0" />
+      <point x="37.75" y="46.0" />
+      <point x="195.2" y="46.0" />
+      <point x="-40.8" y="13.0" />
+    </edge>
+    <edge source="npclinic.cs.mapper.BoardMapperTest" target="npclinic.cs.dto.board.BoardDTO">
+      <point x="-37.75" y="-13.0" />
+      <point x="0.0" y="13.0" />
+    </edge>
+    <edge source="npclinic.cs.service.board.BoardServiceimpl" target="npclinic.cs.service.board.BoardService">
+      <point x="-39.5" y="-13.0" />
+      <point x="280.75" y="127.0" />
+      <point x="156.58333333333334" y="127.0" />
+      <point x="43.33333333333337" y="13.0" />
+    </edge>
+    <edge source="npclinic.cs.controller.BoardController" target="npclinic.cs.service.board.BoardService">
+      <point x="50.333333333333314" y="-13.0" />
+      <point x="125.83333333333331" y="127.0" />
+      <point x="113.24999999999997" y="127.0" />
+      <point x="0.0" y="13.0" />
+    </edge>
+    <edge source="npclinic.cs.service.board.BoardService" target="npclinic.cs.dto.board.BoardDTO">
+      <point x="0.0" y="-13.0" />
+      <point x="113.24999999999997" y="56.0" />
+      <point x="215.59999999999997" y="56.0" />
+      <point x="-20.400000000000006" y="13.0" />
+    </edge>
+    <edge source="npclinic.cs.service.board.BoardServiceimpl" target="npclinic.cs.dto.board.BoardDTO">
+      <point x="39.5" y="-13.0" />
+      <point x="359.75" y="46.0" />
+      <point x="276.79999999999995" y="46.0" />
+      <point x="40.800000000000004" y="13.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.1" x="636.3141025641025" y="299.4551282051282" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
