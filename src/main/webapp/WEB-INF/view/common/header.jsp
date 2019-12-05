@@ -31,10 +31,10 @@
         <div class="top-right" style="padding:  10px">
             <ul class="list-inline" style="font-size: 0.8em">
                 <c:if test="${user == null }">
-                <li style="float:left;border-left: none; padding-left: 0;"><a href="/login_page">로그인</a></li>
+                <li style="float:left;border-left: none; padding-left: 0;"><a href="login_page">로그인</a></li>
                 </c:if>
                 <c:if test="${user == null }">
-                    <li style="float:left;display: inline; border-left: 1px solid; padding-left: 0.3em;"><a href="/register_page">회원가입</a></li>
+                    <li style="float:left;display: inline; border-left: 1px solid; padding-left: 0.3em;"><a href="register_page">회원가입</a></li>
                 </c:if>
                 <c:if test="${user != null }">
                     <li style="float:left;border-left: none; padding-left: 0;"><a href="/login_info?id=${user.id}">로그인 정보(테스트용으로 만듬)</a></li>
@@ -46,7 +46,7 @@
                     <li style="float:left;display: inline; border-left: 1px solid; padding-left: 0.3em;"><a href="/update_page">자기 정보 수정하기</a></li>
                 </c:if>
                 <c:if test="${user != null && user.type == '1'}">
-                    <li style="float:left;display: inline; border-left: 1px solid; padding-left: 0.3em;"><a href="/user_manage">회원관리</a></li>
+                    <li style="float:left;display: inline; border-left: 1px solid; padding-left: 0.3em;"><a href="user_manage">회원관리</a></li>
                 </c:if>
             </ul>
             </div>

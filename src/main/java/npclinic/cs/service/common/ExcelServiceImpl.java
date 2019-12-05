@@ -50,7 +50,7 @@ public class ExcelServiceImpl implements ExcelService {
         }catch (Exception e){
             e.printStackTrace();
         }
-        return fileName+".xls";
+        return fileName+".xlsx";
     }
 
     @Override
@@ -68,6 +68,7 @@ public class ExcelServiceImpl implements ExcelService {
         try{
             try{
                 file = new File(savePath, filename);
+                System.out.println("파일!"+file);
                 in = new FileInputStream(file);
             }catch(FileNotFoundException fe){
                 skip = true;
@@ -99,8 +100,8 @@ public class ExcelServiceImpl implements ExcelService {
                     os.write(b,0,leng);
                 }
             }
-            in.close();
-            os.close();
+            //in.close();
+            //os.close();
         }catch(Exception e){
             e.printStackTrace();
         }

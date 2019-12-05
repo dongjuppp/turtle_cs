@@ -93,7 +93,7 @@
                 </c:forEach>
             </table>
             <div align="right">
-                <a href="/excelUser">
+                <a href="excelUser">
                     <button  class="btn-style-two">엑셀다운
                     </button>
                 </a>

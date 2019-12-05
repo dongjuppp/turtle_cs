@@ -36,14 +36,23 @@ public class LoginController {
     }
 
 
-    @RequestMapping("/login_page")
+    @RequestMapping("login_page")
     public String loginPage(){
         UserDTO userDTO = userService.getUser("test1");
 
         return "login/login_page";
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+
+    /**
+     *
+     * @param password asdqwe
+     * @param id asdasd
+     * @param httpSession asdqwe
+     * @return "index"
+     * <p>Description</p>
+     */
+    @RequestMapping(value = "login", method = RequestMethod.POST)
     public String login(@RequestParam("id") String id, @RequestParam("password") String password, HttpSession httpSession){
         UserDTO userDTO = null;
         userDTO = userService.getUser(id);

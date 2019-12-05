@@ -70,7 +70,7 @@
                 <div class="section-title">
                     <h3>로그인</h3>
                 </div>
-                <form name="login_form" class="default-form contact-form" action="/login" method="post">
+                <form name="login_form" class="default-form contact-form" action="login" method="post">
                     <div class="row">
                         <div class="col-md-6 col-sm-12 col-xs-12">
                             <div class="form-group">

@@ -138,8 +138,9 @@ public class ReserveController {
     public String excel(HttpServletRequest request, HttpServletResponse response){
 
         String path = request.getServletContext().getRealPath("/excelFile");
+        System.out.println(path);
         String[] format = {"아이디","이름","날짜","시간","진료과목","의사","접수상태"};
-        String excelFileName= "예약상황";
+        String excelFileName= "졸업대상관리";
         List<ReserveDataDTO> reserveDataDTOS = reserveService.getReserveList();
         ArrayList<ArrayList<String>> list = new ArrayList<>();
         for(ReserveDataDTO reserveDataDTO:reserveDataDTOS){

@@ -156,7 +156,7 @@
                     <c:choose>
                         <c:when test="${who=='관리자'}">
                             <div align="right">
-                                <a href="/excelReserve">
+                                <a href="excelReserve">
                                     <button  class="btn-style-two">엑셀다운
                                     </button>
                                 </a>
