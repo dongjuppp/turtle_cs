@@ -79,9 +79,9 @@
                                     <td colspan="2" height="15"></td>
                                 </tr>
                                 <tr>
-                                    <td width='19'><i class="fa fa-comment fa-2x"></i></td>
-                                    <td><span style="color: #FF9900; font-family: 나눔명조; "><span
-                                            style='font-size:17pt;'><b>${titleName} 진료정보</b></span></span></td>
+                                    <td><span style="color: #000000; font-family: 나눔명조; "><span
+                                            style='font-size:17pt;'><i class="fa fa-comment fa-2x"></i>&nbsp;
+                                        <b>${titleName} 진료정보</b></span></span></td>
                                 </tr>
                                 <tr>
                                     <td colspan="2" height="10"></td>
@@ -97,12 +97,12 @@
                                                 <TBODY>
                                                 <TR>
                                                     <TD>
-                                                        <div style="font-size: 14pt; padding-left: 1.8em"><i
+                                                        <div style="font-size: 14pt; padding-left: 1.8em; color: #000000"><i
                                                                 class="fa fa-bookmark fa-2x"></i><B>&nbsp${boardDTO.title}</B>
                                                         </div>
 
                                                         <BR><BR>
-                                                        <div style="padding-left: 1.9em">&nbsp${boardDTO.content}</div>
+                                                        <div style="padding-left: 1.9em; color: #000000;">&nbsp${boardDTO.content}</div>
                                                     </TD>
                                                 </TR>
                                                 </TBODY>

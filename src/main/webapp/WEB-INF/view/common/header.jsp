@@ -37,9 +37,6 @@
                     <li style="float:left;display: inline; border-left: 1px solid; padding-left: 0.3em;"><a href="register_page">회원가입</a></li>
                 </c:if>
                 <c:if test="${user != null }">
-                    <li style="float:left;border-left: none; padding-left: 0;"><a href="/login_info?id=${user.id}">로그인 정보(테스트용으로 만듬)</a></li>
-                </c:if>
-                <c:if test="${user != null }">
                     <li style="float:left;display: inline; border-left: 1px solid; padding-left: 0.3em;"><a href="/logout">로그아웃</a></li>
                 </c:if>
                 <c:if test="${user != null }">
@@ -63,7 +60,7 @@
         <div class="logo">
             <figure>
                 <a href="/">
-                    <img src="images/main_logo.jpg" alt="" width="250">
+                    <img src="images/main_logo.jpg" alt="" width="250" height="60" style="padding-left: 2.0em">
                 </a>
             </figure>
         </div>
